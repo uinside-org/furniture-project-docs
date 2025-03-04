@@ -29,7 +29,7 @@
         
         .journey-cards {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-bottom: 60px;
         }
@@ -58,6 +58,10 @@
         
         .developer-header {
             background-color: #27ae60;
+        }
+        
+        .independent-header {
+            background-color: #e74c3c;
         }
         
         .card-title {
@@ -112,9 +116,24 @@
             padding-bottom: 10px;
         }
         
+        .additional-links {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .additional-links .btn {
+            margin: 0 10px;
+        }
+        
         @media (max-width: 768px) {
             .journey-cards {
                 grid-template-columns: 1fr;
+            }
+            
+            .additional-links .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 300px;
             }
         }
     </style>
@@ -132,11 +151,20 @@
                 Customer Journey Maps for Furniture Industry
             </h1>
             <p class="welcome-subtitle"
-               data-ru="Изучите процесс внедрения AI-решений в мебельной индустрии с точки зрения дизайнера и застройщика" 
-               data-pl="Zapoznaj się z procesem wdrażania rozwiązań AI w branży meblarskiej z punktu widzenia projektanta i dewelopera" 
-               data-en="Explore the process of implementing AI solutions in the furniture industry from the perspective of designers and developers">
-               Explore the process of implementing AI solutions in the furniture industry from the perspective of designers and developers
+               data-ru="Изучите процесс внедрения AI-решений в мебельной индустрии с точки зрения различных пользователей" 
+               data-pl="Zapoznaj się z procesem wdrażania rozwiązań AI w branży meblarskiej z punktu widzenia różnych użytkowników" 
+               data-en="Explore the process of implementing AI solutions in the furniture industry from the perspective of different users">
+               Explore the process of implementing AI solutions in the furniture industry from the perspective of different users
             </p>
+        </div>
+        
+        <div class="additional-links">
+            <a href="persona-comparison.html" class="btn"
+               data-ru="Сравнение персонажей и потребностей" 
+               data-pl="Porównanie person i potrzeb" 
+               data-en="Comparison of personas and needs">
+               Comparison of personas and needs
+            </a>
         </div>
         
         <div class="journey-cards">
@@ -201,6 +229,37 @@
                     </a>
                 </div>
             </div>
+            
+            <div class="journey-card">
+                <div class="card-header independent-header">
+                    <h2 class="card-title"
+                        data-ru="Независимый дизайнер" 
+                        data-pl="Niezależny projektant" 
+                        data-en="Independent Designer">
+                        Independent Designer
+                    </h2>
+                    <div class="card-subtitle"
+                        data-ru="Путь освоения AI-решения для повышения конкурентоспособности" 
+                        data-pl="Droga do opanowania rozwiązania AI w celu zwiększenia konkurencyjności" 
+                        data-en="The journey of mastering an AI solution to enhance competitiveness">
+                        The journey of mastering an AI solution to enhance competitiveness
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="card-description"
+                       data-ru="Узнайте, как независимый дизайнер интерьеров использует AI-инструменты для создания уникальных проектов, оптимизации рабочего процесса и привлечения новых клиентов." 
+                       data-pl="Dowiedz się, jak niezależny projektant wnętrz wykorzystuje narzędzia AI do tworzenia unikalnych projektów, optymalizacji procesu pracy i pozyskiwania nowych klientów." 
+                       data-en="Learn how an independent interior designer uses AI tools to create unique projects, optimize workflow, and attract new clients.">
+                       Learn how an independent interior designer uses AI tools to create unique projects, optimize workflow, and attract new clients.
+                    </p>
+                    <a href="independent-designer-journey.html" class="btn"
+                       data-ru="Посмотреть Customer Journey" 
+                       data-pl="Zobacz Customer Journey" 
+                       data-en="View Customer Journey">
+                       View Customer Journey
+                    </a>
+                </div>
+            </div>
         </div>
         
         <div class="about-section">
@@ -215,10 +274,10 @@
                data-en="A Customer Journey Map (CJM) is a visual representation of a customer's experience with a product or service. This tool helps organizations better understand their customers' needs, motivations, and pain points at each stage of interaction.">
                A Customer Journey Map (CJM) is a visual representation of a customer's experience with a product or service. This tool helps organizations better understand their customers' needs, motivations, and pain points at each stage of interaction.
             </p>
-            <p data-ru="В нашем проекте представлены две Customer Journey Maps, которые исследуют внедрение AI-решений с разных перспектив:" 
-               data-pl="W naszym projekcie przedstawiamy dwie Customer Journey Maps, które badają wdrażanie rozwiązań AI z różnych perspektyw:" 
-               data-en="In our project, we present two Customer Journey Maps that explore the implementation of AI solutions from different perspectives:">
-               In our project, we present two Customer Journey Maps that explore the implementation of AI solutions from different perspectives:
+            <p data-ru="В нашем проекте представлены несколько Customer Journey Maps, которые исследуют внедрение AI-решений с разных перспектив:" 
+               data-pl="W naszym projekcie przedstawiamy kilka Customer Journey Maps, które badają wdrażanie rozwiązań AI z różnych perspektyw:" 
+               data-en="In our project, we present several Customer Journey Maps that explore the implementation of AI solutions from different perspectives:">
+               In our project, we present several Customer Journey Maps that explore the implementation of AI solutions from different perspectives:
             </p>
             <ul>
                 <li data-ru="С точки зрения дизайнера мебели, который внедряет AI-инструменты для оптимизации своей работы" 
@@ -230,6 +289,11 @@
                     data-pl="Z perspektywy dewelopera, który wykorzystuje wizualizację wnętrz opartą na AI jako część procesu sprzedaży nieruchomości" 
                     data-en="From the perspective of a real estate developer who uses AI interior visualization as part of the real estate sales process">
                     From the perspective of a real estate developer who uses AI interior visualization as part of the real estate sales process
+                </li>
+                <li data-ru="С точки зрения независимого дизайнера интерьеров, который использует AI для повышения своей конкурентоспособности" 
+                    data-pl="Z perspektywy niezależnego projektanta wnętrz, który wykorzystuje AI do zwiększenia swojej konkurencyjności" 
+                    data-en="From the perspective of an independent interior designer who uses AI to enhance their competitiveness">
+                    From the perspective of an independent interior designer who uses AI to enhance their competitiveness
                 </li>
             </ul>
             <p data-ru="Эти Customer Journey Maps помогают выявить ключевые моменты взаимодействия, эмоции, болевые точки и возможности для улучшения на каждом этапе внедрения AI-решений в мебельной индустрии." 

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Furniture Design - Customer Journey Analysis</title>
+    <title>Furniture Project - Research Documentation</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,7 +15,7 @@
             padding-top: 70px;
         }
 
-        /* Навигационная шапка */
+        /* Navigation header */
         .navbar {
             position: fixed;
             top: 0;
@@ -106,21 +106,16 @@
         
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 1200px;
             margin: 30px auto;
-            padding: 40px;
-            padding-bottom: 60px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-            text-align: center;
-            position: relative;
+            padding: 0 20px;
         }
         
         h1 {
             color: #2c3e50;
             margin-bottom: 20px;
             font-size: 32px;
+            text-align: center;
         }
         
         .subtitle {
@@ -128,6 +123,7 @@
             font-size: 18px;
             margin-bottom: 15px;
             font-weight: 600;
+            text-align: center;
         }
         
         p {
@@ -136,85 +132,167 @@
             line-height: 1.6;
         }
         
-        .project-description {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px 25px;
-            margin-bottom: 30px;
-            text-align: left;
-            border-left: 4px solid #3498db;
-        }
-        
-        .key-points {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+        /* Main project card */
+        .project-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
             margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
         }
         
-        .key-point {
-            background-color: #eef7fd;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: left;
+        .project-card-header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 30px;
             position: relative;
         }
         
-        .key-point h3 {
-            color: #2980b9;
-            margin-top: 0;
-            font-size: 20px;
-            font-weight: 600;
+        .project-card-header h2 {
+            font-size: 28px;
+            margin: 0 0 10px 0;
         }
         
-        .key-point-number {
+        .project-card-header p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            font-size: 16px;
+            max-width: 80%;
+        }
+        
+        .project-card-icon {
             position: absolute;
-            top: 20px;
-            left: -10px;
+            top: 30px;
+            right: 30px;
+            font-size: 60px;
+            opacity: 0.2;
+        }
+        
+        .project-card-body {
+            padding: 30px;
+        }
+        
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-item {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        /* Research cards grid */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .research-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .research-card-header {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .research-card-header h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .research-icon {
             background-color: #3498db;
             color: white;
-            width: 28px;
-            height: 28px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 14px;
-            font-weight: bold;
-            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+            font-size: 18px;
         }
         
-        .buttons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 0 auto;
-            margin-bottom: 30px;
-        }
-        
-        .button {
-            display: flex;
+        .research-card-body {
             padding: 20px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-weight: bold;
+            flex-grow: 1;
+        }
+        
+        .research-card-body p {
+            margin-top: 0;
+        }
+        
+        .research-card-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            height: 100%;
-            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
         }
         
-        .button:hover {
-            background-color: #2980b9;
-            transform: translateY(-3px);
-            box-shadow: 0 7px 14px rgba(52, 152, 219, 0.3);
+        .card-tag {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
         }
         
-        /* Мобильная адаптация */
+        .card-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+        
+        .card-link:hover {
+            color: #2980b9;
+        }
+        
+        /* Mobile adaptation */
         @media (max-width: 768px) {
             body {
                 padding-top: 130px;
@@ -230,133 +308,262 @@
                 margin: 10px 0;
             }
             
-            .key-points {
-                grid-template-columns: 1fr;
+            .project-card-header {
+                padding: 20px;
             }
             
-            .container {
-                padding: 25px;
-                padding-bottom: 50px;
-                margin: 15px;
+            .project-card-icon {
+                display: none;
+            }
+            
+            .project-card-header p {
+                max-width: 100%;
+            }
+            
+            .research-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Навигационная шапка -->
+    <!-- Navigation header -->
     <nav class="navbar">
         <a href="index.html" class="navbar-logo">
             <span class="logo-icon">🪑</span>
-            <span data-ru="AI Furniture Design" data-pl="AI Projektowanie Mebli" data-en="AI Furniture Design">AI Furniture Design</span>
+            <span data-ru="Furniture Project" data-pl="Furniture Project" data-en="Furniture Project">Furniture Project</span>
         </a>
         <div class="navbar-links">
-            <a href="index.html" class="navbar-link" data-ru="Главная" data-pl="Główna" data-en="Home">Главная</a>
-            <a href="CJM/persona-comparison.html" class="navbar-link" data-ru="Персонажи" data-pl="Persony" data-en="Personas">Персонажи</a>
+            <a href="index.html" class="navbar-link" data-ru="Главная" data-pl="Główna" data-en="Home">Home</a>
+            <a href="CJM/index.html" class="navbar-link" data-ru="Customer Journey Maps" data-pl="Customer Journey Maps" data-en="Customer Journey Maps">Customer Journey Maps</a>
+            <a href="CJM/persona-comparison.html" class="navbar-link" data-ru="Персонажи" data-pl="Persony" data-en="Personas">Personas</a>
         </div>
         <div class="language-switcher">
-            <button class="language-btn active" data-lang="ru">RU</button>
+            <button class="language-btn" data-lang="ru">RU</button>
             <button class="language-btn" data-lang="pl">PL</button>
-            <button class="language-btn" data-lang="en">EN</button>
+            <button class="language-btn active" data-lang="en">EN</button>
         </div>
     </nav>
 
     <div class="container">
-        <h1 data-ru="Анализ проектирования мебели с AI" 
-            data-pl="Analiza projektowania mebli z AI" 
-            data-en="AI Furniture Design Analysis">
-            Анализ проектирования мебели с AI
+        <h1 data-ru="Furniture Project: Исследовательская документация" 
+            data-pl="Furniture Project: Dokumentacja badawcza" 
+            data-en="Furniture Project: Research Documentation">
+            Furniture Project: Research Documentation
         </h1>
         
         <div class="subtitle" 
-             data-ru="Исследование пользовательских сценариев и потребностей"
-             data-pl="Badanie scenariuszy użytkowników i potrzeb"
-             data-en="User Scenarios and Needs Research">
-            Исследование пользовательских сценариев и потребностей
+             data-ru="AI-решение для проектирования мебели"
+             data-pl="Rozwiązanie AI do projektowania mebli"
+             data-en="AI Solution for Furniture Design">
+            AI Solution for Furniture Design
         </div>
         
-        <p data-ru="Интерактивная документация для AI-решения в области проектирования мебели, представляющая анализ различных персонажей, их путей взаимодействия с продуктом и сравнительной оценки потребностей."
-           data-pl="Interaktywna dokumentacja dla rozwiązania AI w dziedzinie projektowania mebli, przedstawiająca analizę różnych person, ich ścieżek interakcji z produktem oraz porównawczą ocenę potrzeb."
-           data-en="Interactive documentation for an AI solution in furniture design, presenting an analysis of various personas, their interaction paths with the product, and a comparative assessment of needs.">
-            Интерактивная документация для AI-решения в области проектирования мебели, представляющая анализ различных персонажей, их путей взаимодействия с продуктом и сравнительной оценки потребностей.
-        </p>
-        
-        <div class="project-description">
-            <p data-ru="Данный проект представляет собой комплексное исследование потребностей и сценариев использования AI-системы для проектирования мебели различными категориями пользователей: от профессиональных дизайнеров мебельных производств до застройщиков и независимых дизайнеров интерьера. Исследование включает детальные Customer Journey Maps, сравнительный анализ потребностей и метрики успеха для различных пользовательских сценариев."
-               data-pl="Projekt ten stanowi kompleksowe badanie potrzeb i scenariuszy użytkowania systemu AI do projektowania mebli przez różne kategorie użytkowników: od profesjonalnych projektantów mebli produkcyjnych po deweloperów i niezależnych projektantów wnętrz. Badanie obejmuje szczegółowe mapy podróży klienta, analizę porównawczą potrzeb oraz wskaźniki sukcesu dla różnych scenariuszy użytkownika."
-               data-en="This project represents a comprehensive study of the needs and usage scenarios of an AI system for furniture design by various categories of users: from professional furniture production designers to developers and independent interior designers. The study includes detailed Customer Journey Maps, comparative analysis of needs, and success metrics for different user scenarios.">
-                Данный проект представляет собой комплексное исследование потребностей и сценариев использования AI-системы для проектирования мебели различными категориями пользователей: от профессиональных дизайнеров мебельных производств до застройщиков и независимых дизайнеров интерьера. Исследование включает детальные Customer Journey Maps, сравнительный анализ потребностей и метрики успеха для различных пользовательских сценариев.
-            </p>
-        </div>
-        
-        <div class="key-points">
-            <div class="key-point">
-                <div class="key-point-number">1</div>
-                <h3>
-                    <span data-ru="Персонажи" data-pl="Persony" data-en="Personas">Персонажи</span>
-                </h3>
-                <p data-ru="Детальные профили ключевых персонажей: дизайнер мебельного производства, независимый дизайнер интерьера, застройщик и молодая семья как конечный пользователь."
-                   data-pl="Szczegółowe profile kluczowych person: projektant mebli produkcyjnych, niezależny projektant wnętrz, deweloper i młoda rodzina jako użytkownik końcowy."
-                   data-en="Detailed profiles of key personas: furniture production designer, independent interior designer, developer, and young family as end user.">
-                    Детальные профили ключевых персонажей: дизайнер мебельного производства, независимый дизайнер интерьера, застройщик и молодая семья как конечный пользователь.
+        <!-- Main project card -->
+        <div class="project-card">
+            <div class="project-card-header">
+                <h2 data-ru="О проекте" data-pl="O projekcie" data-en="About the Project">About the Project</h2>
+                <p data-ru="Инновационное AI-решение для проектирования мебели, объединяющее потребности различных категорий пользователей: от профессиональных дизайнеров до конечных потребителей."
+                   data-pl="Innowacyjne rozwiązanie AI do projektowania mebli, łączące potrzeby różnych kategorii użytkowników: od profesjonalnych projektantów po użytkowników końcowych."
+                   data-en="An innovative AI solution for furniture design, combining the needs of various user categories: from professional designers to end consumers.">
+                    An innovative AI solution for furniture design, combining the needs of various user categories: from professional designers to end consumers.
                 </p>
+                <div class="project-card-icon">🪑</div>
             </div>
-            <div class="key-point">
-                <div class="key-point-number">2</div>
-                <h3>
-                    <span data-ru="Journey Maps" data-pl="Mapy podróży" data-en="Journey Maps">Journey Maps</span>
-                </h3>
-                <p data-ru="Структурированные карты пользовательского пути через все этапы взаимодействия с продуктом: от осведомленности до лояльности."
-                   data-pl="Ustrukturyzowane mapy ścieżki użytkownika przez wszystkie etapy interakcji z produktem: od świadomości do lojalności."
-                   data-en="Structured user journey maps through all stages of interaction with the product: from awareness to loyalty.">
-                    Структурированные карты пользовательского пути через все этапы взаимодействия с продуктом: от осведомленности до лояльности.
+            <div class="project-card-body">
+                <div class="project-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label" data-ru="Исследуемые персонажи" data-pl="Badane persony" data-en="Researched Personas">Researched Personas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label" data-ru="Этапов пользовательского пути" data-pl="Etapów podróży użytkownika" data-en="User Journey Stages">User Journey Stages</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label" data-ru="Выявленных потребностей" data-pl="Zidentyfikowanych potrzeb" data-en="Identified Needs">Identified Needs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label" data-ru="Ключевых сценария" data-pl="Kluczowe scenariusze" data-en="Key Scenarios">Key Scenarios</div>
+                    </div>
+                </div>
+                
+                <p data-ru="Данный проект представляет собой комплексное исследование потребностей и сценариев использования AI-системы для проектирования мебели различными категориями пользователей. Исследование включает детальные Customer Journey Maps, сравнительный анализ потребностей и метрики успеха для различных пользовательских сценариев."
+                   data-pl="Projekt ten stanowi kompleksowe badanie potrzeb i scenariuszy użytkowania systemu AI do projektowania mebli przez różne kategorie użytkowników. Badanie obejmuje szczegółowe mapy podróży klienta, analizę porównawczą potrzeb oraz wskaźniki sukcesu dla różnych scenariuszy użytkownika."
+                   data-en="This project represents a comprehensive study of the needs and usage scenarios of an AI system for furniture design by various categories of users. The study includes detailed Customer Journey Maps, comparative analysis of needs, and success metrics for different user scenarios.">
+                    This project represents a comprehensive study of the needs and usage scenarios of an AI system for furniture design by various categories of users. The study includes detailed Customer Journey Maps, comparative analysis of needs, and success metrics for different user scenarios.
                 </p>
-            </div>
-            <div class="key-point">
-                <div class="key-point-number">3</div>
-                <h3>
-                    <span data-ru="Сравнительный анализ" data-pl="Analiza porównawcza" data-en="Comparative Analysis">Сравнительный анализ</span>
-                </h3>
-                <p data-ru="Матрица сравнения потребностей и приоритетов различных категорий пользователей для выявления ключевых точек развития продукта."
-                   data-pl="Matryca porównawcza potrzeb i priorytetów różnych kategorii użytkowników w celu identyfikacji kluczowych punktów rozwoju produktu."
-                   data-en="Comparative matrix of needs and priorities of different user categories to identify key product development points.">
-                    Матрица сравнения потребностей и приоритетов различных категорий пользователей для выявления ключевых точек развития продукта.
-                </p>
-            </div>
-            <div class="key-point">
-                <div class="key-point-number">4</div>
-                <h3>
-                    <span data-ru="Метрики успеха" data-pl="Wskaźniki sukcesu" data-en="Success Metrics">Метрики успеха</span>
-                </h3>
-                <p data-ru="Количественные и качественные показатели, демонстрирующие эффективность внедрения AI-решения для каждого типа пользователей."
-                   data-pl="Ilościowe i jakościowe wskaźniki pokazujące skuteczność wdrożenia rozwiązania AI dla każdego typu użytkownika."
-                   data-en="Quantitative and qualitative indicators demonstrating the effectiveness of AI solution implementation for each type of user.">
-                    Количественные и качественные показатели, демонстрирующие эффективность внедрения AI-решения для каждого типа пользователей.
+                
+                <p data-ru="Цель исследования — выявить ключевые точки взаимодействия, болевые точки и возможности для улучшения пользовательского опыта на всех этапах взаимодействия с продуктом, от осведомленности до лояльности."
+                   data-pl="Celem badania jest identyfikacja kluczowych punktów interakcji, punktów bólu i możliwości poprawy doświadczenia użytkownika na wszystkich etapach interakcji z produktem, od świadomości do lojalności."
+                   data-en="The goal of the research is to identify key interaction points, pain points, and opportunities to improve the user experience at all stages of interaction with the product, from awareness to loyalty.">
+                    The goal of the research is to identify key interaction points, pain points, and opportunities to improve the user experience at all stages of interaction with the product, from awareness to loyalty.
                 </p>
             </div>
         </div>
         
-        <div class="buttons-grid">
-            <a href="CJM/persona-comparison.html" class="button" 
-               data-ru="Сравнение персонажей и потребностей"
-               data-pl="Porównanie person i potrzeb"
-               data-en="Comparison of personas and needs">
-                Сравнение персонажей и потребностей
-            </a>
+        <h2 data-ru="Исследовательские материалы" 
+            data-pl="Materiały badawcze" 
+            data-en="Research Materials">
+            Research Materials
+        </h2>
+        
+        <!-- Research cards grid -->
+        <div class="research-grid">
+            <!-- CJM Card -->
+            <div class="research-card">
+                <div class="research-card-header">
+                    <h3>
+                        <span class="research-icon">🗺️</span>
+                        <span data-ru="Customer Journey Maps" data-pl="Customer Journey Maps" data-en="Customer Journey Maps">Customer Journey Maps</span>
+                    </h3>
+                </div>
+                <div class="research-card-body">
+                    <p data-ru="Детальные карты пользовательского пути для различных персонажей, показывающие их действия, мысли, эмоции, болевые точки и возможности на каждом этапе взаимодействия с продуктом."
+                       data-pl="Szczegółowe mapy podróży użytkownika dla różnych person, pokazujące ich działania, myśli, emocje, punkty bólu i możliwości na każdym etapie interakcji z produktem."
+                       data-en="Detailed user journey maps for various personas, showing their actions, thoughts, emotions, pain points, and opportunities at each stage of interaction with the product.">
+                        Detailed user journey maps for various personas, showing their actions, thoughts, emotions, pain points, and opportunities at each stage of interaction with the product.
+                    </p>
+                </div>
+                <div class="research-card-footer">
+                    <span class="card-tag" data-ru="Пользовательский опыт" data-pl="Doświadczenie użytkownika" data-en="User Experience">User Experience</span>
+                    <a href="CJM/index.html" class="card-link" data-ru="Просмотреть" data-pl="Zobacz" data-en="View">
+                        View <span>→</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Personas Card -->
+            <div class="research-card">
+                <div class="research-card-header">
+                    <h3>
+                        <span class="research-icon">👤</span>
+                        <span data-ru="Персонажи" data-pl="Persony" data-en="Personas">Personas</span>
+                    </h3>
+                </div>
+                <div class="research-card-body">
+                    <p data-ru="Сравнительный анализ различных персонажей, их потребностей, целей и ожиданий от AI-решения для проектирования мебели. Включает профили дизайнера мебельного производства, независимого дизайнера и застройщика."
+                       data-pl="Analiza porównawcza różnych person, ich potrzeb, celów i oczekiwań wobec rozwiązania AI do projektowania mebli. Zawiera profile projektanta mebli produkcyjnych, niezależnego projektanta i dewelopera."
+                       data-en="Comparative analysis of various personas, their needs, goals, and expectations from the AI solution for furniture design. Includes profiles of a furniture production designer, independent designer, and developer.">
+                        Comparative analysis of various personas, their needs, goals, and expectations from the AI solution for furniture design. Includes profiles of a furniture production designer, independent designer, and developer.
+                    </p>
+                </div>
+                <div class="research-card-footer">
+                    <span class="card-tag" data-ru="Пользовательские профили" data-pl="Profile użytkowników" data-en="User Profiles">User Profiles</span>
+                    <a href="CJM/persona-comparison.html" class="card-link" data-ru="Просмотреть" data-pl="Zobacz" data-en="View">
+                        View <span>→</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Designer Journey Card -->
+            <div class="research-card">
+                <div class="research-card-header">
+                    <h3>
+                        <span class="research-icon">🎨</span>
+                        <span data-ru="Путь дизайнера мебели" data-pl="Podróż projektanta mebli" data-en="Furniture Designer Journey">Furniture Designer Journey</span>
+                    </h3>
+                </div>
+                <div class="research-card-body">
+                    <p data-ru="Подробный анализ пути профессионального дизайнера мебельного производства при внедрении и использовании AI-решения для автоматизации проектирования."
+                       data-pl="Szczegółowa analiza ścieżki profesjonalnego projektanta mebli produkcyjnych podczas wdrażania i korzystania z rozwiązania AI do automatyzacji projektowania."
+                       data-en="Detailed analysis of the journey of a professional furniture production designer when implementing and using an AI solution for design automation.">
+                        Detailed analysis of the journey of a professional furniture production designer when implementing and using an AI solution for design automation.
+                    </p>
+                </div>
+                <div class="research-card-footer">
+                    <span class="card-tag" data-ru="B2B" data-pl="B2B" data-en="B2B">B2B</span>
+                    <a href="CJM/designer-journey-improved.html" class="card-link" data-ru="Просмотреть" data-pl="Zobacz" data-en="View">
+                        View <span>→</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Independent Designer Journey Card -->
+            <div class="research-card">
+                <div class="research-card-header">
+                    <h3>
+                        <span class="research-icon">🏠</span>
+                        <span data-ru="Путь независимого дизайнера" data-pl="Podróż niezależnego projektanta" data-en="Independent Designer Journey">Independent Designer Journey</span>
+                    </h3>
+                </div>
+                <div class="research-card-body">
+                    <p data-ru="Исследование пути независимого дизайнера интерьера при внедрении AI-инструмента в свою практику для улучшения визуализации и ускорения процесса проектирования."
+                       data-pl="Badanie ścieżki niezależnego projektanta wnętrz podczas wdrażania narzędzia AI w swojej praktyce w celu poprawy wizualizacji i przyspieszenia procesu projektowania."
+                       data-en="Study of the journey of an independent interior designer when implementing an AI tool in their practice to improve visualization and speed up the design process.">
+                        Study of the journey of an independent interior designer when implementing an AI tool in their practice to improve visualization and speed up the design process.
+                    </p>
+                </div>
+                <div class="research-card-footer">
+                    <span class="card-tag" data-ru="Фрилансеры" data-pl="Freelancerzy" data-en="Freelancers">Freelancers</span>
+                    <a href="CJM/independent-designer-journey.html" class="card-link" data-ru="Просмотреть" data-pl="Zobacz" data-en="View">
+                        View <span>→</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Developer Journey Card -->
+            <div class="research-card">
+                <div class="research-card-header">
+                    <h3>
+                        <span class="research-icon">🏢</span>
+                        <span data-ru="Путь застройщика" data-pl="Podróż dewelopera" data-en="Developer Journey">Developer Journey</span>
+                    </h3>
+                </div>
+                <div class="research-card-body">
+                    <p data-ru="Анализ пути застройщика как бизнес-клиента при внедрении AI-решения для улучшения процесса продаж недвижимости с помощью интерактивной визуализации интерьеров."
+                       data-pl="Analiza ścieżki dewelopera jako klienta biznesowego podczas wdrażania rozwiązania AI w celu usprawnienia procesu sprzedaży nieruchomości za pomocą interaktywnej wizualizacji wnętrz."
+                       data-en="Analysis of the developer's journey as a business client when implementing an AI solution to improve the real estate sales process through interactive interior visualization.">
+                        Analysis of the developer's journey as a business client when implementing an AI solution to improve the real estate sales process through interactive interior visualization.
+                    </p>
+                </div>
+                <div class="research-card-footer">
+                    <span class="card-tag" data-ru="Недвижимость" data-pl="Nieruchomości" data-en="Real Estate">Real Estate</span>
+                    <a href="CJM/developer-journey.html" class="card-link" data-ru="Просмотреть" data-pl="Zobacz" data-en="View">
+                        View <span>→</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Future Research Card -->
+            <div class="research-card">
+                <div class="research-card-header">
+                    <h3>
+                        <span class="research-icon">🔍</span>
+                        <span data-ru="Будущие исследования" data-pl="Przyszłe badania" data-en="Future Research">Future Research</span>
+                    </h3>
+                </div>
+                <div class="research-card-body">
+                    <p data-ru="Планируемые направления исследований включают анализ пути конечного пользователя (семьи), количественные исследования эффективности внедрения и долгосрочные метрики успеха для различных категорий пользователей."
+                       data-pl="Planowane kierunki badań obejmują analizę ścieżki użytkownika końcowego (rodziny), ilościowe badania skuteczności wdrożenia oraz długoterminowe wskaźniki sukcesu dla różnych kategorii użytkowników."
+                       data-en="Planned research directions include analysis of the end user (family) journey, quantitative studies of implementation effectiveness, and long-term success metrics for various user categories.">
+                        Planned research directions include analysis of the end user (family) journey, quantitative studies of implementation effectiveness, and long-term success metrics for various user categories.
+                    </p>
+                </div>
+                <div class="research-card-footer">
+                    <span class="card-tag" data-ru="В разработке" data-pl="W trakcie opracowywania" data-en="In Development">In Development</span>
+                    <a href="#" class="card-link" data-ru="Скоро" data-pl="Wkrótce" data-en="Coming Soon">
+                        Coming Soon <span>→</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     
     <script>
-        // Функция переключения языка
+        // Language switching function
         function switchLanguage(lang) {
-            // Обновляем текст всех элементов с соответствующими атрибутами данных
+            // Update text of all elements with corresponding data attributes
             document.querySelectorAll(`[data-${lang}]`).forEach(element => {
                 element.textContent = element.getAttribute(`data-${lang}`);
             });
             
-            // Обновляем язык HTML-документа
+            // Update HTML document language
             document.documentElement.lang = lang;
             
-            // Обновляем состояние кнопок языка
+            // Update language button states
             document.querySelectorAll('.language-btn').forEach(btn => {
                 if (btn.getAttribute('data-lang') === lang) {
                     btn.classList.add('active');
@@ -365,20 +572,20 @@
                 }
             });
             
-            // Сохраняем выбор в localStorage
+            // Save choice in localStorage
             localStorage.setItem('preferred-language', lang);
         }
         
-        // Добавляем обработчики событий
+        // Add event handlers
         document.addEventListener('DOMContentLoaded', function() {
-            // Назначаем обработчики для кнопок языка
+            // Assign handlers for language buttons
             document.querySelectorAll('.language-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     switchLanguage(this.getAttribute('data-lang'));
                 });
             });
             
-            // Проверяем сохраненный язык
+            // Check saved language
             const savedLang = localStorage.getItem('preferred-language');
             if (savedLang) {
                 switchLanguage(savedLang);
