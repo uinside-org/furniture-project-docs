@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furniture Project - Personas and Needs Analysis</title>
+    <title>Furniture Project - CJM Research and Analysis</title>
     <!-- Подключаем общие стили -->
     <link rel="stylesheet" href="../common/css/common.css">
     <!-- Специфические стили для страницы -->
@@ -147,6 +147,49 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        /* Новые стили для секции о целях исследования */
+        .research-goals {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .research-goals h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .research-goals p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .research-goals ul {
+            padding-left: 20px;
+        }
+        
+        .research-goals li {
+            margin-bottom: 8px;
+        }
+        
+        .research-conclusion {
+            background-color: #f0f7fb;
+            border-left: 4px solid #27ae60;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .research-conclusion h4 {
+            color: #27ae60;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
@@ -167,16 +210,98 @@
 
     <div class="container">
         <div class="header">
-            <h1 data-ru="Анализ пользовательских потребностей" 
-                data-pl="Analiza potrzeb użytkowników" 
-                data-en="User Needs Analysis">
-                User Needs Analysis
+            <h1 data-ru="Анализ пользовательских потребностей и CJM" 
+                data-pl="Analiza potrzeb użytkowników i CJM" 
+                data-en="User Needs Analysis and CJM">
+                User Needs Analysis and CJM
             </h1>
             <div class="subheader" 
                  data-ru="Сравнение целевых аудиторий и их потребностей для оптимизации разработки AI-решения" 
                  data-pl="Porównanie grup docelowych i ich potrzeb w celu optymalizacji rozwoju rozwiązania AI" 
                  data-en="Comparison of target audiences and their needs to optimize AI solution development">
                 Comparison of target audiences and their needs to optimize AI solution development
+            </div>
+        </div>
+        
+        <!-- Цели и выводы исследования -->
+        <div class="section">
+            <h2 class="section-title" 
+                data-ru="О исследовании" 
+                data-pl="O badaniu" 
+                data-en="About the Research">
+                About the Research
+            </h2>
+            
+            <div class="research-goals">
+                <h3 data-ru="Цели исследования" data-pl="Cele badania" data-en="Research Goals">Research Goals</h3>
+                <p data-ru="Данное исследование было проведено с целью глубокого понимания потребностей различных категорий пользователей AI-решения для проектирования мебели. Основные задачи исследования:"
+                   data-pl="Badanie to zostało przeprowadzone w celu głębokiego zrozumienia potrzeb różnych kategorii użytkowników rozwiązania AI do projektowania mebli. Główne cele badania:"
+                   data-en="This research was conducted to gain a deep understanding of the needs of various categories of users of the AI solution for furniture design. The main objectives of the research:">
+                   This research was conducted to gain a deep understanding of the needs of various categories of users of the AI solution for furniture design. The main objectives of the research:
+                </p>
+                <ul>
+                    <li data-ru="Выявить ключевые потребности и ожидания различных категорий пользователей"
+                        data-pl="Zidentyfikować kluczowe potrzeby i oczekiwania różnych kategorii użytkowników"
+                        data-en="Identify key needs and expectations of different user categories">
+                        Identify key needs and expectations of different user categories
+                    </li>
+                    <li data-ru="Сравнить приоритеты и требования к функциональности между различными персонажами"
+                        data-pl="Porównać priorytety i wymagania dotyczące funkcjonalności między różnymi personami"
+                        data-en="Compare priorities and functionality requirements between different personas">
+                        Compare priorities and functionality requirements between different personas
+                    </li>
+                    <li data-ru="Создать детальные Customer Journey Maps для ключевых персонажей"
+                        data-pl="Stworzyć szczegółowe Customer Journey Maps dla kluczowych person"
+                        data-en="Create detailed Customer Journey Maps for key personas">
+                        Create detailed Customer Journey Maps for key personas
+                    </li>
+                    <li data-ru="Определить приоритетные сегменты пользователей для первых версий продукта"
+                        data-pl="Określić priorytetowe segmenty użytkowników dla pierwszych wersji produktu"
+                        data-en="Determine priority user segments for the first versions of the product">
+                        Determine priority user segments for the first versions of the product
+                    </li>
+                    <li data-ru="Выявить ключевые точки взаимодействия, болевые точки и возможности для улучшения"
+                        data-pl="Zidentyfikować kluczowe punkty interakcji, punkty bólu i możliwości poprawy"
+                        data-en="Identify key touchpoints, pain points, and opportunities for improvement">
+                        Identify key touchpoints, pain points, and opportunities for improvement
+                    </li>
+                </ul>
+                
+                <div class="research-conclusion">
+                    <h4 data-ru="Основные выводы" data-pl="Główne wnioski" data-en="Key Findings">Key Findings</h4>
+                    <p data-ru="На основе проведенного исследования были сделаны следующие ключевые выводы:"
+                       data-pl="Na podstawie przeprowadzonego badania wyciągnięto następujące kluczowe wnioski:"
+                       data-en="Based on the research conducted, the following key conclusions were made:">
+                       Based on the research conducted, the following key conclusions were made:
+                    </p>
+                    <ul>
+                        <li data-ru="Дизайнеры мебельного производства и застройщики являются наиболее перспективными сегментами для первого релиза продукта"
+                            data-pl="Projektanci mebli produkcyjnych i deweloperzy są najbardziej obiecującymi segmentami dla pierwszego wydania produktu"
+                            data-en="Furniture production designers and developers are the most promising segments for the first product release">
+                            Furniture production designers and developers are the most promising segments for the first product release
+                        </li>
+                        <li data-ru="Скорость проектирования и точность технической документации являются критически важными для профессиональных пользователей"
+                            data-pl="Szybkość projektowania i dokładność dokumentacji technicznej są krytycznie ważne dla użytkowników profesjonalnych"
+                            data-en="Design speed and technical documentation accuracy are critical for professional users">
+                            Design speed and technical documentation accuracy are critical for professional users
+                        </li>
+                        <li data-ru="Визуализация проекта и вариативность дизайна более важны для конечных пользователей и независимых дизайнеров"
+                            data-pl="Wizualizacja projektu i wariantowość projektu są ważniejsze dla użytkowników końcowych i niezależnych projektantów"
+                            data-en="Project visualization and design variability are more important for end users and independent designers">
+                            Project visualization and design variability are more important for end users and independent designers
+                        </li>
+                        <li data-ru="Необходим баланс между автоматизацией рутинных задач и сохранением творческого контроля для дизайнеров"
+                            data-pl="Potrzebna jest równowaga między automatyzacją rutynowych zadań a zachowaniem kontroli twórczej dla projektantów"
+                            data-en="A balance is needed between automating routine tasks and maintaining creative control for designers">
+                            A balance is needed between automating routine tasks and maintaining creative control for designers
+                        </li>
+                        <li data-ru="Интеграция с существующими инструментами и рабочими процессами является ключевым фактором для успешного внедрения"
+                            data-pl="Integracja z istniejącymi narzędziami i przepływami pracy jest kluczowym czynnikiem udanego wdrożenia"
+                            data-en="Integration with existing tools and workflows is a key factor for successful implementation">
+                            Integration with existing tools and workflows is a key factor for successful implementation
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         
@@ -369,10 +494,10 @@
                         </h3>
                     </div>
                     <div class="card-body">
-                        <p data-ru="Семья Ивановых. Недавно переехали в новую квартиру площадью 120м². Готовы инвестировать в качественную эргономичную мебель."
-                           data-pl="Rodzina Iwanowów. Niedawno przeprowadziła się do nowego mieszkania o powierzchni 120m². Gotowi zainwestować w wysokiej jakości ergonomiczne meble."
-                           data-en="The Ivanov family. Recently moved to a new 120m² apartment. Ready to invest in high-quality ergonomic furniture.">
-                            The Ivanov family. Recently moved to a new 120m² apartment. Ready to invest in high-quality ergonomic furniture.
+                        <p data-ru="Семья Вундер. Недавно переехали в новую квартиру площадью 120м². Готовы инвестировать в качественную эргономичную мебель."
+                           data-pl="Rodzina Wunder. Niedawno przeprowadziła się do nowego mieszkania o powierzchni 120m². Gotowi zainwestować w wysokiej jakości ergonomiczne meble."
+                           data-en="The Wunder family. Recently moved to a new 120m² apartment. Ready to invest in high-quality ergonomic furniture.">
+                            The  Wunder family. Recently moved to a new 120m² apartment. Ready to invest in high-quality ergonomic furniture.
                         </p>
                         <div class="card-traits">
                             <div class="card-trait" data-ru="Ценят качество" data-pl="Cenią jakość" data-en="Value quality">Value quality</div>
@@ -415,10 +540,10 @@
                         </h3>
                     </div>
                     <div class="card-body">
-                        <p data-ru="Компания 'Новый дом'. Застройщик, предлагающий квартиры с мебелью, ищет оптимальные решения для массового производства."
-                           data-pl="Firma 'Nowy Dom'. Deweloper oferujący mieszkania z meblami, poszukuje optymalnych rozwiązań do produkcji masowej."
-                           data-en="'New Home' Company. Developer offering apartments with furniture, looking for optimal solutions for mass production.">
-                            'New Home' Company. Developer offering apartments with furniture, looking for optimal solutions for mass production.
+                        <p data-ru="Компания 'Sweet Home'. Застройщик, предлагающий квартиры с мебелью, ищет оптимальные решения для массового производства."
+                           data-pl="Firma 'Sweet Home'. Deweloper oferujący mieszkania z meblami, poszukuje optymalnych rozwiązań do produkcji masowej."
+                           data-en="'Sweet Home' Company. Developer offering apartments with furniture, looking for optimal solutions for mass production.">
+                            'Sweet Home' Company. Developer offering apartments with furniture, looking for optimal solutions for mass production.
                         </p>
                         <div class="card-traits">
                             <div class="card-trait" data-ru="Снижение затрат" data-pl="Redukcja kosztów" data-en="Cost reduction">Cost reduction</div>
