@@ -235,15 +235,11 @@
                 // Активируем текущую страницу в навигации
                 document.getElementById('home-link').classList.add('active');
                 
-                // Исправляем пути в навигации для главной страницы
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    if (link.getAttribute('href').startsWith('../')) {
-                        link.setAttribute('href', link.getAttribute('href').replace('../', ''));
-                    }
-                });
-                
                 // Инициализируем переключение языков
                 initLanguageSwitching();
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
             });
     </script>
 
@@ -446,7 +442,7 @@
                 </div>
                 <div class="research-card-footer">
                     <span class="card-tag" data-ru="Пользовательские профили" data-pl="Profile użytkowników" data-en="User Profiles">User Profiles</span>
-                    <a href="CJM/persona-comparison.html" class="card-link" data-ru="Просмотреть" data-pl="Zobacz" data-en="View">
+                    <a href="CJM/cjm-research.html" class="card-link" data-ru="Просмотреть" data-pl="Zobacz" data-en="View">
                         View <span>→</span>
                     </a>
                 </div>
@@ -454,24 +450,22 @@
         </div>
     </div>
     
-    <!-- Включаем общий компонент футера -->
+    <!-- Включаем общий компонент подвала -->
     <script>
         fetch('common/components/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.body.insertAdjacentHTML('beforeend', data);
                 
-                // Исправляем пути в футере для главной страницы
-                document.querySelectorAll('.footer-link').forEach(link => {
-                    if (link.getAttribute('href').startsWith('../')) {
-                        link.setAttribute('href', link.getAttribute('href').replace('../', ''));
-                    }
-                });
+                // Инициализируем переключение языков для подвала
+                initLanguageSwitching();
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
             });
     </script>
     
     <script>
-        // Language switching function
         function initLanguageSwitching() {
             // Assign handlers for language buttons
             document.querySelectorAll('.language-btn').forEach(btn => {

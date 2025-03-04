@@ -205,6 +205,9 @@
                 
                 // Инициализируем переключение языков
                 initLanguageSwitching();
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
             });
     </script>
 
@@ -635,12 +638,18 @@
         </div>
     </div>
 
-    <!-- Включаем общий компонент футера -->
+    <!-- Включаем общий компонент подвала -->
     <script>
         fetch('../common/components/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.body.insertAdjacentHTML('beforeend', data);
+                
+                // Инициализируем переключение языков для подвала
+                initLanguageSwitching();
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
             });
     </script>
 

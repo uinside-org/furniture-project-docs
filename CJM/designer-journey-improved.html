@@ -330,8 +330,23 @@
     </style>
 </head>
 <body>
-    <!-- Место для шапки -->
-    <div id="header"></div>
+    <!-- Включаем общий компонент шапки -->
+    <script>
+        fetch('../common/components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('afterbegin', data);
+                
+                // Активируем текущую страницу в навигации
+                document.getElementById('personas-link').classList.add('active');
+                
+                // Инициализируем переключение языков
+                initLanguageSwitching();
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+    </script>
 
     <div class="container">
         <div class="header">
@@ -1535,30 +1550,51 @@
         </div>
     </div>
 
-    <!-- Место для подвала -->
-    <div id="footer"></div>
-
-    <!-- Подключаем общий JavaScript -->
-    <script src="../common/js/common.js"></script>
-    
-    <!-- Специфический для страницы JavaScript -->
+    <!-- Включаем общий компонент подвала -->
     <script>
-        // Функция для скролла к выбранному этапу
-        function scrollToStage(stageNumber) {
-            const stage = document.querySelector(`.stage-${stageNumber}`);
-            if (stage) {
-                window.scrollTo({
-                    top: stage.offsetTop - 20,
-                    behavior: 'smooth'
-                });
+        fetch('../common/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('beforeend', data);
                 
-                // Подсветка активного этапа
-                document.querySelectorAll('.phase').forEach(phase => {
-                    phase.classList.remove('active-phase');
+                // Инициализируем переключение языков для подвала
+                initLanguageSwitching();
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+            });
+    </script>
+
+    <script>
+        function initLanguageSwitching() {
+            // Get all language buttons
+            const languageButtons = document.querySelectorAll('.language-btn');
+            
+            // Add click event to each button
+            languageButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    languageButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get selected language
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Update all elements with data-* attributes
+                    document.querySelectorAll('[data-' + lang + ']').forEach(element => {
+                        element.textContent = element.getAttribute('data-' + lang);
+                    });
                 });
-                document.querySelector(`.phase-${stageNumber}`).classList.add('active-phase');
-            }
+            });
+            
+            // Initialize with English (or get from localStorage in a real app)
+            document.querySelector('.language-btn[data-lang="en"]').click();
         }
+        
+        // Initialize language switching
+        initLanguageSwitching();
     </script>
 </body>
-</html>,
+</html>
