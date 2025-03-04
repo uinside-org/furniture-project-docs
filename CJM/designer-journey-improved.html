@@ -29,6 +29,7 @@
             color: white;
             padding: 30px;
             border-radius: 10px;
+            position: relative;
         }
         
         .header h1 {
@@ -40,6 +41,33 @@
             font-size: 18px;
             opacity: 0.8;
             margin-top: 10px;
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .language-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        
+        .language-btn:hover, .language-btn.active {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        
+        .language-btn.active {
+            font-weight: bold;
         }
         
         .persona {
@@ -348,7 +376,6 @@
             color: #7f8c8d;
             font-size: 15px;
             line-height: 1.5;
-            font-size: 14px;
         }
         
         @media (max-width: 768px) {
@@ -379,21 +406,54 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Customer Journey Map: Дизайнер мебельного производства</h1>
-            <div class="subheader">Путь освоения AI-решения для автоматизации проектирования</div>
+            <div class="language-switcher">
+                <button class="language-btn active" data-lang="ru">RU</button>
+                <button class="language-btn" data-lang="pl">PL</button>
+                <button class="language-btn" data-lang="en">EN</button>
+            </div>
+            <h1 data-ru="Customer Journey Map: Дизайнер мебельного производства" 
+                data-pl="Customer Journey Map: Projektant mebli" 
+                data-en="Customer Journey Map: Furniture Designer">
+                Customer Journey Map: Дизайнер мебельного производства
+            </h1>
+            <div class="subheader" 
+                 data-ru="Путь освоения AI-решения для автоматизации проектирования" 
+                 data-pl="Droga do opanowania rozwiązania AI do automatyzacji projektowania" 
+                 data-en="The journey of mastering an AI solution for design automation">
+                Путь освоения AI-решения для автоматизации проектирования
+            </div>
         </div>
         
         <div class="persona">
             <div class="persona-image">Д</div>
             <div class="persona-details">
-                <h2 class="persona-name">Дмитрий, 38 лет</h2>
-                <p>Дизайнер в штате мебельной фабрики, специализирующейся на кухонной и корпусной мебели. Имеет более 10 лет опыта в индустрии. Обрабатывает 20-30 проектов в месяц. Испытывает давление из-за сжатых сроков и необходимости соблюдения технических требований производства.</p>
+                <h2 class="persona-name" 
+                    data-ru="Дмитрий, 38 лет"
+                    data-pl="Dmitrij, 38 lat"
+                    data-en="Dmitry, 38 years old">Дмитрий, 38 лет</h2>
+                <p data-ru="Дизайнер в штате мебельной фабрики, специализирующейся на кухонной и корпусной мебели. Имеет более 10 лет опыта в индустрии. Обрабатывает 20-30 проектов в месяц. Испытывает давление из-за сжатых сроков и необходимости соблюдения технических требований производства."
+                   data-pl="Projektant zatrudniony w fabryce mebli, specjalizującej się w meblach kuchennych i korpusowych. Posiada ponad 10 lat doświadczenia w branży. Obsługuje 20-30 projektów miesięcznie. Odczuwa presję z powodu napiętych terminów i konieczności przestrzegania technicznych wymogów produkcji."
+                   data-en="Designer at a furniture factory specializing in kitchen and cabinet furniture. Has over 10 years of experience in the industry. Processes 20-30 projects per month. Experiences pressure due to tight deadlines and the need to comply with technical production requirements.">
+                Дизайнер в штате мебельной фабрики, специализирующейся на кухонной и корпусной мебели. Имеет более 10 лет опыта в индустрии. Обрабатывает 20-30 проектов в месяц. Испытывает давление из-за сжатых сроков и необходимости соблюдения технических требований производства.
+                </p>
                 
                 <div class="persona-traits">
-                    <div class="persona-trait">Опытный профессионал</div>
-                    <div class="persona-trait">Высокая нагрузка</div>
-                    <div class="persona-trait">Технически подкован</div>
-                    <div class="persona-trait">Ценит эффективность</div>
+                    <div class="persona-trait" 
+                         data-ru="Опытный профессионал"
+                         data-pl="Doświadczony profesjonalista"
+                         data-en="Experienced professional">Опытный профессионал</div>
+                    <div class="persona-trait"
+                         data-ru="Высокая нагрузка"
+                         data-pl="Wysokie obciążenie pracą"
+                         data-en="High workload">Высокая нагрузка</div>
+                    <div class="persona-trait"
+                         data-ru="Технически подкован"
+                         data-pl="Biegły technicznie"
+                         data-en="Technically savvy">Технически подкован</div>
+                    <div class="persona-trait"
+                         data-ru="Ценит эффективность"
+                         data-pl="Ceni efektywność"
+                         data-en="Values efficiency">Ценит эффективность</div>
                 </div>
             </div>
         </div>
@@ -401,31 +461,52 @@
         <div class="journey-phases">
             <div class="phase phase-1">
                 <div class="phase-number" onclick="scrollToStage(1)">1</div>
-                <div class="phase-name">Осведомленность</div>
+                <div class="phase-name" 
+                     data-ru="Осведомленность"
+                     data-pl="Świadomość"
+                     data-en="Awareness">Осведомленность</div>
             </div>
             <div class="phase phase-2">
                 <div class="phase-number" onclick="scrollToStage(2)">2</div>
-                <div class="phase-name">Рассмотрение</div>
+                <div class="phase-name"
+                     data-ru="Рассмотрение"
+                     data-pl="Rozważanie"
+                     data-en="Consideration">Рассмотрение</div>
             </div>
             <div class="phase phase-3">
                 <div class="phase-number" onclick="scrollToStage(3)">3</div>
-                <div class="phase-name">Тестирование</div>
+                <div class="phase-name"
+                     data-ru="Тестирование"
+                     data-pl="Testowanie"
+                     data-en="Testing">Тестирование</div>
             </div>
             <div class="phase phase-4">
                 <div class="phase-number" onclick="scrollToStage(4)">4</div>
-                <div class="phase-name">Принятие решения</div>
+                <div class="phase-name"
+                     data-ru="Принятие решения"
+                     data-pl="Podejmowanie decyzji"
+                     data-en="Decision Making">Принятие решения</div>
             </div>
             <div class="phase phase-5">
                 <div class="phase-number" onclick="scrollToStage(5)">5</div>
-                <div class="phase-name">Внедрение</div>
+                <div class="phase-name"
+                     data-ru="Внедрение"
+                     data-pl="Wdrożenie"
+                     data-en="Implementation">Внедрение</div>
             </div>
             <div class="phase phase-6">
                 <div class="phase-number" onclick="scrollToStage(6)">6</div>
-                <div class="phase-name">Использование</div>
+                <div class="phase-name"
+                     data-ru="Использование"
+                     data-pl="Użytkowanie"
+                     data-en="Usage">Использование</div>
             </div>
             <div class="phase phase-7">
                 <div class="phase-number" onclick="scrollToStage(7)">7</div>
-                <div class="phase-name">Лояльность</div>
+                <div class="phase-name"
+                     data-ru="Лояльность"
+                     data-pl="Lojalność"
+                     data-en="Loyalty">Лояльность</div>
             </div>
         </div>
         
@@ -433,66 +514,132 @@
         <div class="stage stage-1">
             <div class="stage-header">
                 <div class="stage-icon">1</div>
-                <h2 class="stage-title">Осведомленность</h2>
+                <h2 class="stage-title" 
+                   data-ru="Осведомленность"
+                   data-pl="Świadomość"
+                   data-en="Awareness">Осведомленность</h2>
             </div>
             <div class="stage-content">
                 <div class="content-section">
                     <div class="section-title">
                         <span class="action-icon">🔍</span>
-                        Действия
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Действия</span>
                     </div>
                     <ul>
-                        <li>Узнаёт о новом AI-решении от коллег на отраслевой выставке</li>
-                        <li>Просматривает демонстрационные материалы на сайте</li>
-                        <li>Изучает отзывы других профессионалов</li>
+                        <li data-ru="Узнаёт о новом AI-решении от коллег на отраслевой выставке"
+                            data-pl="Dowiaduje się o nowym rozwiązaniu AI od kolegów na targach branżowych"
+                            data-en="Learns about the new AI solution from colleagues at an industry exhibition">
+                            Узнаёт о новом AI-решении от коллег на отраслевой выставке
+                        </li>
+                        <li data-ru="Просматривает демонстрационные материалы на сайте"
+                            data-pl="Przegląda materiały demonstracyjne na stronie internetowej"
+                            data-en="Reviews demonstration materials on the website">
+                            Просматривает демонстрационные материалы на сайте
+                        </li>
+                        <li data-ru="Изучает отзывы других профессионалов"
+                            data-pl="Studiuje opinie innych profesjonalistów"
+                            data-en="Studies reviews from other professionals">
+                            Изучает отзывы других профессионалов
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="thought-icon">💭</span>
-                        Мысли
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Мысли</span>
                     </div>
                     <ul>
-                        <li>"Может ли эта система действительно сэкономить мне время?"</li>
-                        <li>"Насколько сложно будет интегрировать её в текущий процесс?"</li>
-                        <li>"Выдаёт ли она документацию, совместимую с оборудованием?"</li>
+                        <li data-ru="&quot;Может ли эта система действительно сэкономить мне время?&quot;"
+                            data-pl="&quot;Czy ten system naprawdę może zaoszczędzić mi czas?&quot;"
+                            data-en="&quot;Can this system really save me time?&quot;">
+                            "Может ли эта система действительно сэкономить мне время?"
+                        </li>
+                        <li data-ru="&quot;Насколько сложно будет интегрировать её в текущий процесс?&quot;"
+                            data-pl="&quot;Jak trudno będzie zintegrować go z obecnym procesem?&quot;"
+                            data-en="&quot;How difficult will it be to integrate it into the current process?&quot;">
+                            "Насколько сложно будет интегрировать её в текущий процесс?"
+                        </li>
+                        <li data-ru="&quot;Выдаёт ли она документацию, совместимую с оборудованием?&quot;"
+                            data-pl="&quot;Czy generuje dokumentację kompatybilną ze sprzętem?&quot;"
+                            data-en="&quot;Does it provide documentation compatible with our equipment?&quot;">
+                            "Выдаёт ли она документацию, совместимую с оборудованием?"
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="emotion-icon">😊</span>
-                        Эмоции
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Эмоции</span>
                     </div>
                     <ul>
-                        <li class="emotion-neutral">Заинтересованность, но с осторожностью</li>
-                        <li class="emotion-negative">Скептицизм из-за предыдущего опыта</li>
-                        <li class="emotion-positive">Надежда на облегчение рутинной работы</li>
+                        <li class="emotion-neutral" 
+                            data-ru="Заинтересованность, но с осторожностью"
+                            data-pl="Zainteresowanie, ale z ostrożnością"
+                            data-en="Interest, but with caution">
+                            Заинтересованность, но с осторожностью
+                        </li>
+                        <li class="emotion-negative"
+                            data-ru="Скептицизм из-за предыдущего опыта"
+                            data-pl="Sceptycyzm z powodu wcześniejszych doświadczeń"
+                            data-en="Skepticism due to previous experience">
+                            Скептицизм из-за предыдущего опыта
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Надежда на облегчение рутинной работы"
+                            data-pl="Nadzieja na ułatwienie rutynowej pracy"
+                            data-en="Hope for easing routine work">
+                            Надежда на облегчение рутинной работы
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="pain-icon">⚠️</span>
-                        Болевые точки
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Болевые точки</span>
                     </div>
                     <ul>
-                        <li>Опасения, что внедрение отнимет много времени на обучение</li>
-                        <li>Сомнения в совместимости с существующими процессами</li>
-                        <li>Беспокойство о том, что руководство не одобрит новые инструменты</li>
+                        <li data-ru="Опасения, что внедрение отнимет много времени на обучение"
+                            data-pl="Obawy, że wdrożenie zajmie dużo czasu na szkolenie"
+                            data-en="Concerns that implementation will take a lot of training time">
+                            Опасения, что внедрение отнимет много времени на обучение
+                        </li>
+                        <li data-ru="Сомнения в совместимости с существующими процессами"
+                            data-pl="Wątpliwości co do kompatybilności z istniejącymi procesami"
+                            data-en="Doubts about compatibility with existing processes">
+                            Сомнения в совместимости с существующими процессами
+                        </li>
+                        <li data-ru="Беспокойство о том, что руководство не одобрит новые инструменты"
+                            data-pl="Obawa, że kierownictwo nie zatwierdzi nowych narzędzi"
+                            data-en="Worry that management won't approve new tools">
+                            Беспокойство о том, что руководство не одобрит новые инструменты
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="opportunity-icon">💡</span>
-                        Возможности
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Возможности</span>
                     </div>
                     <ul>
-                        <li>Предоставить конкретные примеры экономии времени</li>
-                        <li>Продемонстрировать совместимость с производственными системами</li>
-                        <li>Предложить бесплатный пробный период</li>
+                        <li data-ru="Предоставить конкретные примеры экономии времени"
+                            data-pl="Dostarczyć konkretne przykłady oszczędności czasu"
+                            data-en="Provide specific examples of time savings">
+                            Предоставить конкретные примеры экономии времени
+                        </li>
+                        <li data-ru="Продемонстрировать совместимость с производственными системами"
+                            data-pl="Zademonstrować kompatybilność z systemami produkcyjnymi"
+                            data-en="Demonstrate compatibility with production systems">
+                            Продемонстрировать совместимость с производственными системами
+                        </li>
+                        <li data-ru="Предложить бесплатный пробный период"
+                            data-pl="Zaoferować bezpłatny okres próbny"
+                            data-en="Offer a free trial period">
+                            Предложить бесплатный пробный период
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -920,73 +1067,165 @@
         
         <!-- Ключевые метрики успеха -->
         <div class="metrics">
-            <h2>Ключевые метрики успеха</h2>
+            <h2 data-ru="Ключевые метрики успеха" 
+                data-pl="Kluczowe wskaźniki sukcesu" 
+                data-en="Key Success Metrics">Ключевые метрики успеха</h2>
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <div class="metric-title">Экономия времени</div>
+                    <div class="metric-title" 
+                         data-ru="Экономия времени" 
+                         data-pl="Oszczędność czasu" 
+                         data-en="Time Savings">Экономия времени</div>
                     <div class="metric-value">-62,5%</div>
-                    <div class="metric-description">Сокращение времени на создание проекта с 4 часов до 1,5 часов</div>
+                    <div class="metric-description" 
+                         data-ru="Сокращение времени на создание проекта с 4 часов до 1,5 часов" 
+                         data-pl="Zmniejszenie czasu tworzenia projektu z 4 godzin do 1,5 godziny" 
+                         data-en="Reduction of project creation time from 4 hours to 1.5 hours">
+                        Сокращение времени на создание проекта с 4 часов до 1,5 часов
+                    </div>
                 </div>
                 
                 <div class="metric-card">
-                    <div class="metric-title">Сокращение ошибок</div>
+                    <div class="metric-title" 
+                         data-ru="Сокращение ошибок" 
+                         data-pl="Redukcja błędów" 
+                         data-en="Error Reduction">Сокращение ошибок</div>
                     <div class="metric-value">-80%</div>
-                    <div class="metric-description">Уменьшение корректировок в технической документации</div>
+                    <div class="metric-description" 
+                         data-ru="Уменьшение корректировок в технической документации" 
+                         data-pl="Zmniejszenie poprawek w dokumentacji technicznej" 
+                         data-en="Decrease in technical documentation adjustments">
+                        Уменьшение корректировок в технической документации
+                    </div>
                 </div>
                 
                 <div class="metric-card">
-                    <div class="metric-title">Скорость внесения изменений</div>
+                    <div class="metric-title" 
+                         data-ru="Скорость внесения изменений" 
+                         data-pl="Szybkość wprowadzania zmian" 
+                         data-en="Change Implementation Speed">Скорость внесения изменений</div>
                     <div class="metric-value">-67%</div>
-                    <div class="metric-description">Время на внесение изменений в проект сокращается с 45 до 15 минут</div>
+                    <div class="metric-description" 
+                         data-ru="Время на внесение изменений в проект сокращается с 45 до 15 минут" 
+                         data-pl="Czas wprowadzania zmian do projektu skraca się z 45 do 15 minut" 
+                         data-en="Time to make changes to a project is reduced from 45 to 15 minutes">
+                        Время на внесение изменений в проект сокращается с 45 до 15 минут
+                    </div>
                 </div>
                 
                 <div class="metric-card">
-                    <div class="metric-title">Производственная эффективность</div>
+                    <div class="metric-title" 
+                         data-ru="Производственная эффективность" 
+                         data-pl="Efektywność produkcji" 
+                         data-en="Production Efficiency">Производственная эффективность</div>
                     <div class="metric-value">-90%</div>
-                    <div class="metric-description">Сокращение брака на производстве из-за ошибок в спецификациях</div>
+                    <div class="metric-description" 
+                         data-ru="Сокращение брака на производстве из-за ошибок в спецификациях" 
+                         data-pl="Zmniejszenie odpadów produkcyjnych z powodu błędów w specyfikacjach" 
+                         data-en="Reduction of production defects due to specification errors">
+                        Сокращение брака на производстве из-за ошибок в спецификациях
+                    </div>
                 </div>
                 
                 <div class="metric-card">
-                    <div class="metric-title">Удовлетворенность клиентов</div>
+                    <div class="metric-title" 
+                         data-ru="Удовлетворенность клиентов" 
+                         data-pl="Zadowolenie klientów" 
+                         data-en="Customer Satisfaction">Удовлетворенность клиентов</div>
                     <div class="metric-value">+25%</div>
-                    <div class="metric-description">Повышение показателя удовлетворенности благодаря наглядной визуализации</div>
+                    <div class="metric-description" 
+                         data-ru="Повышение показателя удовлетворенности благодаря наглядной визуализации" 
+                         data-pl="Wzrost wskaźnika zadowolenia dzięki czytelnej wizualizacji" 
+                         data-en="Increase in satisfaction rate thanks to clear visualization">
+                        Повышение показателя удовлетворенности благодаря наглядной визуализации
+                    </div>
                 </div>
                 
                 <div class="metric-card">
-                    <div class="metric-title">Объем выполняемых проектов</div>
+                    <div class="metric-title" 
+                         data-ru="Объем выполняемых проектов" 
+                         data-pl="Liczba realizowanych projektów" 
+                         data-en="Project Volume">Объем выполняемых проектов</div>
                     <div class="metric-value">+40%</div>
-                    <div class="metric-description">Увеличение производительности дизайнера</div>
+                    <div class="metric-description" 
+                         data-ru="Увеличение производительности дизайнера" 
+                         data-pl="Zwiększenie wydajności projektanta" 
+                         data-en="Increase in designer productivity">
+                        Увеличение производительности дизайнера
+                    </div>
                 </div>
             </div>
         </div>
         
         <!-- Возможности для развития продукта -->
         <div class="metrics">
-            <h2>Возможности для развития продукта</h2>
+            <h2 data-ru="Возможности для развития продукта" 
+                data-pl="Możliwości rozwoju produktu" 
+                data-en="Product Development Opportunities">Возможности для развития продукта</h2>
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <div class="metric-title">Интеграция с системами учета</div>
-                    <div class="metric-description">Автоматический импорт актуальных материалов из складских систем</div>
+                    <div class="metric-title" 
+                         data-ru="Интеграция с системами учета" 
+                         data-pl="Integracja z systemami księgowymi" 
+                         data-en="Integration with Accounting Systems">Интеграция с системами учета</div>
+                    <div class="metric-description" 
+                         data-ru="Автоматический импорт актуальных материалов из складских систем" 
+                         data-pl="Automatyczny import aktualnych materiałów z systemów magazynowych" 
+                         data-en="Automatic import of current materials from warehouse systems">
+                        Автоматический импорт актуальных материалов из складских систем
+                    </div>
                 </div>
                 
                 <div class="metric-card">
-                    <div class="metric-title">Расширенная аналитика</div>
-                    <div class="metric-description">Инструменты для анализа успешности различных дизайн-решений</div>
+                    <div class="metric-title" 
+                         data-ru="Расширенная аналитика" 
+                         data-pl="Rozszerzona analityka" 
+                         data-en="Advanced Analytics">Расширенная аналитика</div>
+                    <div class="metric-description" 
+                         data-ru="Инструменты для анализа успешности различных дизайн-решений" 
+                         data-pl="Narzędzia do analizy skuteczności różnych rozwiązań projektowych" 
+                         data-en="Tools for analyzing the success of various design solutions">
+                        Инструменты для анализа успешности различных дизайн-решений
+                    </div>
                 </div>
                 
                 <div class="metric-card">
-                    <div class="metric-title">Коллаборативные функции</div>
-                    <div class="metric-description">Возможность совместной работы нескольких дизайнеров над проектом</div>
+                    <div class="metric-title" 
+                         data-ru="Коллаборативные функции" 
+                         data-pl="Funkcje współpracy" 
+                         data-en="Collaborative Features">Коллаборативные функции</div>
+                    <div class="metric-description" 
+                         data-ru="Возможность совместной работы нескольких дизайнеров над проектом" 
+                         data-pl="Możliwość współpracy wielu projektantów nad jednym projektem" 
+                         data-en="Ability for multiple designers to collaborate on a project">
+                        Возможность совместной работы нескольких дизайнеров над проектом
+                    </div>
                 </div>
                 
                 <div class="metric-card">
-                    <div class="metric-title">Библиотека шаблонов</div>
-                    <div class="metric-description">Создание отраслевой библиотеки типовых решений для быстрого запуска проектов</div>
+                    <div class="metric-title" 
+                         data-ru="Библиотека шаблонов" 
+                         data-pl="Biblioteka szablonów" 
+                         data-en="Template Library">Библиотека шаблонов</div>
+                    <div class="metric-description" 
+                         data-ru="Создание отраслевой библиотеки типовых решений для быстрого запуска проектов" 
+                         data-pl="Tworzenie branżowej biblioteki typowych rozwiązań dla szybkiego uruchamiania projektów" 
+                         data-en="Creating an industry library of typical solutions for quick project launch">
+                        Создание отраслевой библиотеки типовых решений для быстрого запуска проектов
+                    </div>
                 </div>
                 
                 <div class="metric-card">
-                    <div class="metric-title">Мобильный доступ</div>
-                    <div class="metric-description">Возможность демонстрировать проекты клиентам через мобильное приложение</div>
+                    <div class="metric-title" 
+                         data-ru="Мобильный доступ" 
+                         data-pl="Dostęp mobilny" 
+                         data-en="Mobile Access">Мобильный доступ</div>
+                    <div class="metric-description" 
+                         data-ru="Возможность демонстрировать проекты клиентам через мобильное приложение" 
+                         data-pl="Możliwość prezentowania projektów klientom przez aplikację mobilną" 
+                         data-en="Ability to showcase projects to clients via mobile app">
+                        Возможность демонстрировать проекты клиентам через мобильное приложение
+                    </div>
                 </div>
             </div>
         </div>
@@ -999,6 +1238,53 @@
                 stage.scrollIntoView({ behavior: 'smooth' });
             }
         }
+        
+        // Language switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageBtns = document.querySelectorAll('.language-btn');
+            
+            // Initial language setup - needed for all elements
+            const allTranslatableElements = document.querySelectorAll('[data-ru], [data-pl], [data-en]');
+            
+            // Function to switch language
+            function switchLanguage(lang) {
+                // Update all translatable elements
+                allTranslatableElements.forEach(el => {
+                    const translation = el.getAttribute('data-' + lang);
+                    if (translation) {
+                        el.textContent = translation;
+                    }
+                });
+                
+                // Update html lang attribute
+                document.documentElement.lang = lang;
+                
+                // Update button states
+                languageBtns.forEach(b => {
+                    if (b.getAttribute('data-lang') === lang) {
+                        b.classList.add('active');
+                    } else {
+                        b.classList.remove('active');
+                    }
+                });
+                
+                // Store preference
+                localStorage.setItem('preferredLanguage', lang);
+            }
+            
+            // Add click events for language buttons
+            languageBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchLanguage(this.getAttribute('data-lang'));
+                });
+            });
+            
+            // Check for saved language preference
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            if (savedLanguage) {
+                switchLanguage(savedLanguage);
+            }
+        });
     </script>
 </body>
 </html>
