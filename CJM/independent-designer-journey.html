@@ -377,6 +377,21 @@
                 // Активируем текущую страницу в навигации
                 document.getElementById('personas-link').classList.add('active');
                 
+                // Исправляем пути в навигации для страницы CJM
+                document.querySelectorAll('.site-navigation .nav-link').forEach(link => {
+                    // Если ссылка на главную, исправляем путь
+                    if (link.id === 'home-link') {
+                        link.setAttribute('href', '../index.html');
+                    }
+                    // Если ссылка на CJM, исправляем путь
+                    if (link.id === 'personas-link') {
+                        link.setAttribute('href', 'cjm-research.html');
+                    }
+                });
+                
+                // Исправляем ссылку на главную страницу в логотипе
+                document.querySelector('.site-title').setAttribute('href', '../index.html');
+                
                 // Инициализируем переключение языков
                 initLanguageSwitching();
             })

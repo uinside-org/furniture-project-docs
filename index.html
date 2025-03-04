@@ -235,6 +235,17 @@
                 // Активируем текущую страницу в навигации
                 document.getElementById('home-link').classList.add('active');
                 
+                // Исправляем пути в навигации для главной страницы
+                document.querySelectorAll('.site-navigation .nav-link').forEach(link => {
+                    // Если ссылка на CJM, убедимся, что путь правильный
+                    if (link.id === 'personas-link') {
+                        link.setAttribute('href', 'CJM/cjm-research.html');
+                    }
+                });
+                
+                // Исправляем ссылку на главную страницу в логотипе
+                document.querySelector('.site-title').setAttribute('href', 'index.html');
+                
                 // Инициализируем переключение языков
                 initLanguageSwitching();
             })
