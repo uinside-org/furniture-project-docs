@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сравнение персонажей и потребностей</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .subheader {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+        }
+        
+        .language-btn {
+            background-color: #f1f1f1;
+            border: none;
+            padding: 8px 12px;
+            margin-left: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        
+        .language-btn:hover {
+            background-color: #ddd;
+        }
+        
+        .language-btn.active {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+        
+        /* Матрица потребностей */
+        .needs-matrix {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ecf0f1;
+            text-align: left;
+        }
+        
+        thead {
+            background-color: #f8f9fa;
+        }
+        
+        th {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .stars {
+            color: #f39c12;
+            letter-spacing: 2px;
+        }
+        
+        /* Карточки персонажей */
+        .persona-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .persona-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .persona-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            padding: 15px;
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .card-header h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+        
+        .card-body {
+            padding: 15px;
+        }
+        
+        .card-traits {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .card-trait {
+            background-color: #f1f1f1;
+            padding: 6px 12px;
+            margin: 0 8px 8px 0;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        
+        @media (max-width: 768px) {
+            .persona-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .language-switcher {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="language-switcher">
+                <button class="language-btn active" data-lang="ru">RU</button>
+                <button class="language-btn" data-lang="pl">PL</button>
+                <button class="language-btn" data-lang="en">EN</button>
+            </div>
+            <h1 data-ru="Анализ пользовательских потребностей" 
+                data-pl="Analiza potrzeb użytkowników" 
+                data-en="User Needs Analysis">
+                Анализ пользовательских потребностей
+            </h1>
+            <div class="subheader" 
+                 data-ru="Сравнение целевых аудиторий и их потребностей для оптимизации разработки AI-решения" 
+                 data-pl="Porównanie grup docelowych i ich potrzeb w celu optymalizacji rozwoju rozwiązania AI" 
+                 data-en="Comparison of target audiences and their needs to optimize AI solution development">
+                Сравнение целевых аудиторий и их потребностей для оптимизации разработки AI-решения
+            </div>
+        </div>
+        
+        <!-- Матрица потребностей -->
+        <div class="section">
+            <h2 class="section-title" 
+                data-ru="Сравнительная матрица потребностей" 
+                data-pl="Porównawcza matryca potrzeb" 
+                data-en="Comparative Needs Matrix">
+                Сравнительная матрица потребностей
+            </h2>
+            
+            <div class="needs-matrix">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-ru="Потребность/Персонаж" 
+                                data-pl="Potrzeba/Persona" 
+                                data-en="Need/Persona">Потребность/Персонаж</th>
+                            <th data-ru="Дизайнер мебельного производства" 
+                                data-pl="Projektant mebli" 
+                                data-en="Furniture Designer">Дизайнер мебельного производства</th>
+                            <th data-ru="Независимый дизайнер" 
+                                data-pl="Niezależny projektant" 
+                                data-en="Independent Designer">Независимый дизайнер</th>
+                            <th data-ru="Состоятельная семья" 
+                                data-pl="Zamożna rodzina" 
+                                data-en="Affluent Family">Состоятельная семья</th>
+                            <th data-ru="Застройщик" 
+                                data-pl="Deweloper" 
+                                data-en="Developer">Застройщик</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-ru="Скорость проектирования" 
+                                data-pl="Szybkość projektowania" 
+                                data-en="Design Speed">Скорость проектирования</td>
+                            <td><div class="stars">★★★★★</div></td>
+                            <td><div class="stars">★★★★☆</div></td>
+                            <td><div class="stars">★★☆☆☆</div></td>
+                            <td><div class="stars">★★★★☆</div></td>
+                        </tr>
+                        <tr>
+                            <td data-ru="Точность технической документации" 
+                                data-pl="Dokładność dokumentacji technicznej" 
+                                data-en="Technical Documentation Accuracy">Точность технической документации</td>
+                            <td><div class="stars">★★★★★</div></td>
+                            <td><div class="stars">★★★☆☆</div></td>
+                            <td><div class="stars">★☆☆☆☆</div></td>
+                            <td><div class="stars">★★★★☆</div></td>
+                        </tr>
+                        <tr>
+                            <td data-ru="Визуализация проекта" 
+                                data-pl="Wizualizacja projektu" 
+                                data-en="Project Visualization">Визуализация проекта</td>
+                            <td><div class="stars">★★★☆☆</div></td>
+                            <td><div class="stars">★★★★★</div></td>
+                            <td><div class="stars">★★★★★</div></td>
+                            <td><div class="stars">★★★★☆</div></td>
+                        </tr>
+                        <tr>
+                            <td data-ru="Экономия времени" 
+                                data-pl="Oszczędność czasu" 
+                                data-en="Time Saving">Экономия времени</td>
+                            <td><div class="stars">★★★★★</div></td>
+                            <td><div class="stars">★★★★☆</div></td>
+                            <td><div class="stars">★★☆☆☆</div></td>
+                            <td><div class="stars">★★★★☆</div></td>
+                        </tr>
+                        <tr>
+                            <td data-ru="Вариативность дизайна" 
+                                data-pl="Wariantowość projektu" 
+                                data-en="Design Variability">Вариативность дизайна</td>
+                            <td><div class="stars">★★★☆☆</div></td>
+                            <td><div class="stars">★★★★★</div></td>
+                            <td><div class="stars">★★★★★</div></td>
+                            <td><div class="stars">★★★☆☆</div></td>
+                        </tr>
+                        <tr>
+                            <td data-ru="Оптимизация стоимости" 
+                                data-pl="Optymalizacja kosztów" 
+                                data-en="Cost Optimization">Оптимизация стоимости</td>
+                            <td><div class="stars">★★★★☆</div></td>
+                            <td><div class="stars">★★★☆☆</div></td>
+                            <td><div class="stars">★★★★★</div></td>
+                            <td><div class="stars">★★★★★</div></td>
+                        </tr>
+                        <tr>
+                            <td data-ru="Профессиональный рост" 
+                                data-pl="Rozwój zawodowy" 
+                                data-en="Professional Growth">Профессиональный рост</td>
+                            <td><div class="stars">★★★★☆</div></td>
+                            <td><div class="stars">★★★★★</div></td>
+                            <td><div class="stars">★☆☆☆☆</div></td>
+                            <td><div class="stars">★★☆☆☆</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Карточки персонажей -->
+        <div class="section">
+            <h2 class="section-title" 
+                data-ru="Карточки персонажей" 
+                data-pl="Karty person" 
+                data-en="Persona Cards">
+                Карточки персонажей
+            </h2>
+            
+            <div class="persona-cards">
+                <!-- Дизайнер мебельного производства -->
+                <a href="designer-journey-improved.html" class="persona-card">
+                    <div class="card-header" style="background-color: #3498db;">
+                        <h3 data-ru="Дизайнер мебельного производства" 
+                            data-pl="Projektant mebli" 
+                            data-en="Furniture Designer">
+                            Дизайнер мебельного производства
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <p data-ru="Дмитрий, 38 лет. Дизайнер в штате мебельной фабрики с 10+ лет опыта. Обрабатывает 20-30 проектов в месяц."
+                           data-pl="Dmitrij, 38 lat. Projektant zatrudniony w fabryce mebli z 10+ lat doświadczenia. Obsługuje 20-30 projektów miesięcznie."
+                           data-en="Dmitry, 38 years old. In-house furniture factory designer with 10+ years of experience. Processes 20-30 projects monthly.">
+                            Дмитрий, 38 лет. Дизайнер в штате мебельной фабрики с 10+ лет опыта. Обрабатывает 20-30 проектов в месяц.
+                        </p>
+                        <div class="card-traits">
+                            <div class="card-trait">Опытный профессионал</div>
+                            <div class="card-trait">Высокая нагрузка</div>
+                            <div class="card-trait">Технически подкован</div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Независимый дизайнер -->
+                <a href="#" class="persona-card">
+                    <div class="card-header" style="background-color: #e74c3c;">
+                        <h3 data-ru="Независимый дизайнер" 
+                            data-pl="Niezależny projektant" 
+                            data-en="Independent Designer">
+                            Независимый дизайнер
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <p data-ru="Елена, 32 года. Фрилансер, работающий напрямую с клиентами. Специализируется на дизайне интерьеров и мебели для них."
+                           data-pl="Elena, 32 lata. Freelancer pracujący bezpośrednio z klientami. Specjalizuje się w projektowaniu wnętrz i mebli."
+                           data-en="Elena, 32 years old. Freelancer working directly with clients. Specializes in interior design and furniture for interiors.">
+                            Елена, 32 года. Фрилансер, работающий напрямую с клиентами. Специализируется на дизайне интерьеров и мебели для них.
+                        </p>
+                        <div class="card-traits">
+                            <div class="card-trait">Творческий подход</div>
+                            <div class="card-trait">Ориентация на клиента</div>
+                            <div class="card-trait">Эстетика важнее технологий</div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Состоятельная семья -->
+                <a href="#" class="persona-card">
+                    <div class="card-header" style="background-color: #9b59b6;">
+                        <h3 data-ru="Состоятельная семья" 
+                            data-pl="Zamożna rodzina" 
+                            data-en="Affluent Family">
+                            Состоятельная семья
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <p data-ru="Семья Ивановых. Недавно переехали в новую квартиру площадью 120м². Готовы инвестировать в качественную эргономичную мебель."
+                           data-pl="Rodzina Iwanowów. Niedawno przeprowadziła się do nowego mieszkania o powierzchni 120m². Gotowi zainwestować w wysokiej jakości ergonomiczne meble."
+                           data-en="The Ivanov family. Recently moved to a new 120m² apartment. Ready to invest in high-quality ergonomic furniture.">
+                            Семья Ивановых. Недавно переехали в новую квартиру площадью 120м². Готовы инвестировать в качественную эргономичную мебель.
+                        </p>
+                        <div class="card-traits">
+                            <div class="card-trait">Ценят качество</div>
+                            <div class="card-trait">Уникальный дизайн</div>
+                            <div class="card-trait">Функциональность</div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Молодая семья -->
+                <a href="#" class="persona-card">
+                    <div class="card-header" style="background-color: #f1c40f;">
+                        <h3 data-ru="Молодая семья" 
+                            data-pl="Młoda rodzina" 
+                            data-en="Young Family">
+                            Молодая семья
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <p data-ru="Антон и Мария, 25 и 24 года. Молодожены, снимают квартиру 54м², планируют покупку мебели с ограниченным бюджетом."
+                           data-pl="Anton i Maria, 25 i 24 lata. Nowożeńcy, wynajmują mieszkanie 54m², planują zakup mebli z ograniczonym budżetem."
+                           data-en="Anton and Maria, 25 and 24 years old. Newlyweds, renting a 54m² apartment, planning to purchase furniture with a limited budget.">
+                            Антон и Мария, 25 и 24 года. Молодожены, снимают квартиру 54м², планируют покупку мебели с ограниченным бюджетом.
+                        </p>
+                        <div class="card-traits">
+                            <div class="card-trait">Ограниченный бюджет</div>
+                            <div class="card-trait">Практичность</div>
+                            <div class="card-trait">Модульность</div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Застройщик -->
+                <a href="#" class="persona-card">
+                    <div class="card-header" style="background-color: #27ae60;">
+                        <h3 data-ru="Застройщик" 
+                            data-pl="Deweloper" 
+                            data-en="Developer">
+                            Застройщик
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <p data-ru="Компания 'Новый дом'. Застройщик, предлагающий квартиры с мебелью, ищет оптимальные решения для массового производства."
+                           data-pl="Firma 'Nowy Dom'. Deweloper oferujący mieszkania z meblami, poszukuje optymalnych rozwiązań do produkcji masowej."
+                           data-en="'New Home' Company. Developer offering apartments with furniture, looking for optimal solutions for mass production.">
+                            Компания "Новый дом". Застройщик, предлагающий квартиры с мебелью, ищет оптимальные решения для массового производства.
+                        </p>
+                        <div class="card-traits">
+                            <div class="card-trait">Снижение затрат</div>
+                            <div class="card-trait">Масштабируемость</div>
+                            <div class="card-trait">Стандартизация</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Приоритизация персонажей -->
+        <div class="section">
+            <h2 class="section-title" 
+                data-ru="Приоритизация целевых пользователей" 
+                data-pl="Priorytetyzacja użytkowników docelowych" 
+                data-en="Target User Prioritization">
+                Приоритизация целевых пользователей
+            </h2>
+            
+            <p data-ru="На основе анализа потребностей и потенциального влияния на рынок, мы определили следующую приоритизацию целевых пользователей:"
+               data-pl="Na podstawie analizy potrzeb i potencjalnego wpływu na rynek, określiliśmy następującą priorytetyzację użytkowników docelowych:"
+               data-en="Based on needs analysis and potential market impact, we have determined the following prioritization of target users:">
+                На основе анализа потребностей и потенциального влияния на рынок, мы определили следующую приоритизацию целевых пользователей:
+            </p>
+            
+            <ol>
+                <li>
+                    <strong data-ru="Дизайнер мебельного производства" 
+                           data-pl="Projektant mebli" 
+                           data-en="Furniture Designer">
+                        Дизайнер мебельного производства
+                    </strong> — 
+                    <span data-ru="Высший приоритет из-за прямого влияния на производственный процесс и способности стать технологическим лидером мнений в отрасли."
+                          data-pl="Najwyższy priorytet ze względu na bezpośredni wpływ na proces produkcyjny i zdolność do stania się liderem opinii technologicznej w branży."
+                          data-en="Highest priority due to direct impact on the production process and ability to become a technology opinion leader in the industry.">
+                        Высший приоритет из-за прямого влияния на производственный процесс и способности стать технологическим лидером мнений в отрасли.
+                    </span>
+                </li>
+                <li>
+                    <strong data-ru="Застройщик" 
+                           data-pl="Deweloper" 
+                           data-en="Developer">
+                        Застройщик
+                    </strong> — 
+                    <span data-ru="Высокий потенциал для масштабирования решения и возможность стандартизации процессов."
+                          data-pl="Wysoki potencjał skalowania rozwiązania i możliwość standaryzacji procesów."
+                          data-en="High potential for scaling the solution and opportunity for process standardization.">
+                        Высокий потенциал для масштабирования решения и возможность стандартизации процессов.
+                    </span>
+                </li>
+                <li>
+                    <strong data-ru="Независимый дизайнер" 
+                           data-pl="Niezależny projektant" 
+                           data-en="Independent Designer">
+                        Независимый дизайнер
+                    </strong> — 
+                    <span data-ru="Важный сегмент для формирования репутации и расширения использования продукта."
+                          data-pl="Ważny segment do budowania reputacji i rozszerzania użycia produktu."
+                          data-en="Important segment for building reputation and expanding product usage.">
+                        Важный сегмент для формирования репутации и расширения использования продукта.
+                    </span>
+                </li>
+                <li>
+                    <strong data-ru="Состоятельная семья" 
+                           data-pl="Zamożna rodzina" 
+                           data-en="Affluent Family">
+                        Состоятельная семья
+                    </strong> — 
+                    <span data-ru="Может стать косвенным катализатором для развития функций через запросы дизайнерам."
+                          data-pl="Może stać się pośrednim katalizatorem rozwoju funkcji poprzez zapytania do projektantów."
+                          data-en="Can become an indirect catalyst for feature development through requests to designers.">
+                        Может стать косвенным катализатором для развития функций через запросы дизайнерам.
+                    </span>
+                </li>
+                <li>
+                    <strong data-ru="Молодая семья" 
+                           data-pl="Młoda rodzina" 
+                           data-en="Young Family">
+                        Молодая семья
+                    </strong> — 
+                    <span data-ru="Потенциал для создания массовых решений в долгосрочной перспективе."
+                          data-pl="Potencjał do tworzenia rozwiązań masowych w długiej perspektywie."
+                          data-en="Potential for creating mass-market solutions in the long term.">
+                        Потенциал для создания массовых решений в долгосрочной перспективе.
+                    </span>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Функция для переключения языка
+        function switchLanguage(lang) {
+            // Обновляем активную кнопку
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Обновляем текст на странице
+            document.querySelectorAll(`[data-${lang}]`).forEach(element => {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            });
+            
+            // Сохраняем выбор в localStorage
+            localStorage.setItem('preferred_language', lang);
+        }
+        
+        // Добавляем обработчики событий для кнопок переключения языка
+        document.addEventListener('DOMContentLoaded', function() {
+            // Устанавливаем язык из localStorage или используем русский по умолчанию
+            const preferredLanguage = localStorage.getItem('preferred_language') || 'ru';
+            switchLanguage(preferredLanguage);
+            
+            // Добавляем обработчики для кнопок
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
