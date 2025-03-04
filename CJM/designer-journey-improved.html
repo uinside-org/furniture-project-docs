@@ -41,6 +41,34 @@
             margin-top: 10px;
         }
         
+        .language-switcher {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .language-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .language-btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            font-weight: bold;
+        }
+        
         .persona {
             display: flex;
             background-color: white;
@@ -338,53 +366,106 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Customer Journey Map: Дизайнер мебельного производства</h1>
-            <div class="subheader">Путь освоения AI-решения для автоматизации проектирования</div>
+            <div class="language-switcher">
+                <button class="language-btn active" data-lang="ru">RU</button>
+                <button class="language-btn" data-lang="pl">PL</button>
+                <button class="language-btn" data-lang="en">EN</button>
+            </div>
+            <h1 data-ru="Customer Journey Map: Дизайнер мебельного производства" 
+                data-pl="Customer Journey Map: Projektant mebli" 
+                data-en="Customer Journey Map: Furniture Designer">
+                Customer Journey Map: Дизайнер мебельного производства
+            </h1>
+            <div class="subheader" 
+                 data-ru="Путь освоения AI-решения для автоматизации проектирования" 
+                 data-pl="Droga do opanowania rozwiązania AI do automatyzacji projektowania" 
+                 data-en="The journey of mastering an AI solution for design automation">
+                Путь освоения AI-решения для автоматизации проектирования
+            </div>
         </div>
         
         <div class="persona">
             <div class="persona-image">Д</div>
             <div class="persona-details">
-                <h2 class="persona-name">Дмитрий, 38 лет</h2>
-                <p>Дизайнер в штате мебельной фабрики, специализирующейся на кухонной и корпусной мебели. Имеет более 10 лет опыта в индустрии. Обрабатывает 20-30 проектов в месяц. Испытывает давление из-за сжатых сроков и необходимости соблюдения технических требований производства.</p>
+                <h2 class="persona-name" 
+                    data-ru="Дмитрий, 38 лет"
+                    data-pl="Dmitrij, 38 lat"
+                    data-en="Dmitry, 38 years old">Дмитрий, 38 лет</h2>
+                <p data-ru="Дизайнер в штате мебельной фабрики, специализирующейся на кухонной и корпусной мебели. Имеет более 10 лет опыта в индустрии. Обрабатывает 20-30 проектов в месяц. Испытывает давление из-за сжатых сроков и необходимости соблюдения технических требований производства."
+                   data-pl="Projektant zatrudniony w fabryce mebli, specjalizującej się w meblach kuchennych i korpusowych. Posiada ponad 10 lat doświadczenia w branży. Obsługuje 20-30 projektów miesięcznie. Odczuwa presję z powodu napiętych terminów i konieczności przestrzegania technicznych wymogów produkcji.">
+                Дизайнер в штате мебельной фабрики, специализирующейся на кухонной и корпусной мебели. Имеет более 10 лет опыта в индустрии. Обрабатывает 20-30 проектов в месяц. Испытывает давление из-за сжатых сроков и необходимости соблюдения технических требований производства.
+                </p>
                 
                 <div class="persona-traits">
-                    <div class="persona-trait">Опытный профессионал</div>
-                    <div class="persona-trait">Высокая нагрузка</div>
-                    <div class="persona-trait">Технически подкован</div>
-                    <div class="persona-trait">Ценит эффективность</div>
+                    <div class="persona-trait" 
+                         data-ru="Опытный профессионал"
+                         data-pl="Doświadczony profesjonalista"
+                         data-en="Experienced professional">Опытный профессионал</div>
+                    <div class="persona-trait"
+                         data-ru="Высокая нагрузка"
+                         data-pl="Wysokie obciążenie pracą"
+                         data-en="High workload">Высокая нагрузка</div>
+                    <div class="persona-trait"
+                         data-ru="Технически подкован"
+                         data-pl="Biegły technicznie"
+                         data-en="Technically savvy">Технически подкован</div>
+                    <div class="persona-trait"
+                         data-ru="Ценит эффективность"
+                         data-pl="Ceni efektywność"
+                         data-en="Values efficiency">Ценит эффективность</div>
                 </div>
             </div>
         </div>
         
         <div class="journey-phases">
             <div class="phase phase-1">
-                <div class="phase-number">1</div>
-                <div class="phase-name">Осведомленность</div>
+                <div class="phase-number" onclick="scrollToStage(1)">1</div>
+                <div class="phase-name" 
+                     data-ru="Осведомленность"
+                     data-pl="Świadomość"
+                     data-en="Awareness">Осведомленность</div>
             </div>
             <div class="phase phase-2">
-                <div class="phase-number">2</div>
-                <div class="phase-name">Рассмотрение</div>
+                <div class="phase-number" onclick="scrollToStage(2)">2</div>
+                <div class="phase-name"
+                     data-ru="Рассмотрение"
+                     data-pl="Rozważanie"
+                     data-en="Consideration">Рассмотрение</div>
             </div>
             <div class="phase phase-3">
-                <div class="phase-number">3</div>
-                <div class="phase-name">Тестирование</div>
+                <div class="phase-number" onclick="scrollToStage(3)">3</div>
+                <div class="phase-name"
+                     data-ru="Тестирование"
+                     data-pl="Testowanie"
+                     data-en="Testing">Тестирование</div>
             </div>
             <div class="phase phase-4">
-                <div class="phase-number">4</div>
-                <div class="phase-name">Принятие решения</div>
+                <div class="phase-number" onclick="scrollToStage(4)">4</div>
+                <div class="phase-name"
+                     data-ru="Принятие решения"
+                     data-pl="Podejmowanie decyzji"
+                     data-en="Decision Making">Принятие решения</div>
             </div>
             <div class="phase phase-5">
-                <div class="phase-number">5</div>
-                <div class="phase-name">Внедрение</div>
+                <div class="phase-number" onclick="scrollToStage(5)">5</div>
+                <div class="phase-name"
+                     data-ru="Внедрение"
+                     data-pl="Wdrożenie"
+                     data-en="Implementation">Внедрение</div>
             </div>
             <div class="phase phase-6">
-                <div class="phase-number">6</div>
-                <div class="phase-name">Использование</div>
+                <div class="phase-number" onclick="scrollToStage(6)">6</div>
+                <div class="phase-name"
+                     data-ru="Использование"
+                     data-pl="Użytkowanie"
+                     data-en="Usage">Использование</div>
             </div>
             <div class="phase phase-7">
-                <div class="phase-number">7</div>
-                <div class="phase-name">Лояльность</div>
+                <div class="phase-number" onclick="scrollToStage(7)">7</div>
+                <div class="phase-name"
+                     data-ru="Лояльность"
+                     data-pl="Lojalność"
+                     data-en="Loyalty">Лояльность</div>
             </div>
         </div>
         
@@ -1300,5 +1381,61 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function scrollToStage(stageNumber) {
+            const stage = document.querySelector(`.stage-${stageNumber}`);
+            if (stage) {
+                stage.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Language switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageBtns = document.querySelectorAll('.language-btn');
+            
+            // Initial language setup - needed for all elements
+            const allTranslatableElements = document.querySelectorAll('[data-ru], [data-pl], [data-en]');
+            
+            // Function to switch language
+            function switchLanguage(lang) {
+                // Update all translatable elements
+                allTranslatableElements.forEach(el => {
+                    const translation = el.getAttribute('data-' + lang);
+                    if (translation) {
+                        el.textContent = translation;
+                    }
+                });
+                
+                // Update html lang attribute
+                document.documentElement.lang = lang;
+                
+                // Update button states
+                languageBtns.forEach(b => {
+                    if (b.getAttribute('data-lang') === lang) {
+                        b.classList.add('active');
+                    } else {
+                        b.classList.remove('active');
+                    }
+                });
+                
+                // Store preference
+                localStorage.setItem('preferredLanguage', lang);
+            }
+            
+            // Add click events for language buttons
+            languageBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchLanguage(this.getAttribute('data-lang'));
+                });
+            });
+            
+            // Check for saved language preference
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            if (savedLanguage) {
+                switchLanguage(savedLanguage);
+            }
+        });
+    </script>
 </body>
 </html>
