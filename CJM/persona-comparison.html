@@ -14,96 +14,6 @@
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
-            padding-top: 70px;
-        }
-        
-        /* Навигационная шапка */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            height: 60px;
-        }
-
-        .navbar-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .logo-icon {
-            color: #3498db;
-            font-size: 24px;
-        }
-
-        .navbar-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .navbar-link {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 5px 0;
-            position: relative;
-        }
-
-        .navbar-link:hover {
-            color: #3498db;
-        }
-
-        .navbar-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #3498db;
-            transition: width 0.3s;
-        }
-
-        .navbar-link:hover::after {
-            width: 100%;
-        }
-        
-        .language-switcher {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .language-btn {
-            background: rgba(52, 152, 219, 0.1);
-            border: none;
-            color: #2c3e50;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-        
-        .language-btn:hover {
-            background: rgba(52, 152, 219, 0.2);
-        }
-        
-        .language-btn.active {
-            background: rgba(52, 152, 219, 0.3);
-            font-weight: bold;
         }
         
         .container {
@@ -228,92 +138,7 @@
             font-size: 13px;
         }
         
-        /* Footer styles */
-        .site-footer {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-section h3 {
-            color: white;
-            font-size: 18px;
-            margin-top: 0;
-            margin-bottom: 15px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background-color: #3498db;
-        }
-        
-        .footer-section p {
-            color: #bdc3c7;
-            line-height: 1.6;
-        }
-        
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #3498db;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid rgba(236, 240, 241, 0.1);
-            padding-top: 20px;
-            text-align: center;
-        }
-        
-        .footer-bottom p {
-            color: #95a5a6;
-            font-size: 14px;
-            margin: 0;
-        }
-        
         @media (max-width: 768px) {
-            body {
-                padding-top: 130px;
-            }
-            
-            .navbar {
-                flex-direction: column;
-                height: auto;
-                padding: 15px;
-            }
-            
-            .navbar-links {
-                margin: 10px 0;
-            }
-            
             .persona-cards {
                 grid-template-columns: 1fr;
             }
@@ -325,23 +150,20 @@
     </style>
 </head>
 <body>
-    <!-- Navigation header -->
-    <nav class="navbar">
-        <a href="../index.html" class="navbar-logo">
-            <span class="logo-icon">🪑</span>
-            <span data-ru="Furniture Project" data-pl="Furniture Project" data-en="Furniture Project">Furniture Project</span>
-        </a>
-        <div class="navbar-links">
-            <a href="../index.html" class="navbar-link" data-ru="Главная" data-pl="Główna" data-en="Home">Home</a>
-            <a href="index.html" class="navbar-link" data-ru="Customer Journey Maps" data-pl="Customer Journey Maps" data-en="Customer Journey Maps">Customer Journey Maps</a>
-            <a href="persona-comparison.html" class="navbar-link active" data-ru="Персонажи" data-pl="Persony" data-en="Personas">Personas</a>
-        </div>
-        <div class="language-switcher">
-            <button class="language-btn" data-lang="ru">RU</button>
-            <button class="language-btn" data-lang="pl">PL</button>
-            <button class="language-btn active" data-lang="en">EN</button>
-        </div>
-    </nav>
+    <!-- Включаем общий компонент шапки -->
+    <script>
+        fetch('../common/components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('afterbegin', data);
+                
+                // Активируем текущую страницу в навигации
+                document.getElementById('personas-link').classList.add('active');
+                
+                // Инициализируем переключение языков
+                initLanguageSwitching();
+            });
+    </script>
 
     <div class="container">
         <div class="header">
@@ -688,41 +510,32 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 data-ru="О проекте" data-pl="O projekcie" data-en="About the Project">About the Project</h3>
-                    <p data-ru="Furniture Project — исследование потребностей и сценариев использования AI-системы для проектирования мебели различными категориями пользователей."
-                       data-pl="Furniture Project — badanie potrzeb i scenariuszy użytkowania systemu AI do projektowania mebli przez różne kategorie użytkowników."
-                       data-en="Furniture Project — a study of the needs and usage scenarios of an AI system for furniture design by various categories of users.">
-                        Furniture Project — a study of the needs and usage scenarios of an AI system for furniture design by various categories of users.
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h3 data-ru="Навигация" data-pl="Nawigacja" data-en="Navigation">Navigation</h3>
-                    <ul class="footer-links">
-                        <li><a href="../index.html" data-ru="Главная" data-pl="Główna" data-en="Home">Home</a></li>
-                        <li><a href="index.html" data-ru="Customer Journey Maps" data-pl="Customer Journey Maps" data-en="Customer Journey Maps">Customer Journey Maps</a></li>
-                        <li><a href="designer-journey-improved.html" data-ru="Путь дизайнера" data-pl="Podróż projektanta" data-en="Designer Journey">Designer Journey</a></li>
-                        <li><a href="independent-designer-journey.html" data-ru="Путь независимого дизайнера" data-pl="Podróż niezależnego projektanta" data-en="Independent Designer Journey">Independent Designer Journey</a></li>
-                        <li><a href="developer-journey.html" data-ru="Путь застройщика" data-pl="Podróż dewelopera" data-en="Developer Journey">Developer Journey</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p data-ru="© 2023 Furniture Project. Все права защищены." 
-                   data-pl="© 2023 Furniture Project. Wszelkie prawa zastrzeżone." 
-                   data-en="© 2023 Furniture Project. All rights reserved.">
-                    © 2023 Furniture Project. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
+    <!-- Включаем общий компонент футера -->
+    <script>
+        fetch('../common/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('beforeend', data);
+            });
+    </script>
 
     <script>
         // Language switching function
+        function initLanguageSwitching() {
+            // Assign handlers for language buttons
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchLanguage(this.getAttribute('data-lang'));
+                });
+            });
+            
+            // Check saved language
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang) {
+                switchLanguage(savedLang);
+            }
+        }
+        
         function switchLanguage(lang) {
             // Update text of all elements with corresponding data attributes
             document.querySelectorAll(`[data-${lang}]`).forEach(element => {
@@ -745,19 +558,11 @@
             localStorage.setItem('preferred-language', lang);
         }
         
-        // Add event handlers
+        // Initialize language switching when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            // Assign handlers for language buttons
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    switchLanguage(this.getAttribute('data-lang'));
-                });
-            });
-            
-            // Check saved language
-            const savedLang = localStorage.getItem('preferred-language');
-            if (savedLang) {
-                switchLanguage(savedLang);
+            // This will be called if the header is already loaded
+            if (document.querySelector('.language-btn')) {
+                initLanguageSwitching();
             }
         });
     </script>

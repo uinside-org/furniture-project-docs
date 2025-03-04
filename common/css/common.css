@@ -40,6 +40,14 @@ body {
 .site-title {
     margin: 0;
     font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.site-title:hover {
+    opacity: 0.9;
 }
 
 .site-navigation {
