@@ -12,6 +12,7 @@
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
         
         .container {
@@ -125,6 +126,13 @@
             margin: 0 auto 10px;
             color: white;
             font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .phase-number:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         .phase-name {
@@ -263,50 +271,83 @@
         .metrics h2 {
             margin-top: 0;
             color: #2c3e50;
-            border-bottom: 2px solid #f1f1f1;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
             text-align: center;
+            position: relative;
+            font-size: 26px;
+        }
+        
+        .metrics h2:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            transform: translateX(-50%);
+            border-radius: 3px;
         }
         
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 25px;
             margin-top: 15px;
         }
         
         .metric-card {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
         }
         
         .metric-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .metric-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
         }
         
         .metric-title {
             font-weight: bold;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             color: #2c3e50;
-            font-size: 18px;
+            font-size: 20px;
+            position: relative;
         }
         
         .metric-value {
-            font-size: 28px;
-            font-weight: bold;
-            color: #3498db;
-            margin-bottom: 8px;
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
         }
         
         .metric-description {
             color: #7f8c8d;
+            font-size: 15px;
+            line-height: 1.5;
             font-size: 14px;
         }
         
@@ -359,31 +400,31 @@
         
         <div class="journey-phases">
             <div class="phase phase-1">
-                <div class="phase-number">1</div>
-                <div class="phase-name">Осведом-ленность</div>
+                <div class="phase-number" onclick="scrollToStage(1)">1</div>
+                <div class="phase-name">Осведомленность</div>
             </div>
             <div class="phase phase-2">
-                <div class="phase-number">2</div>
-                <div class="phase-name">Рассмот-рение</div>
+                <div class="phase-number" onclick="scrollToStage(2)">2</div>
+                <div class="phase-name">Рассмотрение</div>
             </div>
             <div class="phase phase-3">
-                <div class="phase-number">3</div>
-                <div class="phase-name">Тестиро-вание</div>
+                <div class="phase-number" onclick="scrollToStage(3)">3</div>
+                <div class="phase-name">Тестирование</div>
             </div>
             <div class="phase phase-4">
-                <div class="phase-number">4</div>
+                <div class="phase-number" onclick="scrollToStage(4)">4</div>
                 <div class="phase-name">Принятие решения</div>
             </div>
             <div class="phase phase-5">
-                <div class="phase-number">5</div>
+                <div class="phase-number" onclick="scrollToStage(5)">5</div>
                 <div class="phase-name">Внедрение</div>
             </div>
             <div class="phase phase-6">
-                <div class="phase-number">6</div>
-                <div class="phase-name">Использо-вание</div>
+                <div class="phase-number" onclick="scrollToStage(6)">6</div>
+                <div class="phase-name">Использование</div>
             </div>
             <div class="phase phase-7">
-                <div class="phase-number">7</div>
+                <div class="phase-number" onclick="scrollToStage(7)">7</div>
                 <div class="phase-name">Лояльность</div>
             </div>
         </div>
@@ -950,5 +991,14 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function scrollToStage(stageNumber) {
+            const stage = document.querySelector(`.stage-${stageNumber}`);
+            if (stage) {
+                stage.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 </body>
 </html>
