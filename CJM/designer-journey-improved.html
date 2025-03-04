@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Designer Customer Journey Map</title>
     <!-- Подключаем общие стили -->
-    <link rel="stylesheet" href="common/css/common.css">
+    <link rel="stylesheet" href="../common/css/common.css">
     <!-- Специфические стили для страницы -->
     <style>
         .header {
@@ -367,11 +367,11 @@
                     <div class="persona-trait"
                          data-ru="Технически подкован"
                          data-pl="Biegły technicznie"
-                         data-en="Technically savvy">Технически подкован</div>
+                         data-en="Technically savvy">Technically savvy</div>
                     <div class="persona-trait"
                          data-ru="Ценит эффективность"
                          data-pl="Ceni efektywność"
-                         data-en="Values efficiency">Ценит эффективность</div>
+                         data-en="Values efficiency">Values efficiency</div>
                 </div>
             </div>
         </div>
@@ -382,49 +382,49 @@
                 <div class="phase-name" 
                      data-ru="Осведомленность"
                      data-pl="Świadomość"
-                     data-en="Awareness">Осведомленность</div>
+                     data-en="Awareness">Awareness</div>
             </div>
             <div class="phase phase-2">
                 <div class="phase-number" onclick="scrollToStage(2)">2</div>
                 <div class="phase-name"
                      data-ru="Рассмотрение"
                      data-pl="Rozważanie"
-                     data-en="Consideration">Рассмотрение</div>
+                     data-en="Consideration">Consideration</div>
             </div>
             <div class="phase phase-3">
                 <div class="phase-number" onclick="scrollToStage(3)">3</div>
                 <div class="phase-name"
                      data-ru="Тестирование"
                      data-pl="Testowanie"
-                     data-en="Testing">Тестирование</div>
+                     data-en="Testing">Testing</div>
             </div>
             <div class="phase phase-4">
                 <div class="phase-number" onclick="scrollToStage(4)">4</div>
                 <div class="phase-name"
                      data-ru="Принятие решения"
                      data-pl="Podejmowanie decyzji"
-                     data-en="Decision Making">Принятие решения</div>
+                     data-en="Decision Making">Decision Making</div>
             </div>
             <div class="phase phase-5">
                 <div class="phase-number" onclick="scrollToStage(5)">5</div>
                 <div class="phase-name"
                      data-ru="Внедрение"
                      data-pl="Wdrożenie"
-                     data-en="Implementation">Внедрение</div>
+                     data-en="Implementation">Implementation</div>
             </div>
             <div class="phase phase-6">
                 <div class="phase-number" onclick="scrollToStage(6)">6</div>
                 <div class="phase-name"
                      data-ru="Использование"
                      data-pl="Użytkowanie"
-                     data-en="Usage">Использование</div>
+                     data-en="Usage">Usage</div>
             </div>
             <div class="phase phase-7">
                 <div class="phase-number" onclick="scrollToStage(7)">7</div>
                 <div class="phase-name"
                      data-ru="Лояльность"
                      data-pl="Lojalność"
-                     data-en="Loyalty">Лояльность</div>
+                     data-en="Loyalty">Loyalty</div>
             </div>
         </div>
         
@@ -432,66 +432,132 @@
         <div class="stage stage-1">
             <div class="stage-header">
                 <div class="stage-icon">1</div>
-                <h2 class="stage-title">Осведомленность</h2>
+                <h2 class="stage-title" 
+                    data-ru="Осведомленность"
+                    data-pl="Świadomość"
+                    data-en="Awareness">Awareness</h2>
             </div>
             <div class="stage-content">
                 <div class="content-section">
                     <div class="section-title">
                         <span class="action-icon">🔍</span>
-                        Действия
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
                     </div>
                     <ul>
-                        <li>Узнаёт о новом AI-решении от коллег на отраслевой выставке</li>
-                        <li>Просматривает демонстрационные материалы на сайте</li>
-                        <li>Изучает отзывы других профессионалов</li>
+                        <li data-ru="Узнаёт о новом AI-решении от коллег на отраслевой выставке"
+                            data-pl="Dowiaduje się o nowym rozwiązaniu AI od kolegów na targach branżowych"
+                            data-en="Learns about the new AI solution from colleagues at an industry exhibition">
+                            Learns about the new AI solution from colleagues at an industry exhibition
+                        </li>
+                        <li data-ru="Просматривает демонстрационные материалы на сайте"
+                            data-pl="Przegląda materiały demonstracyjne na stronie internetowej"
+                            data-en="Browses demonstration materials on the website">
+                            Browses demonstration materials on the website
+                        </li>
+                        <li data-ru="Изучает отзывы других профессионалов"
+                            data-pl="Studiuje recenzje innych profesjonalistów"
+                            data-en="Studies reviews from other professionals">
+                            Studies reviews from other professionals
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="thought-icon">💭</span>
-                        Мысли
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Thoughts</span>
                     </div>
                     <ul>
-                        <li>"Может ли эта система действительно сэкономить мне время?"</li>
-                        <li>"Насколько сложно будет интегрировать её в текущий процесс?"</li>
-                        <li>"Выдаёт ли она документацию, совместимую с оборудованием?"</li>
+                        <li data-ru="&quot;Может ли эта система действительно сэкономить мне время?&quot;"
+                            data-pl="&quot;Czy ten system naprawdę może zaoszczędzić mi czas?&quot;"
+                            data-en="&quot;Can this system really save me time?&quot;">
+                            "Can this system really save me time?"
+                        </li>
+                        <li data-ru="&quot;Насколько сложно будет интегрировать её в текущий процесс?&quot;"
+                            data-pl="&quot;Jak trudna będzie integracja z obecnym procesem?&quot;"
+                            data-en="&quot;How difficult will it be to integrate it into the current process?&quot;">
+                            "How difficult will it be to integrate it into the current process?"
+                        </li>
+                        <li data-ru="&quot;Выдаёт ли она документацию, совместимую с оборудованием?&quot;"
+                            data-pl="&quot;Czy generuje dokumentację kompatybilną ze sprzętem?&quot;"
+                            data-en="&quot;Does it produce documentation compatible with the equipment?&quot;">
+                            "Does it produce documentation compatible with the equipment?"
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="emotion-icon">😊</span>
-                        Эмоции
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Emotions</span>
                     </div>
                     <ul>
-                        <li class="emotion-neutral">Заинтересованность, но с осторожностью</li>
-                        <li class="emotion-negative">Скептицизм из-за предыдущего опыта</li>
-                        <li class="emotion-positive">Надежда на облегчение рутинной работы</li>
+                        <li class="emotion-neutral"
+                            data-ru="Заинтересованность, но с осторожностью"
+                            data-pl="Zainteresowanie, ale z ostrożnością"
+                            data-en="Interest, but with caution">
+                            Interest, but with caution
+                        </li>
+                        <li class="emotion-negative"
+                            data-ru="Скептицизм из-за предыдущего опыта"
+                            data-pl="Sceptycyzm z powodu wcześniejszych doświadczeń"
+                            data-en="Skepticism due to previous experience">
+                            Skepticism due to previous experience
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Надежда на облегчение рутинной работы"
+                            data-pl="Nadzieja na ułatwienie rutynowej pracy"
+                            data-en="Hope for relief from routine work">
+                            Hope for relief from routine work
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="pain-icon">⚠️</span>
-                        Болевые точки
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Pain points</span>
                     </div>
                     <ul>
-                        <li>Опасения, что внедрение отнимет много времени на обучение</li>
-                        <li>Сомнения в совместимости с существующими процессами</li>
-                        <li>Беспокойство о том, что руководство не одобрит новые инструменты</li>
+                        <li data-ru="Опасения, что внедрение отнимет много времени на обучение"
+                            data-pl="Obawy, że wdrożenie zajmie dużo czasu na szkolenie"
+                            data-en="Concerns that implementation will take a lot of training time">
+                            Concerns that implementation will take a lot of training time
+                        </li>
+                        <li data-ru="Сомнения в совместимости с существующими процессами"
+                            data-pl="Wątpliwości co do kompatybilności z istniejącymi procesami"
+                            data-en="Doubts about compatibility with existing processes">
+                            Doubts about compatibility with existing processes
+                        </li>
+                        <li data-ru="Беспокойство о том, что руководство не одобрит новые инструменты"
+                            data-pl="Niepokój, że kierownictwo nie zatwierdzi nowych narzędzi"
+                            data-en="Worry that management won't approve new tools">
+                            Worry that management won't approve new tools
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="opportunity-icon">💡</span>
-                        Возможности
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
                     </div>
                     <ul>
-                        <li>Предоставить конкретные примеры экономии времени</li>
-                        <li>Продемонстрировать совместимость с производственными системами</li>
-                        <li>Предложить бесплатный пробный период</li>
+                        <li data-ru="Предоставить конкретные примеры экономии времени"
+                            data-pl="Dostarczyć konkretne przykłady oszczędności czasu"
+                            data-en="Provide specific examples of time savings">
+                            Provide specific examples of time savings
+                        </li>
+                        <li data-ru="Продемонстрировать совместимость с производственными системами"
+                            data-pl="Zademonstrować kompatybilność z systemami produkcyjnymi"
+                            data-en="Demonstrate compatibility with production systems">
+                            Demonstrate compatibility with production systems
+                        </li>
+                        <li data-ru="Предложить бесплатный пробный период"
+                            data-pl="Zaoferować bezpłatny okres próbny"
+                            data-en="Offer a free trial period">
+                            Offer a free trial period
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -501,67 +567,137 @@
         <div class="stage stage-2">
             <div class="stage-header">
                 <div class="stage-icon">2</div>
-                <h2 class="stage-title">Рассмотрение</h2>
+                <h2 class="stage-title"
+                   data-ru="Рассмотрение"
+                   data-pl="Rozważanie"
+                   data-en="Consideration">Consideration</h2>
             </div>
             <div class="stage-content">
                 <div class="content-section">
                     <div class="section-title">
                         <span class="action-icon">🧐</span>
-                        Действия
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
                     </div>
                     <ul>
-                        <li>Регистрируется на демонстрационный вебинар</li>
-                        <li>Смотрит обучающие видео по использованию системы</li>
-                        <li>Обсуждает возможность внедрения с техническим директором</li>
-                        <li>Сравнивает с текущими инструментами</li>
+                        <li data-ru="Регистрируется на демонстрационный вебинар"
+                            data-pl="Rejestruje się na webinar demonstracyjny"
+                            data-en="Registers for a demonstration webinar">
+                            Registers for a demonstration webinar
+                        </li>
+                        <li data-ru="Смотрит обучающие видео по использованию системы"
+                            data-pl="Ogląda filmy instruktażowe dotyczące korzystania z systemu"
+                            data-en="Watches tutorial videos on using the system">
+                            Watches tutorial videos on using the system
+                        </li>
+                        <li data-ru="Обсуждает возможность внедрения с техническим директором"
+                            data-pl="Omawia możliwość wdrożenia z dyrektorem technicznym"
+                            data-en="Discusses implementation possibilities with the technical director">
+                            Discusses implementation possibilities with the technical director
+                        </li>
+                        <li data-ru="Сравнивает с текущими инструментами"
+                            data-pl="Porównuje z obecnymi narzędziami"
+                            data-en="Compares with current tools">
+                            Compares with current tools
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="thought-icon">💭</span>
-                        Мысли
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Thoughts</span>
                     </div>
                     <ul>
-                        <li>"Как быстро я смогу освоить эту систему?"</li>
-                        <li>"Сможет ли она учитывать особенности нашего производства?"</li>
-                        <li>"Стоит ли инвестиция ожидаемой экономии времени?"</li>
+                        <li data-ru="&quot;Как быстро я смогу освоить эту систему?&quot;"
+                            data-pl="&quot;Jak szybko będę mógł opanować ten system?&quot;"
+                            data-en="&quot;How quickly can I master this system?&quot;">
+                            "How quickly can I master this system?"
+                        </li>
+                        <li data-ru="&quot;Сможет ли она учитывать особенности нашего производства?&quot;"
+                            data-pl="&quot;Czy będzie w stanie uwzględnić specyfikę naszej produkcji?&quot;"
+                            data-en="&quot;Will it be able to account for the specifics of our production?&quot;">
+                            "Will it be able to account for the specifics of our production?"
+                        </li>
+                        <li data-ru="&quot;Стоит ли инвестиция ожидаемой экономии времени?&quot;"
+                            data-pl="&quot;Czy inwestycja jest warta oczekiwanej oszczędności czasu?&quot;"
+                            data-en="&quot;Is the investment worth the expected time savings?&quot;">
+                            "Is the investment worth the expected time savings?"
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="emotion-icon">😊</span>
-                        Эмоции
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Emotions</span>
                     </div>
                     <ul>
-                        <li class="emotion-positive">Растущий интерес при виде возможностей</li>
-                        <li class="emotion-positive">Волнение от перспективы оптимизации</li>
-                        <li class="emotion-neutral">Небольшая тревога из-за сложностей внедрения</li>
+                        <li class="emotion-positive"
+                            data-ru="Растущий интерес при виде возможностей"
+                            data-pl="Rosnące zainteresowanie widząc możliwości"
+                            data-en="Growing interest when seeing the possibilities">
+                            Growing interest when seeing the possibilities
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Волнение от перспективы оптимизации"
+                            data-pl="Ekscytacja perspektywą optymalizacji"
+                            data-en="Excitement about the prospect of optimization">
+                            Excitement about the prospect of optimization
+                        </li>
+                        <li class="emotion-neutral"
+                            data-ru="Небольшая тревога из-за сложностей внедрения"
+                            data-pl="Niewielki niepokój z powodu trudności we wdrażaniu"
+                            data-en="Slight anxiety due to implementation challenges">
+                            Slight anxiety due to implementation challenges
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="pain-icon">⚠️</span>
-                        Болевые точки
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Pain points</span>
                     </div>
                     <ul>
-                        <li>Беспокойство о потере времени на изучение системы</li>
-                        <li>Неуверенность в том, подойдет ли система для специфических задач</li>
-                        <li>Сомнения в том, что руководство выделит бюджет на новое ПО</li>
+                        <li data-ru="Беспокойство о потере времени на изучение системы"
+                            data-pl="Obawa o stratę czasu na naukę systemu"
+                            data-en="Concern about losing time learning the system">
+                            Concern about losing time learning the system
+                        </li>
+                        <li data-ru="Неуверенность в том, подойдет ли система для специфических задач"
+                            data-pl="Niepewność, czy system będzie odpowiedni dla specyficznych zadań"
+                            data-en="Uncertainty about whether the system will be suitable for specific tasks">
+                            Uncertainty about whether the system will be suitable for specific tasks
+                        </li>
+                        <li data-ru="Сомнения в том, что руководство выделит бюджет на новое ПО"
+                            data-pl="Wątpliwości, czy kierownictwo przeznaczy budżet na nowe oprogramowanie"
+                            data-en="Doubts that management will allocate budget for new software">
+                            Doubts that management will allocate budget for new software
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="opportunity-icon">💡</span>
-                        Возможности
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
                     </div>
                     <ul>
-                        <li>Предложить короткие обучающие сессии по конкретным задачам</li>
-                        <li>Подчеркнуть наличие шаблонов для типовых сценариев</li>
-                        <li>Предоставить ROI-калькулятор для обоснования инвестиций</li>
+                        <li data-ru="Предложить короткие обучающие сессии по конкретным задачам"
+                            data-pl="Zaoferować krótkie sesje szkoleniowe dotyczące konkretnych zadań"
+                            data-en="Offer short training sessions on specific tasks">
+                            Offer short training sessions on specific tasks
+                        </li>
+                        <li data-ru="Подчеркнуть наличие шаблонов для типовых сценариев"
+                            data-pl="Podkreślić dostępność szablonów dla typowych scenariuszy"
+                            data-en="Emphasize the availability of templates for typical scenarios">
+                            Emphasize the availability of templates for typical scenarios
+                        </li>
+                        <li data-ru="Предоставить ROI-калькулятор для обоснования инвестиций"
+                            data-pl="Dostarczyć kalkulator ROI do uzasadnienia inwestycji"
+                            data-en="Provide an ROI calculator to justify investments">
+                            Provide an ROI calculator to justify investments
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -577,7 +713,7 @@
                 <div class="content-section">
                     <div class="section-title">
                         <span class="action-icon">🧪</span>
-                        Действия
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Действия</span>
                     </div>
                     <ul>
                         <li>Получает доступ к пробной версии системы</li>
@@ -590,7 +726,7 @@
                 <div class="content-section">
                     <div class="section-title">
                         <span class="thought-icon">💭</span>
-                        Мысли
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Мысли</span>
                     </div>
                     <ul>
                         <li>"Насколько точны спецификации, которые генерирует система?"</li>
@@ -602,36 +738,57 @@
                 <div class="content-section">
                     <div class="section-title">
                         <span class="emotion-icon">😊</span>
-                        Эмоции
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Эмоции</span>
                     </div>
                     <ul>
-                        <li class="emotion-positive">Удивление от скорости работы системы</li>
-                        <li class="emotion-positive">Облегчение при обнаружении интуитивного интерфейса</li>
-                        <li class="emotion-positive">Удовлетворение от автоматизации рутинных задач</li>
+                        <li class="emotion-positive" 
+                            data-ru="Удивление от скорости работы системы"
+                            data-pl="Zaskoczenie szybkością działania systemu"
+                            data-en="Surprise at the speed of the system">Surprise at the speed of the system</li>
+                        <li class="emotion-positive"
+                            data-ru="Облегчение при обнаружении интуитивного интерфейса"
+                            data-pl="Ulga przy odkryciu intuicyjnego interfejsu"
+                            data-en="Relief upon discovering an intuitive interface">Relief upon discovering an intuitive interface</li>
+                        <li class="emotion-positive"
+                            data-ru="Удовлетворение от автоматизации рутинных задач"
+                            data-pl="Satysfakcja z automatyzacji rutynowych zadań"
+                            data-en="Satisfaction from automating routine tasks">Satisfaction from automating routine tasks</li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="pain-icon">⚠️</span>
-                        Болевые точки
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Pain points</span>
                     </div>
                     <ul>
-                        <li>Необходимость адаптации некоторых рабочих процессов</li>
-                        <li>Обнаружение отдельных ограничений в кастомизации</li>
-                        <li>Сложности с интеграцией специфических материалов</li>
+                        <li data-ru="Необходимость адаптации некоторых рабочих процессов"
+                            data-pl="Konieczność dostosowania niektórych procesów roboczych"
+                            data-en="Need to adapt some work processes">Need to adapt some work processes</li>
+                        <li data-ru="Обнаружение отдельных ограничений в кастомизации"
+                            data-pl="Odkrycie pewnych ograniczeń w dostosowywaniu"
+                            data-en="Discovery of certain customization limitations">Discovery of certain customization limitations</li>
+                        <li data-ru="Сложности с интеграцией специфических материалов"
+                            data-pl="Trudności z integracją specyficznych materiałów"
+                            data-en="Difficulties with integrating specific materials">Difficulties with integrating specific materials</li>
                     </ul>
                 </div>
                 
                 <div class="content-section">
                     <div class="section-title">
                         <span class="opportunity-icon">💡</span>
-                        Возможности
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
                     </div>
                     <ul>
-                        <li>Обеспечить легкий доступ к технической поддержке</li>
-                        <li>Предложить шаблоны, специфичные для его отрасли</li>
-                        <li>Показать, как быстро вносить изменения</li>
+                        <li data-ru="Обеспечить легкий доступ к технической поддержке"
+                            data-pl="Zapewnić łatwy dostęp do wsparcia technicznego"
+                            data-en="Provide easy access to technical support">Provide easy access to technical support</li>
+                        <li data-ru="Предложить шаблоны, специфичные для его отрасли"
+                            data-pl="Zaoferować szablony specyficzne dla jego branży"
+                            data-en="Offer templates specific to his industry">Offer templates specific to his industry</li>
+                        <li data-ru="Показать, как быстро вносить изменения"
+                            data-pl="Pokazać, jak szybko wprowadzać zmiany"
+                            data-en="Show how to quickly make changes">Show how to quickly make changes</li>
                     </ul>
                 </div>
             </div>
@@ -924,7 +1081,7 @@
                 <h2 class="stage-title"
                    data-ru="Использование"
                    data-pl="Użytkowanie"
-                   data-en="Usage">Использование</h2>
+                   data-en="Usage">Usage</h2>
             </div>
             <div class="stage-content">
                 <div class="content-section">
@@ -1345,7 +1502,7 @@
     <div id="footer"></div>
 
     <!-- Подключаем общий JavaScript -->
-    <script src="common/js/common.js"></script>
+    <script src="../common/js/common.js"></script>
     
     <!-- Специфический для страницы JavaScript -->
     <script>
