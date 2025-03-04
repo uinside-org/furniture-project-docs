@@ -100,6 +100,40 @@
             font-weight: bold;
             position: relative;
             z-index: 2;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .phase:hover .phase-number {
+            transform: scale(1.15);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .phase:hover .phase-name {
+            font-weight: bold;
+        }
+        
+        .phase:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
         
         .phase-number {
@@ -113,9 +147,12 @@
             color: white;
             font-size: 18px;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         
         .phase-name {
+            transition: all 0.3s ease;
             font-size: 14px;
             line-height: 1.3;
         }
@@ -327,6 +364,10 @@
             transform: scale(1.1);
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
+        
+        .active-phase .phase-name {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -413,50 +454,78 @@
         </div>
         
         <div class="journey-phases">
-            <div class="phase phase-1">
-                <div class="phase-number" onclick="scrollToStage(1)">1</div>
+            <div class="phase phase-1" onclick="scrollToStage(1)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 1: Осведомленность"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 1: Świadomość"
+                 data-tooltip-en="Click to go to stage 1: Awareness"
+                 data-tooltip="Click to go to stage 1: Awareness">
+                <div class="phase-number">1</div>
                 <div class="phase-name" 
                      data-ru="Осведомленность"
                      data-pl="Świadomość"
                      data-en="Awareness">Awareness</div>
             </div>
-            <div class="phase phase-2">
-                <div class="phase-number" onclick="scrollToStage(2)">2</div>
+            <div class="phase phase-2" onclick="scrollToStage(2)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 2: Рассмотрение"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 2: Rozważanie"
+                 data-tooltip-en="Click to go to stage 2: Consideration"
+                 data-tooltip="Click to go to stage 2: Consideration">
+                <div class="phase-number">2</div>
                 <div class="phase-name"
                      data-ru="Рассмотрение"
                      data-pl="Rozważanie"
                      data-en="Consideration">Consideration</div>
             </div>
-            <div class="phase phase-3">
-                <div class="phase-number" onclick="scrollToStage(3)">3</div>
+            <div class="phase phase-3" onclick="scrollToStage(3)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 3: Тестирование"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 3: Testowanie"
+                 data-tooltip-en="Click to go to stage 3: Testing"
+                 data-tooltip="Click to go to stage 3: Testing">
+                <div class="phase-number">3</div>
                 <div class="phase-name"
                      data-ru="Тестирование"
                      data-pl="Testowanie"
                      data-en="Testing">Testing</div>
             </div>
-            <div class="phase phase-4">
-                <div class="phase-number" onclick="scrollToStage(4)">4</div>
+            <div class="phase phase-4" onclick="scrollToStage(4)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 4: Принятие решения"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 4: Podejmowanie decyzji"
+                 data-tooltip-en="Click to go to stage 4: Decision Making"
+                 data-tooltip="Click to go to stage 4: Decision Making">
+                <div class="phase-number">4</div>
                 <div class="phase-name"
                      data-ru="Принятие решения"
                      data-pl="Podejmowanie decyzji"
                      data-en="Decision Making">Decision Making</div>
             </div>
-            <div class="phase phase-5">
-                <div class="phase-number" onclick="scrollToStage(5)">5</div>
+            <div class="phase phase-5" onclick="scrollToStage(5)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 5: Внедрение"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 5: Wdrożenie"
+                 data-tooltip-en="Click to go to stage 5: Implementation"
+                 data-tooltip="Click to go to stage 5: Implementation">
+                <div class="phase-number">5</div>
                 <div class="phase-name"
                      data-ru="Внедрение"
                      data-pl="Wdrożenie"
                      data-en="Implementation">Implementation</div>
             </div>
-            <div class="phase phase-6">
-                <div class="phase-number" onclick="scrollToStage(6)">6</div>
+            <div class="phase phase-6" onclick="scrollToStage(6)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 6: Использование"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 6: Użytkowanie"
+                 data-tooltip-en="Click to go to stage 6: Usage"
+                 data-tooltip="Click to go to stage 6: Usage">
+                <div class="phase-number">6</div>
                 <div class="phase-name"
                      data-ru="Использование"
                      data-pl="Użytkowanie"
                      data-en="Usage">Usage</div>
             </div>
-            <div class="phase phase-7">
-                <div class="phase-number" onclick="scrollToStage(7)">7</div>
+            <div class="phase phase-7" onclick="scrollToStage(7)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 7: Лояльность"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 7: Lojalność"
+                 data-tooltip-en="Click to go to stage 7: Loyalty"
+                 data-tooltip="Click to go to stage 7: Loyalty">
+                <div class="phase-number">7</div>
                 <div class="phase-name"
                      data-ru="Лояльность"
                      data-pl="Lojalność"
@@ -1613,19 +1682,51 @@
         
         // Функция для скролла к выбранному этапу
         function scrollToStage(stageNumber) {
-            const stage = document.querySelector(`.stage-${stageNumber}`);
-            if (stage) {
+            // Находим элемент с соответствующим классом
+            const stageElement = document.querySelector(`.stage-${stageNumber}`);
+            
+            if (stageElement) {
+                // Прокручиваем к этому элементу
                 window.scrollTo({
-                    top: stage.offsetTop - 20,
+                    top: stageElement.offsetTop - 20,
                     behavior: 'smooth'
                 });
                 
-                // Подсветка активного этапа
+                // Обновляем активную фазу
                 document.querySelectorAll('.phase').forEach(phase => {
                     phase.classList.remove('active-phase');
                 });
                 document.querySelector(`.phase-${stageNumber}`).classList.add('active-phase');
             }
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function() {
+            // Устанавливаем начальный язык
+            changeLanguage(currentLang);
+            
+            // Прокручиваем к первому этапу
+            scrollToStage(1);
+        });
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // Обновляем все элементы с атрибутами data-ru, data-pl, data-en
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            
+            // Обновляем подсказки для фаз
+            document.querySelectorAll('.phase').forEach(phase => {
+                phase.setAttribute('data-tooltip', phase.getAttribute('data-tooltip-' + lang));
+            });
+            
+            // Обновляем активную кнопку языка
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector('.lang-' + lang).classList.add('active');
         }
     </script>
 </body>
