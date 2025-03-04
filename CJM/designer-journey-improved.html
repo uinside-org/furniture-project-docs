@@ -1610,6 +1610,23 @@
         
         // Initialize language switching
         initLanguageSwitching();
+        
+        // Функция для скролла к выбранному этапу
+        function scrollToStage(stageNumber) {
+            const stage = document.querySelector(`.stage-${stageNumber}`);
+            if (stage) {
+                window.scrollTo({
+                    top: stage.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+                
+                // Подсветка активного этапа
+                document.querySelectorAll('.phase').forEach(phase => {
+                    phase.classList.remove('active-phase');
+                });
+                document.querySelector(`.phase-${stageNumber}`).classList.add('active-phase');
+            }
+        }
     </script>
 </body>
 </html>
