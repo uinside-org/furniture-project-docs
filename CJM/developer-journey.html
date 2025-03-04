@@ -1,26 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Journey Map застройщика как бизнес-клиента</title>
+    <title>Developer Customer Journey Map</title>
+    <!-- Подключаем общие стили -->
+    <link rel="stylesheet" href="common.css">
+    <!-- Специфические стили для страницы -->
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -39,34 +26,6 @@
             font-size: 18px;
             opacity: 0.8;
             margin-top: 10px;
-        }
-        
-        .language-switcher {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-        }
-        
-        .language-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background 0.3s;
-        }
-        
-        .language-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-        
-        .language-btn.active {
-            background: rgba(255, 255, 255, 0.4);
-            font-weight: bold;
         }
         
         .persona {
@@ -153,6 +112,7 @@
             margin: 0 auto 10px;
             color: white;
             font-size: 18px;
+            cursor: pointer;
         }
         
         .phase-name {
@@ -341,18 +301,6 @@
             font-size: 14px;
         }
         
-        .conclusion {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 40px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .conclusion-content {
-            color: #333;
-        }
-        
         @media (max-width: 768px) {
             .persona {
                 flex-direction: column;
@@ -379,23 +327,21 @@
     </style>
 </head>
 <body>
+    <!-- Место для шапки -->
+    <div id="header"></div>
+
     <div class="container">
         <div class="header">
-            <div class="language-switcher">
-                <button class="language-btn active" data-lang="ru">RU</button>
-                <button class="language-btn" data-lang="pl">PL</button>
-                <button class="language-btn" data-lang="en">EN</button>
-            </div>
             <h1 data-ru="Customer Journey Map: Застройщик как бизнес-клиент" 
                 data-pl="Customer Journey Map: Deweloper jako klient biznesowy" 
                 data-en="Customer Journey Map: Real Estate Developer as Business Client">
-                Customer Journey Map: Застройщик как бизнес-клиент
+                Customer Journey Map: Real Estate Developer as Business Client
             </h1>
             <div class="subheader" 
                  data-ru="Путь внедрения AI-решения для улучшения процесса продаж недвижимости" 
                  data-pl="Droga wdrożenia rozwiązania AI do usprawnienia procesu sprzedaży nieruchomości" 
                  data-en="The journey of implementing an AI solution to enhance real estate sales process">
-                Путь внедрения AI-решения для улучшения процесса продаж недвижимости
+                The journey of implementing an AI solution to enhance real estate sales process
             </div>
         </div>
         
@@ -405,30 +351,30 @@
                 <div class="persona-name" 
                      data-ru="ООО «Новый Дом»"
                      data-pl="LLC «Nowy Dom»"
-                     data-en="New Home LLC">ООО «Новый Дом»</div>
+                     data-en="New Home LLC">New Home LLC</div>
                 <div class="persona-description" 
                      data-ru="Средний застройщик жилых комплексов комфорт-класса, реализующий 2-3 проекта одновременно. Ежегодная сдача около 600-800 квартир, из которых 20-25% продаются с предварительно спланированными интерьерами. Ключевой представитель: Андрей, 41 год, руководитель отдела продаж и развития продукта."
                      data-pl="Średniej wielkości deweloper mieszkań klasy komfort, realizujący jednocześnie 2-3 kompleksy mieszkaniowe. Corocznie oddaje około 600-800 mieszkań, z których 20-25% oferowanych jest z wcześniej zaplanowanym wnętrzem. Kluczowy przedstawiciel: Andrzej, 41 lat, kierownik działu sprzedaży i rozwoju produktu."
                      data-en="Medium-sized comfort-class housing developer, implementing 2-3 residential complexes simultaneously. Annually delivers about 600-800 apartments, of which 20-25% are sold with pre-planned interiors. Key representative: Andrey, 41, head of sales and product development department.">
-                     Средний застройщик жилых комплексов комфорт-класса, реализующий 2-3 проекта одновременно. Ежегодная сдача около 600-800 квартир, из которых 20-25% продаются с предварительно спланированными интерьерами. Ключевой представитель: Андрей, 41 год, руководитель отдела продаж и развития продукта.
+                     Medium-sized comfort-class housing developer, implementing 2-3 residential complexes simultaneously. Annually delivers about 600-800 apartments, of which 20-25% are sold with pre-planned interiors. Key representative: Andrey, 41, head of sales and product development department.
                 </div>
                 <div class="persona-traits">
                     <div class="trait" 
                          data-ru="Интеграция с процессом продаж"
                          data-pl="Integracja z procesem sprzedaży"
-                         data-en="Integration with sales process">Интеграция с процессом продаж</div>
+                         data-en="Integration with sales process">Integration with sales process</div>
                     <div class="trait"
                          data-ru="Стандартизация с вариативностью"
                          data-pl="Standaryzacja z wariantowością"
-                         data-en="Standardization with variability">Стандартизация с вариативностью</div>
+                         data-en="Standardization with variability">Standardization with variability</div>
                     <div class="trait"
                          data-ru="Обучение персонала"
                          data-pl="Szkolenie personelu"
-                         data-en="Staff training">Обучение персонала</div>
+                         data-en="Staff training">Staff training</div>
                     <div class="trait"
                          data-ru="Коммерческая эффективность"
                          data-pl="Efektywność komercyjna"
-                         data-en="Commercial efficiency">Коммерческая эффективность</div>
+                         data-en="Commercial efficiency">Commercial efficiency</div>
                 </div>
             </div>
         </div>
@@ -439,49 +385,49 @@
                 <div class="phase-name" 
                      data-ru="Осведомленность"
                      data-pl="Świadomość"
-                     data-en="Awareness">Осведомленность</div>
+                     data-en="Awareness">Awareness</div>
             </div>
             <div class="phase phase-2">
                 <div class="phase-number" onclick="scrollToStage(2)">2</div>
                 <div class="phase-name"
                      data-ru="Рассмотрение"
                      data-pl="Rozważanie"
-                     data-en="Consideration">Рассмотрение</div>
+                     data-en="Consideration">Consideration</div>
             </div>
             <div class="phase phase-3">
                 <div class="phase-number" onclick="scrollToStage(3)">3</div>
                 <div class="phase-name"
                      data-ru="Тестирование"
                      data-pl="Testowanie"
-                     data-en="Testing">Тестирование</div>
+                     data-en="Testing">Testing</div>
             </div>
             <div class="phase phase-4">
                 <div class="phase-number" onclick="scrollToStage(4)">4</div>
                 <div class="phase-name"
                      data-ru="Принятие решения"
                      data-pl="Podejmowanie decyzji"
-                     data-en="Decision Making">Принятие решения</div>
+                     data-en="Decision Making">Decision Making</div>
             </div>
             <div class="phase phase-5">
                 <div class="phase-number" onclick="scrollToStage(5)">5</div>
                 <div class="phase-name"
                      data-ru="Внедрение"
                      data-pl="Wdrożenie"
-                     data-en="Implementation">Внедрение</div>
+                     data-en="Implementation">Implementation</div>
             </div>
             <div class="phase phase-6">
                 <div class="phase-number" onclick="scrollToStage(6)">6</div>
                 <div class="phase-name"
                      data-ru="Использование"
                      data-pl="Użytkowanie"
-                     data-en="Usage">Использование</div>
+                     data-en="Usage">Usage</div>
             </div>
             <div class="phase phase-7">
                 <div class="phase-number" onclick="scrollToStage(7)">7</div>
                 <div class="phase-name"
                      data-ru="Лояльность"
                      data-pl="Lojalność"
-                     data-en="Loyalty">Лояльность</div>
+                     data-en="Loyalty">Loyalty</div>
             </div>
         </div>
         
@@ -492,13 +438,13 @@
                 <h2 class="stage-title"
                    data-ru="Осведомленность"
                    data-pl="Świadomość"
-                   data-en="Awareness">Осведомленность</h2>
+                   data-en="Awareness">Awareness</h2>
             </div>
             <div class="stage-content">
                 <div class="content-section">
                     <div class="section-title">
                         <span class="action-icon">🔍</span>
-                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Действия</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
                     </div>
                     <ul>
                         <li data-ru="Узнает о B2B-решении для застройщиков на отраслевой выставке недвижимости" 
@@ -618,7 +564,7 @@
                 <div class="content-section">
                     <div class="section-title">
                         <span class="opportunity-icon">💡</span>
-                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Возможности</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
                     </div>
                     <ul>
                         <li data-ru="Продемонстрировать конкретные кейсы повышения продаж у других застройщиков"
@@ -653,13 +599,13 @@
                 <h2 class="stage-title"
                    data-ru="Рассмотрение"
                    data-pl="Rozważanie"
-                   data-en="Consideration">Рассмотрение</h2>
+                   data-en="Consideration">Consideration</h2>
             </div>
             <div class="stage-content">
                 <div class="content-section">
                     <div class="section-title">
                         <span class="action-icon">🔍</span>
-                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Действия</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
                     </div>
                     <ul>
                         <li data-ru="Организует демонстрационную встречу для отделов продаж, маркетинга и IT" 
@@ -784,7 +730,7 @@
                 <div class="content-section">
                     <div class="section-title">
                         <span class="opportunity-icon">💡</span>
-                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Возможности</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
                     </div>
                     <ul>
                         <li data-ru="Предложить поэтапный план внедрения с минимальным вмешательством в текущие процессы"
@@ -819,13 +765,13 @@
                 <h2 class="stage-title"
                    data-ru="Тестирование"
                    data-pl="Testowanie"
-                   data-en="Testing">Тестирование</h2>
+                   data-en="Testing">Testing</h2>
             </div>
             <div class="stage-content">
                 <div class="content-section">
                     <div class="section-title">
                         <span class="action-icon">🔍</span>
-                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Действия</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
                     </div>
                     <ul>
                         <li data-ru="Запускает пилотный проект на одном из строящихся объектов" 
@@ -950,7 +896,7 @@
                 <div class="content-section">
                     <div class="section-title">
                         <span class="opportunity-icon">💡</span>
-                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Возможности</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
                     </div>
                     <ul>
                         <li data-ru="Предоставить дополнительные опции кастомизации для ключевых сегментов клиентов"
@@ -985,13 +931,13 @@
                 <h2 class="stage-title"
                    data-ru="Принятие решения"
                    data-pl="Podejmowanie decyzji"
-                   data-en="Decision Making">Принятие решения</h2>
+                   data-en="Decision Making">Decision Making</h2>
             </div>
             <div class="stage-content">
                 <div class="content-section">
                     <div class="section-title">
                         <span class="action-icon">🔍</span>
-                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Действия</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
                     </div>
                     <ul>
                         <li data-ru="Анализирует результаты пилотного проекта: количество демонстраций, реакции клиентов, конверсию" 
@@ -1116,7 +1062,7 @@
                 <div class="content-section">
                     <div class="section-title">
                         <span class="opportunity-icon">💡</span>
-                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Возможности</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
                     </div>
                     <ul>
                         <li data-ru="Предложить гибкие тарифные планы с возможностью масштабирования"
@@ -1151,13 +1097,13 @@
                 <h2 class="stage-title"
                    data-ru="Внедрение"
                    data-pl="Wdrożenie"
-                   data-en="Implementation">Внедрение</h2>
+                   data-en="Implementation">Implementation</h2>
             </div>
             <div class="stage-content">
                 <div class="content-section">
                     <div class="section-title">
                         <span class="action-icon">🔍</span>
-                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Действия</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
                     </div>
                     <ul>
                         <li data-ru="Разворачивает систему на всех текущих строящихся объектах компании" 
@@ -1282,7 +1228,7 @@
                 <div class="content-section">
                     <div class="section-title">
                         <span class="opportunity-icon">💡</span>
-                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Возможности</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
                     </div>
                     <ul>
                         <li data-ru="Обеспечить выделенного менеджера по внедрению для поддержки на всех этапах"
@@ -1317,13 +1263,13 @@
                 <h2 class="stage-title"
                    data-ru="Использование"
                    data-pl="Użytkowanie"
-                   data-en="Usage">Использование</h2>
+                   data-en="Usage">Usage</h2>
             </div>
             <div class="stage-content">
                 <div class="content-section">
                     <div class="section-title">
                         <span class="action-icon">🔍</span>
-                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Действия</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
                     </div>
                     <ul>
                         <li data-ru="Активно применяет систему во всех офисах продаж компании" 
@@ -1448,7 +1394,7 @@
                 <div class="content-section">
                     <div class="section-title">
                         <span class="opportunity-icon">💡</span>
-                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Возможности</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
                     </div>
                     <ul>
                         <li data-ru="Разработать специальные функции для массовой работы с однотипными квартирами"
@@ -1483,13 +1429,13 @@
                 <h2 class="stage-title"
                    data-ru="Лояльность"
                    data-pl="Lojalność"
-                   data-en="Loyalty">Лояльность</h2>
+                   data-en="Loyalty">Loyalty</h2>
             </div>
             <div class="stage-content">
                 <div class="content-section">
                     <div class="section-title">
                         <span class="action-icon">🔍</span>
-                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Действия</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
                     </div>
                     <ul>
                         <li data-ru="Расширяет использование системы на все новые проекты компании" 
@@ -1614,7 +1560,7 @@
                 <div class="content-section">
                     <div class="section-title">
                         <span class="opportunity-icon">💡</span>
-                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Возможности</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
                     </div>
                     <ul>
                         <li data-ru="Создать программу привилегированных партнеров с эксклюзивным доступом к новым функциям"
@@ -1647,7 +1593,7 @@
             <h2 class="section-title" 
                data-ru="Ключевые метрики успеха" 
                data-pl="Kluczowe wskaźniki sukcesu" 
-               data-en="Key Success Metrics">Ключевые метрики успеха</h2>
+               data-en="Key Success Metrics">Key Success Metrics</h2>
             <div class="metrics-container">
                 <div class="metric-card">
                     <div class="metric-description" 
@@ -1670,61 +1616,96 @@
                     <div class="metric-details" 
                          data-ru="Уменьшение среднего времени от первого контакта до подписания договора для квартир с визуализацией" 
                          data-pl="Zmniejszenie średniego czasu od pierwszego kontaktu do podpisania umowy dla mieszkań z wizualizacją" 
-        <script>
-            // Функция для скролла к выбранному этапу
-            function scrollToStage(stageNumber) {
-                const stage = document.querySelector(`.stage-${stageNumber}`);
-                if (stage) {
-                    window.scrollTo({
-                        top: stage.offsetTop - 20,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Подсветка активного этапа
-                    document.querySelectorAll('.phase').forEach(phase => {
-                        phase.classList.remove('active-phase');
-                    });
-                    document.querySelector(`.phase-${stageNumber}`).classList.add('active-phase');
-                }
-            }
-            
-            // Функция для переключения языка
-            function switchLanguage(lang) {
-                // Установка языка для всех переводимых элементов
-                document.querySelectorAll('[data-ru], [data-pl], [data-en]').forEach(element => {
-                    if (element.getAttribute(`data-${lang}`)) {
-                        element.textContent = element.getAttribute(`data-${lang}`);
-                    }
-                });
+                         data-en="Decrease in average time from first contact to signing a contract for apartments with interior visualization">Уменьшение среднего времени от первого контакта до подписания договора для квартир с визуализацией</div>
+                </div>
                 
-                // Установка языка документа
-                document.documentElement.lang = lang;
+                <div class="metric-card">
+                    <div class="metric-description" 
+                         data-ru="Увеличение среднего чека" 
+                         data-pl="Zwiększenie średniego rachunku" 
+                         data-en="Increase in average check">Увеличение среднего чека</div>
+                    <div class="metric-value">+15%</div>
+                    <div class="metric-details" 
+                         data-ru="Рост среднего чека при использовании визуализации интерьеров" 
+                         data-pl="Wzrost średniego rachunku przy wykorzystaniu wizualizacji wnętrz" 
+                         data-en="Growth in average check when using interior visualizations">Рост среднего чека при использовании визуализации интерьеров</div>
+                </div>
                 
-                // Обновление состояния кнопок
-                document.querySelectorAll('.language-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                document.querySelector(`.language-btn[data-lang="${lang}"]`).classList.add('active');
+                <div class="metric-card">
+                    <div class="metric-description" 
+                         data-ru="Увеличение доли продаж с визуализацией" 
+                         data-pl="Zwiększenie udziału sprzedaży z wizualizacją" 
+                         data-en="Increase in sales share with visualization">Увеличение доли продаж с визуализацией</div>
+                    <div class="metric-value">+20%</div>
+                    <div class="metric-details" 
+                         data-ru="Рост доли продаж с визуализацией по сравнению с конкурентами" 
+                         data-pl="Wzrost udziału sprzedaży z wizualizacją w porównaniu z konkurentami" 
+                         data-en="Growth in sales share with visualization compared to competitors">Рост доли продаж с визуализацией по сравнению с конкурентами</div>
+                </div>
                 
-                // Сохранение выбора пользователя
-                localStorage.setItem('preferred-language', lang);
-            }
-            
-            // Добавление обработчиков событий для кнопок переключения языка
-            document.addEventListener('DOMContentLoaded', function() {
-                document.querySelectorAll('.language-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        switchLanguage(this.getAttribute('data-lang'));
-                    });
-                });
+                <div class="metric-card">
+                    <div class="metric-description" 
+                         data-ru="Увеличение времени между контактами с клиентом" 
+                         data-pl="Zwiększenie czasu między kontaktami z klientem" 
+                         data-en="Increase in time between customer interactions">Увеличение времени между контактами с клиентом</div>
+                    <div class="metric-value">+10%</div>
+                    <div class="metric-details" 
+                         data-ru="Рост времени между контактами с клиентом при использовании визуализации интерьеров" 
+                         data-pl="Wzrost czasu między kontaktami z klientem przy wykorzystaniu wizualizacji wnętrz" 
+                         data-en="Growth in time between customer interactions when using interior visualizations">Рост времени между контактами с клиентом при использовании визуализации интерьеров</div>
+                </div>
                 
-                // Проверка сохраненного языка
-                const savedLang = localStorage.getItem('preferred-language');
-                if (savedLang) {
-                    switchLanguage(savedLang);
-                }
-            });
-        </script>
+                <div class="metric-card">
+                    <div class="metric-description" 
+                         data-ru="Увеличение времени ответа на запрос клиента" 
+                         data-pl="Zwiększenie czasu odpowiedzi na zapytanie klienta" 
+                         data-en="Increase in response time to customer request">Увеличение времени ответа на запрос клиента</div>
+                    <div class="metric-value">+15%</div>
+                    <div class="metric-details" 
+                         data-ru="Рост времени ответа на запрос клиента при использовании визуализации интерьеров" 
+                         data-pl="Wzrost czasu odpowiedzi na zapytanie klienta przy wykorzystaniu wizualizacji wnętrz" 
+                         data-en="Growth in response time to customer request when using interior visualizations">Рост времени ответа на запрос клиента при использовании визуализации интерьеров</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-description" 
+                         data-ru="Увеличение времени ответа на запрос клиента в чате" 
+                         data-pl="Zwiększenie czasu odpowiedzi na zapytanie klienta w czacie" 
+                         data-en="Increase in response time to customer request in chat">Увеличение времени ответа на запрос клиента в чате</div>
+                    <div class="metric-value">+10%</div>
+                    <div class="metric-details" 
+                         data-ru="Рост времени ответа на запрос клиента в чате при использовании визуализации интерьеров" 
+                         data-pl="Wzrost czasu odpowiedzi na zapytanie klienta w czacie przy wykorzystaniu wizualizacji wnętrz" 
+                         data-en="Growth in response time to customer request in chat when using interior visualizations">Рост времени ответа на запрос клиента в чате при использовании визуализации интерьеров</div>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    <!-- Место для подвала -->
+    <div id="footer"></div>
+
+    <!-- Подключаем общий JavaScript -->
+    <script src="common.js"></script>
+    
+    <!-- Специфический для страницы JavaScript -->
+    <script>
+        // Функция для скролла к выбранному этапу
+        function scrollToStage(stageNumber) {
+            const stage = document.querySelector(`.stage-${stageNumber}`);
+            if (stage) {
+                window.scrollTo({
+                    top: stage.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+                
+                // Подсветка активного этапа
+                document.querySelectorAll('.phase').forEach(phase => {
+                    phase.classList.remove('active-phase');
+                });
+                document.querySelector(`.phase-${stageNumber}`).classList.add('active-phase');
+            }
+        }
+    </script>
 </body>
 </html> 
