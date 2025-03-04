@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comparison of personas and needs</title>
+    <title>Furniture Project - Personas and Needs Analysis</title>
     <!-- Подключаем общие стили -->
     <link rel="stylesheet" href="../common/css/common.css">
     <!-- Специфические стили для страницы -->
@@ -228,6 +228,77 @@
             font-size: 13px;
         }
         
+        /* Footer styles */
+        .site-footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #3498db;
+        }
+        
+        .footer-section p {
+            color: #bdc3c7;
+            line-height: 1.6;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(236, 240, 241, 0.1);
+            padding-top: 20px;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            color: #95a5a6;
+            font-size: 14px;
+            margin: 0;
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding-top: 130px;
@@ -246,21 +317,33 @@
             .persona-cards {
                 grid-template-columns: 1fr;
             }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Место для шапки -->
-    <div id="header"></div>
+    <!-- Navigation header -->
+    <nav class="navbar">
+        <a href="../index.html" class="navbar-logo">
+            <span class="logo-icon">🪑</span>
+            <span data-ru="Furniture Project" data-pl="Furniture Project" data-en="Furniture Project">Furniture Project</span>
+        </a>
+        <div class="navbar-links">
+            <a href="../index.html" class="navbar-link" data-ru="Главная" data-pl="Główna" data-en="Home">Home</a>
+            <a href="index.html" class="navbar-link" data-ru="Customer Journey Maps" data-pl="Customer Journey Maps" data-en="Customer Journey Maps">Customer Journey Maps</a>
+            <a href="persona-comparison.html" class="navbar-link active" data-ru="Персонажи" data-pl="Persony" data-en="Personas">Personas</a>
+        </div>
+        <div class="language-switcher">
+            <button class="language-btn" data-lang="ru">RU</button>
+            <button class="language-btn" data-lang="pl">PL</button>
+            <button class="language-btn active" data-lang="en">EN</button>
+        </div>
+    </nav>
 
     <div class="container">
-        <a href="index.html" class="back-link"
-           data-ru="← Вернуться к списку Customer Journey Maps" 
-           data-pl="← Powrót do listy Customer Journey Maps" 
-           data-en="← Back to Customer Journey Maps list">
-           ← Back to Customer Journey Maps list
-        </a>
-        
         <div class="header">
             <h1 data-ru="Анализ пользовательских потребностей" 
                 data-pl="Analiza potrzeb użytkowników" 
@@ -605,10 +688,78 @@
         </div>
     </div>
 
-    <!-- Место для подвала -->
-    <div id="footer"></div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-ru="О проекте" data-pl="O projekcie" data-en="About the Project">About the Project</h3>
+                    <p data-ru="Furniture Project — исследование потребностей и сценариев использования AI-системы для проектирования мебели различными категориями пользователей."
+                       data-pl="Furniture Project — badanie potrzeb i scenariuszy użytkowania systemu AI do projektowania mebli przez różne kategorie użytkowników."
+                       data-en="Furniture Project — a study of the needs and usage scenarios of an AI system for furniture design by various categories of users.">
+                        Furniture Project — a study of the needs and usage scenarios of an AI system for furniture design by various categories of users.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-ru="Навигация" data-pl="Nawigacja" data-en="Navigation">Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html" data-ru="Главная" data-pl="Główna" data-en="Home">Home</a></li>
+                        <li><a href="index.html" data-ru="Customer Journey Maps" data-pl="Customer Journey Maps" data-en="Customer Journey Maps">Customer Journey Maps</a></li>
+                        <li><a href="designer-journey-improved.html" data-ru="Путь дизайнера" data-pl="Podróż projektanta" data-en="Designer Journey">Designer Journey</a></li>
+                        <li><a href="independent-designer-journey.html" data-ru="Путь независимого дизайнера" data-pl="Podróż niezależnego projektanta" data-en="Independent Designer Journey">Independent Designer Journey</a></li>
+                        <li><a href="developer-journey.html" data-ru="Путь застройщика" data-pl="Podróż dewelopera" data-en="Developer Journey">Developer Journey</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-ru="© 2023 Furniture Project. Все права защищены." 
+                   data-pl="© 2023 Furniture Project. Wszelkie prawa zastrzeżone." 
+                   data-en="© 2023 Furniture Project. All rights reserved.">
+                    © 2023 Furniture Project. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Подключаем общий JavaScript -->
-    <script src="../common/js/common.js"></script>
+    <script>
+        // Language switching function
+        function switchLanguage(lang) {
+            // Update text of all elements with corresponding data attributes
+            document.querySelectorAll(`[data-${lang}]`).forEach(element => {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            });
+            
+            // Update HTML document language
+            document.documentElement.lang = lang;
+            
+            // Update language button states
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Save choice in localStorage
+            localStorage.setItem('preferred-language', lang);
+        }
+        
+        // Add event handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Assign handlers for language buttons
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchLanguage(this.getAttribute('data-lang'));
+                });
+            });
+            
+            // Check saved language
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang) {
+                switchLanguage(savedLang);
+            }
+        });
+    </script>
 </body>
 </html> 
