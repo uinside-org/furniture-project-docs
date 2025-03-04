@@ -11,43 +11,63 @@
         .header {
             text-align: center;
             margin-bottom: 40px;
-            background-color: #3498db;
+            background: linear-gradient(135deg, #3498db, #2980b9);
             color: white;
-            padding: 30px;
-            border-radius: 10px;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
         }
         
         .header h1 {
             margin: 0;
-            font-size: 28px;
+            font-size: 32px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
         .subheader {
             font-size: 18px;
-            opacity: 0.8;
-            margin-top: 10px;
+            opacity: 0.9;
+            margin-top: 15px;
+            font-weight: 300;
         }
         
         .persona {
             display: flex;
             background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .persona:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
         }
         
         .persona-image {
             flex: 0 0 150px;
-            background-color: #3498db;
-            border-radius: 10px;
-            margin-right: 20px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 15px;
+            margin-right: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 36px;
+            font-size: 48px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .persona:hover .persona-image {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
         
         .persona-details {
@@ -55,24 +75,35 @@
         }
         
         .persona-name {
-            font-size: 24px;
-            margin: 0 0 10px 0;
+            font-size: 28px;
+            margin: 0 0 15px 0;
             color: #2c3e50;
-            font-weight: bold;
+            font-weight: 700;
+        }
+        
+        .persona:hover .persona-name {
+            color: #3498db;
         }
         
         .persona-traits {
             display: flex;
             flex-wrap: wrap;
-            margin-top: 15px;
+            margin-top: 20px;
+            gap: 10px;
         }
         
         .persona-trait {
             background-color: #f1f1f1;
             padding: 8px 15px;
-            margin: 0 10px 10px 0;
             border-radius: 20px;
             font-size: 14px;
+            border: 1px solid transparent;
+        }
+        
+        .persona-trait:hover {
+            background-color: #e1f0fa;
+            border-color: #3498db;
+            transform: translateY(-2px);
         }
         
         .journey-phases {
@@ -101,16 +132,6 @@
             position: relative;
             z-index: 2;
             cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        
-        .phase:hover .phase-number {
-            transform: scale(1.15);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        
-        .phase:hover .phase-name {
-            font-weight: bold;
         }
         
         .phase:hover::after {
@@ -147,23 +168,22 @@
             color: white;
             font-size: 18px;
             cursor: pointer;
-            transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         
         .phase-name {
-            transition: all 0.3s ease;
             font-size: 14px;
             line-height: 1.3;
         }
         
-        .phase-1 .phase-number { background-color: #3498db; }
-        .phase-2 .phase-number { background-color: #2ecc71; }
-        .phase-3 .phase-number { background-color: #f1c40f; }
-        .phase-4 .phase-number { background-color: #e74c3c; }
-        .phase-5 .phase-number { background-color: #9b59b6; }
-        .phase-6 .phase-number { background-color: #34495e; }
-        .phase-7 .phase-number { background-color: #1abc9c; }
+        /* Цвета для фаз и этапов */
+        .phase-1 .phase-number, .stage-1 .stage-icon { background-color: #3498db; }
+        .phase-2 .phase-number, .stage-2 .stage-icon { background-color: #2ecc71; }
+        .phase-3 .phase-number, .stage-3 .stage-icon { background-color: #f1c40f; }
+        .phase-4 .phase-number, .stage-4 .stage-icon { background-color: #e74c3c; }
+        .phase-5 .phase-number, .stage-5 .stage-icon { background-color: #9b59b6; }
+        .phase-6 .phase-number, .stage-6 .stage-icon { background-color: #34495e; }
+        .phase-7 .phase-number, .stage-7 .stage-icon { background-color: #1abc9c; }
         
         .stage {
             margin-bottom: 60px;
@@ -173,6 +193,10 @@
             display: flex;
             align-items: center;
             margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
         
         .stage-icon {
@@ -186,20 +210,18 @@
             font-weight: bold;
             margin-right: 15px;
             font-size: 18px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-        
-        .stage-1 .stage-icon { background-color: #3498db; }
-        .stage-2 .stage-icon { background-color: #2ecc71; }
-        .stage-3 .stage-icon { background-color: #f1c40f; }
-        .stage-4 .stage-icon { background-color: #e74c3c; }
-        .stage-5 .stage-icon { background-color: #9b59b6; }
-        .stage-6 .stage-icon { background-color: #34495e; }
-        .stage-7 .stage-icon { background-color: #1abc9c; }
         
         .stage-title {
             font-size: 22px;
             color: #2c3e50;
             margin: 0;
+            font-weight: 600;
+        }
+        
+        .stage-header:hover .stage-title {
+            color: #3498db;
         }
         
         .stage-content {
@@ -207,34 +229,53 @@
             flex-wrap: wrap;
             gap: 20px;
             background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .content-section {
             flex: 1;
             min-width: 220px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .content-section:hover {
+            background-color: #f8f9fa;
         }
         
         .section-title {
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            font-size: 16px;
-            color: #7f8c8d;
+            justify-content: center;
+            font-size: 17px;
+            color: #34495e;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f1f1f1;
         }
         
-        .section-title i {
-            margin-right: 10px;
-            width: 24px;
-            height: 24px;
+        .content-section:hover .section-title {
+            border-bottom-color: #3498db;
+        }
+        
+        .section-title span {
+            margin-right: 12px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background-color: #f1f1f1;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-section:hover .section-title span {
+            transform: scale(1.1);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
         }
         
         .action-icon { background-color: #d4e6f1 !important; }
@@ -246,35 +287,74 @@
         ul {
             margin: 0;
             padding-left: 25px;
+            list-style-type: none;
         }
         
         li {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 5px;
         }
         
-        .emotion-positive { position: relative; padding-left: 22px; }
-        .emotion-negative { position: relative; padding-left: 22px; }
-        .emotion-neutral { position: relative; padding-left: 22px; }
+        li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
         
-        .emotion-positive::before {
-            content: "😊";
+        li:hover {
+            transform: translateX(5px);
+        }
+        
+        li:hover::before {
+            color: #2980b9;
+        }
+        
+        .emotion-positive, 
+        .emotion-negative, 
+        .emotion-neutral { 
+            position: relative; 
+            padding-left: 28px;
+        }
+        
+        .emotion-positive:hover, 
+        .emotion-negative:hover, 
+        .emotion-neutral:hover {
+            transform: scale(1.03);
+        }
+        
+        .emotion-positive::before,
+        .emotion-negative::before,
+        .emotion-neutral::before {
             position: absolute;
             left: 0;
             top: 0;
+            font-size: 18px;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 1;
+            text-align: center;
+        }
+        
+        .emotion-positive::before {
+            content: "😊";
         }
         
         .emotion-negative::before {
             content: "😞";
-            position: absolute;
-            left: 0;
-            top: 0;
         }
         
         .emotion-neutral::before {
             content: "😐";
-            position: absolute;
-            left: 0;
-            top: 0;
+        }
+        
+        .emotion-positive:hover::before,
+        .emotion-negative:hover::before,
+        .emotion-neutral:hover::before {
+            transform: scale(1.2);
         }
         
         .metrics {
@@ -309,11 +389,13 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
         
         .metric-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .metric-title {
@@ -367,6 +449,39 @@
         
         .active-phase .phase-name {
             font-weight: bold;
+        }
+        
+        /* Оптимизация анимаций и переходов */
+        .header,
+        .persona,
+        .phase,
+        .phase-number,
+        .phase-name,
+        .stage,
+        .stage-header,
+        .stage-icon,
+        .stage-title,
+        .stage-content,
+        .content-section,
+        .section-title,
+        .section-title span,
+        .metric-card,
+        li,
+        .emotion-positive, 
+        .emotion-negative, 
+        .emotion-neutral {
+            transition: all 0.3s ease;
+        }
+        
+        /* Упрощение эффектов при наведении */
+        .header:hover,
+        .persona:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        li:hover {
+            transform: translateX(3px);
         }
     </style>
 </head>
