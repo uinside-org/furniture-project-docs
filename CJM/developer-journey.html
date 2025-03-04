@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Journey Map застройщика</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background-color: #27ae60;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        .subheader {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .language-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .language-btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            font-weight: bold;
+        }
+        
+        .persona {
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .persona-image {
+            flex: 0 0 150px;
+            background-color: #27ae60;
+            border-radius: 10px;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 36px;
+        }
+        
+        .persona-details {
+            flex: 1;
+        }
+        
+        .persona-name {
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .persona-traits {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .trait {
+            background-color: #f1f1f1;
+            padding: 8px 15px;
+            margin: 0 10px 10px 0;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .journey-phases {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .journey-phases::after {
+            content: "";
+            position: absolute;
+            left: 30px;
+            right: 30px;
+            top: 50%;
+            height: 4px;
+            background-color: #e1e1e1;
+            z-index: 1;
+        }
+        
+        .phase {
+            width: 13%;
+            text-align: center;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .phase-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .phase-name {
+            font-size: 14px;
+            line-height: 1.3;
+        }
+        
+        .phase-1 .phase-number { background-color: #3498db; }
+        .phase-2 .phase-number { background-color: #2ecc71; }
+        .phase-3 .phase-number { background-color: #f1c40f; }
+        .phase-4 .phase-number { background-color: #e74c3c; }
+        .phase-5 .phase-number { background-color: #9b59b6; }
+        .phase-6 .phase-number { background-color: #34495e; }
+        .phase-7 .phase-number { background-color: #1abc9c; }
+        
+        .active-phase .phase-number {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        
+        .stage {
+            margin-bottom: 60px;
+        }
+        
+        .stage-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .stage-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        
+        .stage-1 .stage-icon { background-color: #3498db; }
+        .stage-2 .stage-icon { background-color: #2ecc71; }
+        .stage-3 .stage-icon { background-color: #f1c40f; }
+        .stage-4 .stage-icon { background-color: #e74c3c; }
+        .stage-5 .stage-icon { background-color: #9b59b6; }
+        .stage-6 .stage-icon { background-color: #34495e; }
+        .stage-7 .stage-icon { background-color: #1abc9c; }
+        
+        .stage-title {
+            font-size: 22px;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .stage-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .content-section {
+            flex: 1;
+            min-width: 220px;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #f1f1f1;
+        }
+        
+        .action-icon { background-color: #d4e6f1 !important; }
+        .thought-icon { background-color: #d4efdf !important; }
+        .emotion-icon { background-color: #fcf3cf !important; }
+        .opportunity-icon { background-color: #f2d7d5 !important; }
+        .pain-icon { background-color: #fadbd8 !important; }
+        
+        ul {
+            margin: 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .emotion-positive { position: relative; padding-left: 22px; }
+        .emotion-negative { position: relative; padding-left: 22px; }
+        .emotion-neutral { position: relative; padding-left: 22px; }
+        
+        .emotion-positive::before {
+            content: "😊";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .emotion-negative::before {
+            content: "😞";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .emotion-neutral::before {
+            content: "😐";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .success-metrics {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 24px;
+            margin-top: 0;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .metrics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .metric-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .metric-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 8px;
+        }
+        
+        .metric-description {
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .metric-details {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .conclusion {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .conclusion-content {
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .persona {
+                flex-direction: column;
+            }
+            
+            .persona-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .journey-phases {
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .stage-content {
+                flex-direction: column;
+            }
+            
+            .content-section {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="language-switcher">
+                <button class="language-btn active" data-lang="ru">RU</button>
+                <button class="language-btn" data-lang="pl">PL</button>
+                <button class="language-btn" data-lang="en">EN</button>
+            </div>
+            <h1 data-ru="Customer Journey Map: Застройщик, предлагающий меблированные квартиры" 
+                data-pl="Customer Journey Map: Deweloper oferujący mieszkania z meblami" 
+                data-en="Customer Journey Map: Real Estate Developer Offering Furnished Apartments">
+                Customer Journey Map: Застройщик, предлагающий меблированные квартиры
+            </h1>
+            <div class="subheader" 
+                 data-ru="Путь освоения AI-решения для масштабного проектирования мебели" 
+                 data-pl="Droga do opanowania rozwiązania AI do projektowania mebli na dużą skalę" 
+                 data-en="The journey of mastering an AI solution for large-scale furniture design">
+                Путь освоения AI-решения для масштабного проектирования мебели
+            </div>
+        </div>
+        
+        <div class="persona">
+            <div class="persona-image">Н.Д.</div>
+            <div class="persona-details">
+                <div class="persona-name" 
+                     data-ru="ООО «Новый Дом»"
+                     data-pl="LLC «Nowy Dom»"
+                     data-en="New Home LLC">ООО «Новый Дом»</div>
+                <div class="persona-description" 
+                     data-ru="Средний застройщик жилья комфорт-класса, реализующий 2-3 жилых комплекса одновременно. Ежегодно сдает около 600-800 квартир, из которых 20-25% предлагаются с готовой меблировкой. Ключевой представитель: Андрей, 41 год, руководитель отдела комплектации и отделки."
+                     data-pl="Średniej wielkości deweloper mieszkań klasy komfort, realizujący jednocześnie 2-3 kompleksy mieszkaniowe. Corocznie oddaje około 600-800 mieszkań, z których 20-25% oferowanych jest z gotowym umeblowaniem. Kluczowy przedstawiciel: Andrzej, 41 lat, kierownik działu kompletacji i wykończenia."
+                     data-en="Medium-sized comfort-class housing developer, implementing 2-3 residential complexes simultaneously. Annually delivers about 600-800 apartments, of which 20-25% are offered with furniture. Key representative: Andrey, 41, head of furnishing and finishing department.">
+                     Средний застройщик жилья комфорт-класса, реализующий 2-3 жилых комплекса одновременно. Ежегодно сдает около 600-800 квартир, из которых 20-25% предлагаются с готовой меблировкой. Ключевой представитель: Андрей, 41 год, руководитель отдела комплектации и отделки.
+                </div>
+                <div class="persona-traits">
+                    <div class="trait" 
+                         data-ru="Работа с большими объемами"
+                         data-pl="Praca z dużymi wolumenami"
+                         data-en="Handling large volumes">Работа с большими объемами</div>
+                    <div class="trait"
+                         data-ru="Стандартизация решений"
+                         data-pl="Standaryzacja rozwiązań"
+                         data-en="Standardization of solutions">Стандартизация решений</div>
+                    <div class="trait"
+                         data-ru="Жесткие сроки"
+                         data-pl="Sztywne terminy"
+                         data-en="Tight deadlines">Жесткие сроки</div>
+                    <div class="trait"
+                         data-ru="Оптимизация затрат"
+                         data-pl="Optymalizacja kosztów"
+                         data-en="Cost optimization">Оптимизация затрат</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="journey-phases">
+            <div class="phase phase-1">
+                <div class="phase-number" onclick="scrollToStage(1)">1</div>
+                <div class="phase-name" 
+                     data-ru="Осведомленность"
+                     data-pl="Świadomość"
+                     data-en="Awareness">Осведомленность</div>
+            </div>
+            <div class="phase phase-2">
+                <div class="phase-number" onclick="scrollToStage(2)">2</div>
+                <div class="phase-name"
+                     data-ru="Рассмотрение"
+                     data-pl="Rozważanie"
+                     data-en="Consideration">Рассмотрение</div>
+            </div>
+            <div class="phase phase-3">
+                <div class="phase-number" onclick="scrollToStage(3)">3</div>
+                <div class="phase-name"
+                     data-ru="Тестирование"
+                     data-pl="Testowanie"
+                     data-en="Testing">Тестирование</div>
+            </div>
+            <div class="phase phase-4">
+                <div class="phase-number" onclick="scrollToStage(4)">4</div>
+                <div class="phase-name"
+                     data-ru="Принятие решения"
+                     data-pl="Podejmowanie decyzji"
+                     data-en="Decision Making">Принятие решения</div>
+            </div>
+            <div class="phase phase-5">
+                <div class="phase-number" onclick="scrollToStage(5)">5</div>
+                <div class="phase-name"
+                     data-ru="Внедрение"
+                     data-pl="Wdrożenie"
+                     data-en="Implementation">Внедрение</div>
+            </div>
+            <div class="phase phase-6">
+                <div class="phase-number" onclick="scrollToStage(6)">6</div>
+                <div class="phase-name"
+                     data-ru="Использование"
+                     data-pl="Użytkowanie"
+                     data-en="Usage">Использование</div>
+            </div>
+            <div class="phase phase-7">
+                <div class="phase-number" onclick="scrollToStage(7)">7</div>
+                <div class="phase-name"
+                     data-ru="Лояльность"
+                     data-pl="Lojalność"
+                     data-en="Loyalty">Лояльность</div>
+            </div>
+        </div>
+        
+        <!-- Этап 1 -->
+        <div class="stage stage-1">
+            <div class="stage-header">
+                <div class="stage-icon">1</div>
+                <h2 class="stage-title"
+                   data-ru="Осведомленность"
+                   data-pl="Świadomość"
+                   data-en="Awareness">Осведомленность</h2>
+            </div>
+            <div class="stage-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="action-icon">🔍</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Действия</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Обнаруживает информацию об AI-решении для проектирования мебели в отраслевом журнале по недвижимости" 
+                            data-pl="Odkrywa informacje o rozwiązaniu AI do projektowania mebli w branżowym czasopiśmie nieruchomości"
+                            data-en="Discovers information about the AI furniture design solution in a real estate industry magazine">
+                            Обнаруживает информацию об AI-решении для проектирования мебели в отраслевом журнале по недвижимости
+                        </li>
+                        <li data-ru="Замечает упоминание в презентации на строительной выставке в секции 'умные решения для девелоперов'"
+                            data-pl="Zauważa wzmiankę w prezentacji na targach budowlanych w sekcji 'inteligentne rozwiązania dla deweloperów'"
+                            data-en="Notices a mention in a presentation at a construction exhibition in the 'smart solutions for developers' section">
+                            Замечает упоминание в презентации на строительной выставке в секции "умные решения для девелоперов"
+                        </li>
+                        <li data-ru="Получает рекомендацию от партнера-производителя мебели"
+                            data-pl="Otrzymuje rekomendację od partnera-producenta mebli"
+                            data-en="Receives a recommendation from a furniture manufacturing partner">
+                            Получает рекомендацию от партнера-производителя мебели
+                        </li>
+                        <li data-ru="Изучает информацию на сайте, обращая внимание на раздел B2B-решений"
+                            data-pl="Studiuje informacje na stronie internetowej, zwracając uwagę na sekcję rozwiązań B2B"
+                            data-en="Examines information on the website, focusing on the B2B solutions section">
+                            Изучает информацию на сайте, обращая внимание на раздел B2B-решений
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="thought-icon">💭</span>
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Мысли</span>
+                    </div>
+                    <ul>
+                        <li data-ru="&quot;Может ли это решение масштабироваться на сотни квартир одновременно?&quot;"
+                            data-pl="&quot;Czy to rozwiązanie może być skalowane na setki mieszkań jednocześnie?&quot;"
+                            data-en="&quot;Can this solution scale to hundreds of apartments simultaneously?&quot;">
+                            "Может ли это решение масштабироваться на сотни квартир одновременно?"
+                        </li>
+                        <li data-ru="&quot;Насколько легко интегрировать с нашими планировками из AutoCAD/Revit?&quot;"
+                            data-pl="&quot;Jak łatwo zintegrować z naszymi układami z AutoCAD/Revit?&quot;"
+                            data-en="&quot;How easy is it to integrate with our AutoCAD/Revit layouts?&quot;">
+                            "Насколько легко интегрировать с нашими планировками из AutoCAD/Revit?"
+                        </li>
+                        <li data-ru="&quot;Сколько это сэкономит во времени и бюджете при комплектации наших объектов?&quot;"
+                            data-pl="&quot;Ile to zaoszczędzi na czasie i budżecie przy wyposażaniu naszych obiektów?&quot;"
+                            data-en="&quot;How much will this save in time and budget when furnishing our properties?&quot;">
+                            "Сколько это сэкономит во времени и бюджете при комплектации наших объектов?"
+                        </li>
+                        <li data-ru="&quot;Сможем ли мы создать каталог типовых решений для наших планировок?&quot;"
+                            data-pl="&quot;Czy będziemy mogli stworzyć katalog typowych rozwiązań dla naszych układów?&quot;"
+                            data-en="&quot;Will we be able to create a catalog of standard solutions for our layouts?&quot;">
+                            "Сможем ли мы создать каталог типовых решений для наших планировок?"
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="emotion-icon">😊</span>
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Эмоции</span>
+                    </div>
+                    <ul>
+                        <li class="emotion-positive"
+                            data-ru="Заинтересованность в оптимизации процессов меблировки"
+                            data-pl="Zainteresowanie optymalizacją procesów umeblowania"
+                            data-en="Interest in optimizing furnishing processes">
+                            Заинтересованность в оптимизации процессов меблировки
+                        </li>
+                        <li class="emotion-neutral"
+                            data-ru="Скептицизм относительно реальной применимости для массового жилья"
+                            data-pl="Sceptycyzm co do rzeczywistej stosowalności dla masowego budownictwa mieszkaniowego"
+                            data-en="Skepticism about the actual applicability for mass housing">
+                            Скептицизм относительно реальной применимости для массового жилья
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Надежда на сокращение сроков и затрат на проектирование"
+                            data-pl="Nadzieja na skrócenie czasu i kosztów projektowania"
+                            data-en="Hope for reducing design time and costs">
+                            Надежда на сокращение сроков и затрат на проектирование
+                        </li>
+                        <li class="emotion-neutral"
+                            data-ru="Осторожность по отношению к новым технологическим решениям"
+                            data-pl="Ostrożność wobec nowych rozwiązań technologicznych"
+                            data-en="Caution regarding new technological solutions">
+                            Осторожность по отношению к новым технологическим решениям
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="pain-icon">⚠️</span>
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Болевые точки</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Сложность координации между архитекторами, дизайнерами и производителями мебели"
+                            data-pl="Trudność koordynacji między architektami, projektantami i producentami mebli"
+                            data-en="Complexity of coordination between architects, designers and furniture manufacturers">
+                            Сложность координации между архитекторами, дизайнерами и производителями мебели
+                        </li>
+                        <li data-ru="Текущие решения требуют слишком много ручной работы дизайнеров"
+                            data-pl="Obecne rozwiązania wymagają zbyt dużo ręcznej pracy projektantów"
+                            data-en="Current solutions require too much manual work from designers">
+                            Текущие решения требуют слишком много ручной работы дизайнеров
+                        </li>
+                        <li data-ru="Высокие затраты на создание технической документации для производства"
+                            data-pl="Wysokie koszty tworzenia dokumentacji technicznej dla produkcji"
+                            data-en="High costs of creating technical documentation for production">
+                            Высокие затраты на создание технической документации для производства
+                        </li>
+                        <li data-ru="Длительный цикл от проектирования до производства замедляет сдачу объектов"
+                            data-pl="Długi cykl od projektowania do produkcji spowalnia oddanie obiektów"
+                            data-en="Long cycle from design to production slows down property completion">
+                            Длительный цикл от проектирования до производства замедляет сдачу объектов
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="opportunity-icon">💡</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Возможности</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Предоставить демонстрацию работы на реальных планировках застройщика"
+                            data-pl="Zapewnić demonstrację pracy na rzeczywistych układach dewelopera"
+                            data-en="Provide a demonstration using the developer's actual layouts">
+                            Предоставить демонстрацию работы на реальных планировках застройщика
+                        </li>
+                        <li data-ru="Показать кейсы успешного внедрения в девелоперских проектах"
+                            data-pl="Pokazać przypadki udanego wdrożenia w projektach deweloperskich"
+                            data-en="Showcase successful implementation cases in development projects">
+                            Показать кейсы успешного внедрения в девелоперских проектах
+                        </li>
+                        <li data-ru="Представить калькулятор ROI с учетом масштаба проектов"
+                            data-pl="Przedstawić kalkulator ROI z uwzględnieniem skali projektów"
+                            data-en="Present an ROI calculator that takes into account the scale of projects">
+                            Представить калькулятор ROI с учетом масштаба проектов
+                        </li>
+                        <li data-ru="Предложить тестирование на одном из объектов без обязательств"
+                            data-pl="Zaproponować testy na jednym z obiektów bez zobowiązań"
+                            data-en="Offer testing on one of the properties without obligations">
+                            Предложить тестирование на одном из объектов без обязательств
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Этап 2 -->
+        <div class="stage stage-2">
+            <div class="stage-header">
+                <div class="stage-icon">2</div>
+                <h2 class="stage-title"
+                   data-ru="Рассмотрение"
+                   data-pl="Rozważanie"
+                   data-en="Consideration">Рассмотрение</h2>
+            </div>
+            <div class="stage-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="action-icon">🔍</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Действия</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Организует демонстрационную встречу с командой проектировщиков и закупщиков" 
+                            data-pl="Organizuje spotkanie demonstracyjne z zespołem projektantów i kupców"
+                            data-en="Organizes a demonstration meeting with the team of designers and procurement specialists">
+                            Организует демонстрационную встречу с командой проектировщиков и закупщиков
+                        </li>
+                        <li data-ru="Запрашивает пробный доступ и загружает несколько типовых планировок для тестирования"
+                            data-pl="Żąda dostępu próbnego i ładuje kilka typowych układów do testowania"
+                            data-en="Requests trial access and uploads several typical layouts for testing">
+                            Запрашивает пробный доступ и загружает несколько типовых планировок для тестирования
+                        </li>
+                        <li data-ru="Консультируется с текущими поставщиками мебели о возможности интеграции с их производством"
+                            data-pl="Konsultuje się z obecnymi dostawcami mebli o możliwości integracji z ich produkcją"
+                            data-en="Consults with current furniture suppliers about the possibility of integration with their production">
+                            Консультируется с текущими поставщиками мебели о возможности интеграции с их производством
+                        </li>
+                        <li data-ru="Проводит расчет потенциальной экономии времени и бюджета"
+                            data-pl="Przeprowadza obliczenia potencjalnych oszczędności czasu i budżetu"
+                            data-en="Calculates potential time and budget savings">
+                            Проводит расчет потенциальной экономии времени и бюджета
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="thought-icon">💭</span>
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Мысли</span>
+                    </div>
+                    <ul>
+                        <li data-ru="&quot;Какие технические требования необходимы для внедрения?&quot;"
+                            data-pl="&quot;Jakie wymagania techniczne są potrzebne do wdrożenia?&quot;"
+                            data-en="&quot;What technical requirements are necessary for implementation?&quot;">
+                            "Какие технические требования необходимы для внедрения?"
+                        </li>
+                        <li data-ru="&quot;Потребуется ли обучение наших сотрудников или отдельная команда?&quot;"
+                            data-pl="&quot;Czy będzie potrzebne szkolenie naszych pracowników lub osobny zespół?&quot;"
+                            data-en="&quot;Will our employees need training or will we need a separate team?&quot;">
+                            "Потребуется ли обучение наших сотрудников или отдельная команда?"
+                        </li>
+                        <li data-ru="&quot;Как это решение впишется в наш текущий процесс проектирования и сдачи объектов?&quot;"
+                            data-pl="&quot;Jak to rozwiązanie wpasuje się w nasz obecny proces projektowania i oddawania obiektów?&quot;"
+                            data-en="&quot;How will this solution fit into our current process of designing and delivering properties?&quot;">
+                            "Как это решение впишется в наш текущий процесс проектирования и сдачи объектов?"
+                        </li>
+                        <li data-ru="&quot;Какие риски могут возникнуть при переходе на новую систему?&quot;"
+                            data-pl="&quot;Jakie ryzyka mogą powstać przy przejściu na nowy system?&quot;"
+                            data-en="&quot;What risks might arise when transitioning to a new system?&quot;">
+                            "Какие риски могут возникнуть при переходе на новую систему?"
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="emotion-icon">😊</span>
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Эмоции</span>
+                    </div>
+                    <ul>
+                        <li class="emotion-positive"
+                            data-ru="Воодушевление от возможности оптимизировать процессы"
+                            data-pl="Entuzjazm z możliwości optymalizacji procesów"
+                            data-en="Enthusiasm about the possibility of optimizing processes">
+                            Воодушевление от возможности оптимизировать процессы
+                        </li>
+                        <li class="emotion-neutral"
+                            data-ru="Беспокойство о сложности внедрения"
+                            data-pl="Niepokój o złożoność wdrożenia"
+                            data-en="Concern about implementation complexity">
+                            Беспокойство о сложности внедрения
+                        </li>
+                        <li class="emotion-neutral"
+                            data-ru="Осторожный оптимизм относительно потенциальной экономии"
+                            data-pl="Ostrożny optymizm w odniesieniu do potencjalnych oszczędności"
+                            data-en="Cautious optimism about potential savings">
+                            Осторожный оптимизм относительно потенциальной экономии
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Интерес к инновационным подходам как конкурентному преимуществу"
+                            data-pl="Zainteresowanie innowacyjnym podejściem jako przewagą konkurencyjną"
+                            data-en="Interest in innovative approaches as a competitive advantage">
+                            Интерес к инновационным подходам как конкурентному преимуществу
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="pain-icon">⚠️</span>
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Болевые точки</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Необходимость совместимости с существующими BIM/CAD системами"
+                            data-pl="Konieczność kompatybilności z istniejącymi systemami BIM/CAD"
+                            data-en="Need for compatibility with existing BIM/CAD systems">
+                            Необходимость совместимости с существующими BIM/CAD системами
+                        </li>
+                        <li data-ru="Опасения по поводу надежности нового решения при массовом использовании"
+                            data-pl="Obawy dotyczące niezawodności nowego rozwiązania przy masowym zastosowaniu"
+                            data-en="Concerns about the reliability of the new solution in mass use">
+                            Опасения по поводу надежности нового решения при массовом использовании
+                        </li>
+                        <li data-ru="Вопросы интеграции с текущими процессами проектирования"
+                            data-pl="Kwestie integracji z obecnymi procesami projektowania"
+                            data-en="Questions about integration with current design processes">
+                            Вопросы интеграции с текущими процессами проектирования
+                        </li>
+                        <li data-ru="Неуверенность в готовности производителей мебели работать с новым форматом данных"
+                            data-pl="Niepewność co do gotowości producentów mebli do pracy z nowym formatem danych"
+                            data-en="Uncertainty about furniture manufacturers' readiness to work with the new data format">
+                            Неуверенность в готовности производителей мебели работать с новым форматом данных
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="opportunity-icon">💡</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Возможности</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Разработать процесс интеграции с системами проектирования застройщика"
+                            data-pl="Opracować proces integracji z systemami projektowania dewelopera"
+                            data-en="Develop an integration process with the developer's design systems">
+                            Разработать процесс интеграции с системами проектирования застройщика
+                        </li>
+                        <li data-ru="Предложить пилотный проект с ограниченным количеством типовых планировок"
+                            data-pl="Zaproponować projekt pilotażowy z ograniczoną liczbą typowych układów"
+                            data-en="Propose a pilot project with a limited number of standard layouts">
+                            Предложить пилотный проект с ограниченным количеством типовых планировок
+                        </li>
+                        <li data-ru="Предоставить документацию по API для интеграции с системами застройщика"
+                            data-pl="Dostarczyć dokumentację API do integracji z systemami dewelopera"
+                            data-en="Provide API documentation for integration with the developer's systems">
+                            Предоставить документацию по API для интеграции с системами застройщика
+                        </li>
+                        <li data-ru="Организовать семинар для проектировщиков и поставщиков мебели"
+                            data-pl="Zorganizować seminarium dla projektantów i dostawców mebli"
+                            data-en="Organize a workshop for designers and furniture suppliers">
+                            Организовать семинар для проектировщиков и поставщиков мебели
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Этап 3 -->
+        <div class="stage stage-3">
+            <div class="stage-header">
+                <div class="stage-icon">3</div>
+                <h2 class="stage-title"
+                   data-ru="Тестирование"
+                   data-pl="Testowanie"
+                   data-en="Testing">Тестирование</h2>
+            </div>
+            <div class="stage-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="action-icon">🔍</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Действия</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Загружает 3-5 типовых планировок для тестового проектирования" 
+                            data-pl="Ładuje 3-5 typowych układów do testowego projektowania"
+                            data-en="Uploads 3-5 typical layouts for test design">
+                            Загружает 3-5 типовых планировок для тестового проектирования
+                        </li>
+                        <li data-ru="Формирует рабочую группу из представителей разных отделов для оценки системы"
+                            data-pl="Formuje grupę roboczą z przedstawicieli różnych działów do oceny systemu"
+                            data-en="Forms a working group of representatives from different departments to evaluate the system">
+                            Формирует рабочую группу из представителей разных отделов для оценки системы
+                        </li>
+                        <li data-ru="Проводит сравнительный анализ времени проектирования с текущим подходом"
+                            data-pl="Przeprowadza analizę porównawczą czasu projektowania z obecnym podejściem"
+                            data-en="Conducts comparative analysis of design time with the current approach">
+                            Проводит сравнительный анализ времени проектирования с текущим подходом
+                        </li>
+                        <li data-ru="Запрашивает тестовые образцы технической документации для передачи производителям"
+                            data-pl="Żąda testowych próbek dokumentacji technicznej do przekazania producentom"
+                            data-en="Requests test samples of technical documentation for transfer to manufacturers">
+                            Запрашивает тестовые образцы технической документации для передачи производителям
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="thought-icon">💭</span>
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Мысли</span>
+                    </div>
+                    <ul>
+                        <li data-ru="&quot;Насколько точны автоматически генерируемые спецификации?&quot;"
+                            data-pl="&quot;Jak dokładne są automatycznie generowane specyfikacje?&quot;"
+                            data-en="&quot;How accurate are the automatically generated specifications?&quot;">
+                            "Насколько точны автоматически генерируемые спецификации?"
+                        </li>
+                        <li data-ru="&quot;Можем ли мы создать библиотеку стандартных решений для каждого типа квартир?&quot;"
+                            data-pl="&quot;Czy możemy stworzyć bibliotekę standardowych rozwiązań dla każdego typu mieszkań?&quot;"
+                            data-en="&quot;Can we create a library of standard solutions for each type of apartment?&quot;">
+                            "Можем ли мы создать библиотеку стандартных решений для каждого типа квартир?"
+                        </li>
+                        <li data-ru="&quot;Как быстро система позволяет вносить массовые изменения при корректировке планировок?&quot;"
+                            data-pl="&quot;Jak szybko system pozwala wprowadzać masowe zmiany przy korekcie układów?&quot;"
+                            data-en="&quot;How quickly does the system allow for mass changes when adjusting layouts?&quot;">
+                            "Как быстро система позволяет вносить массовые изменения при корректировке планировок?"
+                        </li>
+                        <li data-ru="&quot;Насколько качественны визуализации для маркетинговых материалов?&quot;"
+                            data-pl="&quot;Jak wysokiej jakości są wizualizacje do materiałów marketingowych?&quot;"
+                            data-en="&quot;How high-quality are the visualizations for marketing materials?&quot;">
+                            "Насколько качественны визуализации для маркетинговых материалов?"
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="emotion-icon">😊</span>
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Эмоции</span>
+                    </div>
+                    <ul>
+                        <li class="emotion-positive"
+                            data-ru="Удивление от скорости генерации проектов"
+                            data-pl="Zdziwienie szybkością generowania projektów"
+                            data-en="Surprise at the speed of project generation">
+                            Удивление от скорости генерации проектов
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Удовлетворение от точности технических спецификаций"
+                            data-pl="Satysfakcja z dokładności specyfikacji technicznych"
+                            data-en="Satisfaction with the accuracy of technical specifications">
+                            Удовлетворение от точности технических спецификаций
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Воодушевление от потенциала визуализаций для отдела продаж"
+                            data-pl="Entuzjazm z potencjału wizualizacji dla działu sprzedaży"
+                            data-en="Excitement about the potential of visualizations for the sales department">
+                            Воодушевление от потенциала визуализаций для отдела продаж
+                        </li>
+                        <li class="emotion-neutral"
+                            data-ru="Некоторое напряжение при выявлении ограничений системы"
+                            data-pl="Pewne napięcie przy odkrywaniu ograniczeń systemu"
+                            data-en="Some tension when identifying system limitations">
+                            Некоторое напряжение при выявлении ограничений системы
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="pain-icon">⚠️</span>
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Болевые точки</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Необходимость доработки некоторых аспектов системы под специфику массового жилья"
+                            data-pl="Potrzeba dostosowania niektórych aspektów systemu do specyfiki budownictwa masowego"
+                            data-en="Need to refine some aspects of the system for mass housing specifics">
+                            Необходимость доработки некоторых аспектов системы под специфику массового жилья
+                        </li>
+                        <li data-ru="Сложности с одновременной работой над множеством однотипных планировок"
+                            data-pl="Trudności z jednoczesną pracą nad wieloma podobnymi układami"
+                            data-en="Difficulties with simultaneous work on multiple similar layouts">
+                            Сложности с одновременной работой над множеством однотипных планировок
+                        </li>
+                        <li data-ru="Проблемы с интеграцией некоторых нестандартных элементов"
+                            data-pl="Problemy z integracją niektórych niestandardowych elementów"
+                            data-en="Problems with integrating some non-standard elements">
+                            Проблемы с интеграцией некоторых нестандартных элементов
+                        </li>
+                        <li data-ru="Ограничения по кастомизации под брендбук застройщика"
+                            data-pl="Ograniczenia w dostosowaniu do księgi znaku dewelopera"
+                            data-en="Limitations in customization for the developer's brand book">
+                            Ограничения по кастомизации под брендбук застройщика
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="opportunity-icon">💡</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Возможности</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Разработать функциональность массового проектирования для однотипных квартир"
+                            data-pl="Opracować funkcjonalność masowego projektowania dla podobnych mieszkań"
+                            data-en="Develop mass design functionality for similar apartments">
+                            Разработать функциональность массового проектирования для однотипных квартир
+                        </li>
+                        <li data-ru="Создать специальный интерфейс для работы с многоквартирными проектами"
+                            data-pl="Stworzyć specjalny interfejs do pracy z projektami wielomieszkaniowymi"
+                            data-en="Create a special interface for working with multi-apartment projects">
+                            Создать специальный интерфейс для работы с многоквартирными проектами
+                        </li>
+                        <li data-ru="Внедрить систему управления вариантами отделки и меблировки"
+                            data-pl="Wdrożyć system zarządzania wariantami wykończenia i umeblowania"
+                            data-en="Implement a management system for finishing and furnishing options">
+                            Внедрить систему управления вариантами отделки и меблировки
+                        </li>
+                        <li data-ru="Предложить интеграцию с системами визуализации для маркетинговых материалов"
+                            data-pl="Zaproponować integrację z systemami wizualizacji dla materiałów marketingowych"
+                            data-en="Offer integration with visualization systems for marketing materials">
+                            Предложить интеграцию с системами визуализации для маркетинговых материалов
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // Функция для скролла к выбранному этапу
+            function scrollToStage(stageNumber) {
+                const stage = document.querySelector(`.stage-${stageNumber}`);
+                if (stage) {
+                    window.scrollTo({
+                        top: stage.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Подсветка активного этапа
+                    document.querySelectorAll('.phase').forEach(phase => {
+                        phase.classList.remove('active-phase');
+                    });
+                    document.querySelector(`.phase-${stageNumber}`).classList.add('active-phase');
+                }
+            }
+            
+            // Функция для переключения языка
+            function switchLanguage(lang) {
+                // Установка языка для всех переводимых элементов
+                document.querySelectorAll('[data-ru], [data-pl], [data-en]').forEach(element => {
+                    if (element.getAttribute(`data-${lang}`)) {
+                        element.textContent = element.getAttribute(`data-${lang}`);
+                    }
+                });
+                
+                // Установка языка документа
+                document.documentElement.lang = lang;
+                
+                // Обновление состояния кнопок
+                document.querySelectorAll('.language-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelector(`.language-btn[data-lang="${lang}"]`).classList.add('active');
+                
+                // Сохранение выбора пользователя
+                localStorage.setItem('preferred-language', lang);
+            }
+            
+            // Добавление обработчиков событий для кнопок переключения языка
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('.language-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        switchLanguage(this.getAttribute('data-lang'));
+                    });
+                });
+                
+                // Проверка сохраненного языка
+                const savedLang = localStorage.getItem('preferred-language');
+                if (savedLang) {
+                    switchLanguage(savedLang);
+                }
+            });
+        </script>
+    </div>
+</body>
+</html> 
