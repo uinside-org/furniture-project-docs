@@ -11,6 +11,96 @@
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
+            padding-top: 70px;
+        }
+        
+        /* Навигационная шапка */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 60px;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo-icon {
+            color: #3498db;
+            font-size: 24px;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-link {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .navbar-link:hover {
+            color: #3498db;
+        }
+
+        .navbar-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3498db;
+            transition: width 0.3s;
+        }
+
+        .navbar-link:hover::after {
+            width: 100%;
+        }
+        
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .language-btn {
+            background: rgba(52, 152, 219, 0.1);
+            border: none;
+            color: #2c3e50;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .language-btn:hover {
+            background: rgba(52, 152, 219, 0.2);
+        }
+        
+        .language-btn.active {
+            background: rgba(52, 152, 219, 0.3);
+            font-weight: bold;
         }
         
         .container {
@@ -22,7 +112,6 @@
         .header {
             text-align: center;
             margin: 30px 0;
-            position: relative;
         }
         
         .header h1 {
@@ -35,33 +124,6 @@
             font-size: 18px;
             color: #7f8c8d;
             margin-bottom: 30px;
-        }
-        
-        .language-switcher {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-        }
-        
-        .language-btn {
-            background-color: #f1f1f1;
-            border: none;
-            padding: 8px 12px;
-            margin-left: 5px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.2s;
-        }
-        
-        .language-btn:hover {
-            background-color: #ddd;
-        }
-        
-        .language-btn.active {
-            background-color: #3498db;
-            color: white;
         }
         
         .section {
@@ -164,28 +226,46 @@
         }
         
         @media (max-width: 768px) {
-            .persona-cards {
-                grid-template-columns: 1fr;
+            body {
+                padding-top: 130px;
             }
             
-            .language-switcher {
-                position: relative;
-                top: auto;
-                right: auto;
-                margin-bottom: 20px;
-                justify-content: center;
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            
+            .navbar-links {
+                margin: 10px 0;
+            }
+            
+            .persona-cards {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Навигационная шапка -->
+    <nav class="navbar">
+        <a href="../index.html" class="navbar-logo">
+            <span class="logo-icon">🪑</span>
+            <span data-ru="AI Furniture Design" data-pl="AI Projektowanie Mebli" data-en="AI Furniture Design">AI Furniture Design</span>
+        </a>
+        <div class="navbar-links">
+            <a href="../index.html" class="navbar-link" data-ru="Главная" data-pl="Główna" data-en="Home">Главная</a>
+            <a href="persona-comparison.html" class="navbar-link" data-ru="Персонажи" data-pl="Persony" data-en="Personas">Персонажи</a>
+        </div>
+        <div class="language-switcher">
+            <button class="language-btn active" data-lang="ru">RU</button>
+            <button class="language-btn" data-lang="pl">PL</button>
+            <button class="language-btn" data-lang="en">EN</button>
+        </div>
+    </nav>
+
     <div class="container">
         <div class="header">
-            <div class="language-switcher">
-                <button class="language-btn active" data-lang="ru">RU</button>
-                <button class="language-btn" data-lang="pl">PL</button>
-                <button class="language-btn" data-lang="en">EN</button>
-            </div>
             <h1 data-ru="Анализ пользовательских потребностей" 
                 data-pl="Analiza potrzeb użytkowników" 
                 data-en="User Needs Analysis">
@@ -506,9 +586,17 @@
     </div>
 
     <script>
-        // Функция для переключения языка
+        // Функция переключения языка
         function switchLanguage(lang) {
-            // Обновляем активную кнопку
+            // Обновляем текст всех элементов с соответствующими атрибутами данных
+            document.querySelectorAll(`[data-${lang}]`).forEach(element => {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            });
+            
+            // Обновляем язык HTML-документа
+            document.documentElement.lang = lang;
+            
+            // Обновляем состояние кнопок языка
             document.querySelectorAll('.language-btn').forEach(btn => {
                 if (btn.getAttribute('data-lang') === lang) {
                     btn.classList.add('active');
@@ -517,28 +605,24 @@
                 }
             });
             
-            // Обновляем текст на странице
-            document.querySelectorAll(`[data-${lang}]`).forEach(element => {
-                element.textContent = element.getAttribute(`data-${lang}`);
-            });
-            
             // Сохраняем выбор в localStorage
-            localStorage.setItem('preferred_language', lang);
+            localStorage.setItem('preferred-language', lang);
         }
         
-        // Добавляем обработчики событий для кнопок переключения языка
+        // Добавляем обработчики событий
         document.addEventListener('DOMContentLoaded', function() {
-            // Устанавливаем язык из localStorage или используем русский по умолчанию
-            const preferredLanguage = localStorage.getItem('preferred_language') || 'ru';
-            switchLanguage(preferredLanguage);
-            
-            // Добавляем обработчики для кнопок
+            // Назначаем обработчики для кнопок языка
             document.querySelectorAll('.language-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    switchLanguage(lang);
+                    switchLanguage(this.getAttribute('data-lang'));
                 });
             });
+            
+            // Проверяем сохраненный язык
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang) {
+                switchLanguage(savedLang);
+            }
         });
     </script>
 </body>
