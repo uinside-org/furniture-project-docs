@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Designer Customer Journey Map</title>
     <!-- Подключаем общие стили -->
-    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="common/css/common.css">
     <!-- Специфические стили для страницы -->
     <style>
         .header {
@@ -1341,60 +1341,21 @@
         </div>
     </div>
 
+    <!-- Место для подвала -->
+    <div id="footer"></div>
+
+    <!-- Подключаем общий JavaScript -->
+    <script src="common/js/common.js"></script>
+    
+    <!-- Специфический для страницы JavaScript -->
     <script>
+        // Функция для скролла к выбранному этапу
         function scrollToStage(stageNumber) {
             const stage = document.querySelector(`.stage-${stageNumber}`);
             if (stage) {
                 stage.scrollIntoView({ behavior: 'smooth' });
             }
         }
-        
-        // Language switching functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const languageBtns = document.querySelectorAll('.language-btn');
-            
-            // Initial language setup - needed for all elements
-            const allTranslatableElements = document.querySelectorAll('[data-ru], [data-pl], [data-en]');
-            
-            // Function to switch language
-            function switchLanguage(lang) {
-                // Update all translatable elements
-                allTranslatableElements.forEach(el => {
-                    const translation = el.getAttribute('data-' + lang);
-                    if (translation) {
-                        el.textContent = translation;
-                    }
-                });
-                
-                // Update html lang attribute
-                document.documentElement.lang = lang;
-                
-                // Update button states
-                languageBtns.forEach(b => {
-                    if (b.getAttribute('data-lang') === lang) {
-                        b.classList.add('active');
-                    } else {
-                        b.classList.remove('active');
-                    }
-                });
-                
-                // Store preference
-                localStorage.setItem('preferredLanguage', lang);
-            }
-            
-            // Add click events for language buttons
-            languageBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    switchLanguage(this.getAttribute('data-lang'));
-                });
-            });
-            
-            // Check for saved language preference
-            const savedLanguage = localStorage.getItem('preferredLanguage');
-            if (savedLanguage) {
-                switchLanguage(savedLanguage);
-            }
-        });
     </script>
 </body>
 </html>

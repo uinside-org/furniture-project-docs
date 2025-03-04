@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Journey Map независимого дизайнера интерьеров</title>
+    <!-- Подключаем общие стили -->
+    <link rel="stylesheet" href="common/css/common.css">
+    <!-- Специфические стили для страницы -->
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -364,6 +367,9 @@
     </style>
 </head>
 <body>
+    <!-- Место для шапки -->
+    <div id="header"></div>
+
     <div class="container">
         <div class="header">
             <div class="language-switcher">
@@ -1216,7 +1222,15 @@
         </div>
     </div>
 
+    <!-- Место для подвала -->
+    <div id="footer"></div>
+
+    <!-- Подключаем общий JavaScript -->
+    <script src="common/js/common.js"></script>
+    
+    <!-- Специфический для страницы JavaScript -->
     <script>
+        // Функция для скролла к выбранному этапу
         function scrollToStage(stageNumber) {
             const stage = document.querySelector(`.stage-${stageNumber}`);
             if (stage) {
@@ -1232,43 +1246,6 @@
                 document.querySelector(`.phase-${stageNumber}`).classList.add('active-phase');
             }
         }
-        
-        // Функция для переключения языка
-        function switchLanguage(lang) {
-            // Установка языка для всех переводимых элементов
-            document.querySelectorAll('[data-ru], [data-pl], [data-en]').forEach(element => {
-                if (element.getAttribute(`data-${lang}`)) {
-                    element.textContent = element.getAttribute(`data-${lang}`);
-                }
-            });
-            
-            // Установка языка документа
-            document.documentElement.lang = lang;
-            
-            // Обновление состояния кнопок
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`.language-btn[data-lang="${lang}"]`).classList.add('active');
-            
-            // Сохранение выбора пользователя
-            localStorage.setItem('preferred-language', lang);
-        }
-        
-        // Добавление обработчиков событий для кнопок переключения языка
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    switchLanguage(this.getAttribute('data-lang'));
-                });
-            });
-            
-            // Проверка сохраненного языка
-            const savedLang = localStorage.getItem('preferred-language');
-            if (savedLang) {
-                switchLanguage(savedLang);
-            }
-        });
     </script>
 </body>
 </html>

@@ -114,21 +114,21 @@ body {
 
 .footer-nav {
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 .footer-link {
     color: white;
     text-decoration: none;
-    opacity: 0.8;
+    font-size: 14px;
     transition: opacity 0.3s;
 }
 
 .footer-link:hover {
-    opacity: 1;
+    opacity: 0.8;
 }
 
-/* Responsive styles */
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .header-container, .footer-container {
         flex-direction: column;
@@ -143,6 +143,5 @@ body {
     
     .language-control {
         margin-top: 10px;
-        justify-content: center;
     }
 } 

@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Загружаем шапку и подвал
-    loadComponent('header', 'header.html', function() {
+    loadComponent('header', 'common/components/header.html', function() {
         // После загрузки шапки обновляем активную ссылку
         updateActiveLink();
     });
-    loadComponent('footer', 'footer.html');
+    loadComponent('footer', 'common/components/footer.html');
     
     // Инициализируем языковые настройки
     initializeLanguage();

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сравнение персонажей и потребностей</title>
+    <!-- Подключаем общие стили -->
+    <link rel="stylesheet" href="common/css/common.css">
+    <!-- Специфические стили для страницы -->
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -247,22 +250,8 @@
     </style>
 </head>
 <body>
-    <!-- Навигационная шапка -->
-    <nav class="navbar">
-        <a href="../index.html" class="navbar-logo">
-            <span class="logo-icon">🪑</span>
-            <span data-ru="AI Furniture Design" data-pl="AI Projektowanie Mebli" data-en="AI Furniture Design">AI Furniture Design</span>
-        </a>
-        <div class="navbar-links">
-            <a href="../index.html" class="navbar-link" data-ru="Главная" data-pl="Główna" data-en="Home">Главная</a>
-            <a href="persona-comparison.html" class="navbar-link" data-ru="Персонажи" data-pl="Persony" data-en="Personas">Персонажи</a>
-        </div>
-        <div class="language-switcher">
-            <button class="language-btn active" data-lang="ru">RU</button>
-            <button class="language-btn" data-lang="pl">PL</button>
-            <button class="language-btn" data-lang="en">EN</button>
-        </div>
-    </nav>
+    <!-- Место для шапки -->
+    <div id="header"></div>
 
     <div class="container">
         <div class="header">
@@ -585,45 +574,10 @@
         </div>
     </div>
 
-    <script>
-        // Функция переключения языка
-        function switchLanguage(lang) {
-            // Обновляем текст всех элементов с соответствующими атрибутами данных
-            document.querySelectorAll(`[data-${lang}]`).forEach(element => {
-                element.textContent = element.getAttribute(`data-${lang}`);
-            });
-            
-            // Обновляем язык HTML-документа
-            document.documentElement.lang = lang;
-            
-            // Обновляем состояние кнопок языка
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-            
-            // Сохраняем выбор в localStorage
-            localStorage.setItem('preferred-language', lang);
-        }
-        
-        // Добавляем обработчики событий
-        document.addEventListener('DOMContentLoaded', function() {
-            // Назначаем обработчики для кнопок языка
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    switchLanguage(this.getAttribute('data-lang'));
-                });
-            });
-            
-            // Проверяем сохраненный язык
-            const savedLang = localStorage.getItem('preferred-language');
-            if (savedLang) {
-                switchLanguage(savedLang);
-            }
-        });
-    </script>
+    <!-- Место для подвала -->
+    <div id="footer"></div>
+
+    <!-- Подключаем общий JavaScript -->
+    <script src="common/js/common.js"></script>
 </body>
 </html> 
