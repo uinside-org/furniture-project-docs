@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affluent Family Customer Journey Map</title>
+    <!-- Подключаем общие стили -->
+    <link rel="stylesheet" href="../common/css/common.css">
+    <!-- Специфические стили для страницы -->
+    <style>
+        /* ... existing styles from young-family-journey.html ... */
+    </style>
+</head>
+<body>
+    <!-- Включаем общий компонент шапки -->
+    <script>
+        fetch('../common/components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('afterbegin', data);
+                
+                // Активируем текущую страницу в навигации
+                document.getElementById('personas-link').classList.add('active');
+                
+                // Исправляем пути в навигации для страницы CJM
+                document.querySelectorAll('.site-navigation .nav-link').forEach(link => {
+                    // Если ссылка на главную, исправляем путь
+                    if (link.id === 'home-link') {
+                        link.setAttribute('href', '../index.html');
+                    }
+                    // Если ссылка на CJM, исправляем путь
+                    if (link.id === 'personas-link') {
+                        link.setAttribute('href', 'cjm-research.html');
+                    }
+                });
+                
+                // Исправляем ссылку на главную страницу в логотипе
+                document.querySelector('.site-title').setAttribute('href', '../index.html');
+                
+                // Инициализируем переключение языков
+                initLanguageSwitching();
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+    </script>
+
+    <div class="container">
+        <div class="header">
+            <h1 data-ru="Customer Journey Map: Состоятельная семья после переезда" 
+                data-pl="Customer Journey Map: Zamożna rodzina po przeprowadzce" 
+                data-en="Customer Journey Map: Affluent Family After Moving">
+                Customer Journey Map: Affluent Family After Moving
+            </h1>
+            <div class="subheader" 
+                 data-ru="Исследование пути состоятельной семьи, ищущей качественные мебельные решения" 
+                 data-pl="Badanie podróży zamożnej rodziny poszukującej wysokiej jakości rozwiązań meblowych" 
+                 data-en="Research on the journey of an affluent family seeking quality furniture solutions">
+                 Research on the journey of an affluent family seeking quality furniture solutions
+            </div>
+        </div>
+        
+        <div class="persona">
+            <div class="persona-image">👨‍👩‍👧‍👦</div>
+            <div class="persona-details">
+                <h2 class="persona-name" 
+                    data-ru="Семья Вундер"
+                    data-pl="Rodzina Wunder"
+                    data-en="The Wunder Family">The Wunder Family</h2>
+                <p data-ru="Супруги 35-45 лет, стабильный высокий доход, дети школьного возраста. Недавно переехали в новую квартиру площадью 120м². Готовы инвестировать в качественную эргономичную мебель. Часто не первое приобретение жилья. Значительный бюджет на обустройство жилья."
+                   data-pl="Małżeństwo w wieku 35-45 lat, stabilny wysoki dochód, dzieci w wieku szkolnym. Niedawno przeprowadzili się do nowego mieszkania o powierzchni 120m². Gotowi zainwestować w wysokiej jakości ergonomiczne meble. Często nie pierwsze mieszkanie. Znaczący budżet na urządzenie domu."
+                   data-en="Couple aged 35-45, stable high income, school-age children. Recently moved to a new 120m² apartment. Ready to invest in high-quality ergonomic furniture. Often not their first property purchase. Significant budget for home furnishing.">
+                   Couple aged 35-45, stable high income, school-age children. Recently moved to a new 120m² apartment. Ready to invest in high-quality ergonomic furniture. Often not their first property purchase. Significant budget for home furnishing.
+                </p>
+                
+                <div class="persona-traits">
+                    <div class="persona-trait" 
+                         data-ru="Высокие ожидания"
+                         data-pl="Wysokie oczekiwania"
+                         data-en="High expectations">High expectations</div>
+                    <div class="persona-trait"
+                         data-ru="Уникальные решения"
+                         data-pl="Unikalne rozwiązania"
+                         data-en="Unique solutions">Unique solutions</div>
+                    <div class="persona-trait"
+                         data-ru="Нехватка времени"
+                         data-pl="Brak czasu"
+                         data-en="Time constraints">Time constraints</div>
+                    <div class="persona-trait"
+                         data-ru="Ценят качество"
+                         data-pl="Cenią jakość"
+                         data-en="Value quality">Value quality</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="journey-phases">
+            <div class="phase phase-1" onclick="scrollToStage(1)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 1: Осведомленность"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 1: Świadomość"
+                 data-tooltip-en="Click to go to stage 1: Awareness"
+                 data-tooltip="Click to go to stage 1: Awareness">
+                <div class="phase-number">1</div>
+                <div class="phase-name" 
+                     data-ru="Осведомленность"
+                     data-pl="Świadomość"
+                     data-en="Awareness">Awareness</div>
+            </div>
+            <div class="phase phase-2" onclick="scrollToStage(2)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 2: Рассмотрение"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 2: Rozważanie"
+                 data-tooltip-en="Click to go to stage 2: Consideration"
+                 data-tooltip="Click to go to stage 2: Consideration">
+                <div class="phase-number">2</div>
+                <div class="phase-name"
+                     data-ru="Рассмотрение"
+                     data-pl="Rozważanie"
+                     data-en="Consideration">Consideration</div>
+            </div>
+            <div class="phase phase-3" onclick="scrollToStage(3)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 3: Тестирование"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 3: Testowanie"
+                 data-tooltip-en="Click to go to stage 3: Testing"
+                 data-tooltip="Click to go to stage 3: Testing">
+                <div class="phase-number">3</div>
+                <div class="phase-name"
+                     data-ru="Тестирование"
+                     data-pl="Testowanie"
+                     data-en="Testing">Testing</div>
+            </div>
+            <div class="phase phase-4" onclick="scrollToStage(4)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 4: Принятие решения"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 4: Podejmowanie decyzji"
+                 data-tooltip-en="Click to go to stage 4: Decision Making"
+                 data-tooltip="Click to go to stage 4: Decision Making">
+                <div class="phase-number">4</div>
+                <div class="phase-name"
+                     data-ru="Принятие решения"
+                     data-pl="Podejmowanie decyzji"
+                     data-en="Decision Making">Decision Making</div>
+            </div>
+            <div class="phase phase-5" onclick="scrollToStage(5)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 5: Получение и установка"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 5: Odbiór i instalacja"
+                 data-tooltip-en="Click to go to stage 5: Receiving & Installation"
+                 data-tooltip="Click to go to stage 5: Receiving & Installation">
+                <div class="phase-number">5</div>
+                <div class="phase-name"
+                     data-ru="Получение и установка"
+                     data-pl="Odbiór i instalacja"
+                     data-en="Receiving & Installation">Receiving & Installation</div>
+            </div>
+            <div class="phase phase-6" onclick="scrollToStage(6)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 6: Использование"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 6: Użytkowanie"
+                 data-tooltip-en="Click to go to stage 6: Usage"
+                 data-tooltip="Click to go to stage 6: Usage">
+                <div class="phase-number">6</div>
+                <div class="phase-name"
+                     data-ru="Использование"
+                     data-pl="Użytkowanie"
+                     data-en="Usage">Usage</div>
+            </div>
+            <div class="phase phase-7" onclick="scrollToStage(7)" 
+                 data-tooltip-ru="Нажмите для перехода к этапу 7: Лояльность"
+                 data-tooltip-pl="Kliknij, aby przejść do etapu 7: Lojalność"
+                 data-tooltip-en="Click to go to stage 7: Loyalty"
+                 data-tooltip="Click to go to stage 7: Loyalty">
+                <div class="phase-number">7</div>
+                <div class="phase-name"
+                     data-ru="Лояльность"
+                     data-pl="Lojalność"
+                     data-en="Loyalty">Loyalty</div>
+            </div>
+        </div>
+        
+        <!-- Этап 1 -->
+        <div class="stage stage-1">
+            <div class="stage-header">
+                <div class="stage-icon">1</div>
+                <h2 class="stage-title" 
+                    data-ru="Осведомленность"
+                    data-pl="Świadomość"
+                    data-en="Awareness">Awareness</h2>
+            </div>
+            <div class="stage-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="action-icon">🔍</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Обнаруживают необходимость обустройства нового жилья после переезда"
+                            data-pl="Odkrywają potrzebę urządzenia nowego mieszkania po przeprowadzce"
+                            data-en="Discover the need to furnish new housing after moving">
+                            Discover the need to furnish new housing after moving
+                        </li>
+                        <li data-ru="Просматривают интерьерные журналы и сайты для вдохновения"
+                            data-pl="Przeglądają magazyny wnętrzarskie i strony internetowe w poszukiwaniu inspiracji"
+                            data-en="Browse interior design magazines and websites for inspiration">
+                            Browse interior design magazines and websites for inspiration
+                        </li>
+                        <li data-ru="Обращаются к знакомым за рекомендациями дизайнеров и мебельных решений"
+                            data-pl="Zwracają się do znajomych o rekomendacje projektantów i rozwiązań meblowych"
+                            data-en="Ask friends for recommendations on designers and furniture solutions">
+                            Ask friends for recommendations on designers and furniture solutions
+                        </li>
+                        <li data-ru="Посещают премиальные мебельные салоны для ознакомления с предложениями"
+                            data-pl="Odwiedzają ekskluzywne salony meblowe, aby zapoznać się z ofertą"
+                            data-en="Visit premium furniture showrooms to explore offerings">
+                            Visit premium furniture showrooms to explore offerings
+                        </li>
+                        <li data-ru="Случайно узнают о новом AI-решении для проектирования мебели от консультанта в салоне"
+                            data-pl="Przypadkowo dowiadują się o nowym rozwiązaniu AI do projektowania mebli od konsultanta w salonie"
+                            data-en="Accidentally learn about the new AI furniture design solution from a showroom consultant">
+                            Accidentally learn about the new AI furniture design solution from a showroom consultant
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="thought-icon">💭</span>
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Thoughts</span>
+                    </div>
+                    <ul>
+                        <li data-ru="«Нам нужна мебель, которая идеально впишется в наше новое пространство»"
+                            data-pl="«Potrzebujemy mebli, które idealnie wpasują się w naszą nową przestrzeń»"
+                            data-en="«We need furniture that will perfectly fit our new space»">
+                            "We need furniture that will perfectly fit our new space"
+                        </li>
+                        <li data-ru="«Хотим что-то уникальное, не как у всех»"
+                            data-pl="«Chcemy czegoś unikalnego, nie takiego jak wszyscy»"
+                            data-en="«We want something unique, not like everyone else»">
+                            "We want something unique, not like everyone else"
+                        </li>
+                        <li data-ru="«Как найти решение, которое сочетает эстетику и функциональность?»"
+                            data-pl="«Jak znaleźć rozwiązanie łączące estetykę i funkcjonalność?»"
+                            data-en="«How to find a solution that combines aesthetics and functionality?»">
+                            "How to find a solution that combines aesthetics and functionality?"
+                        </li>
+                        <li data-ru="«Сможет ли технология создать действительно качественный дизайн?»"
+                            data-pl="«Czy technologia może stworzyć naprawdę wysokiej jakości projekt?»"
+                            data-en="«Can technology create truly quality design?»">
+                            "Can technology create truly quality design?"
+                        </li>
+                        <li data-ru="«Насколько точно можно визуализировать будущую мебель в нашем интерьере?»"
+                            data-pl="«Jak dokładnie można zwizualizować przyszłe meble w naszym wnętrzu?»"
+                            data-en="«How accurately can future furniture be visualized in our interior?»">
+                            "How accurately can future furniture be visualized in our interior?"
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="emotion-icon">😊</span>
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Emotions</span>
+                    </div>
+                    <ul>
+                        <li class="emotion-positive"
+                            data-ru="Воодушевление от возможности создать идеальное жилое пространство"
+                            data-pl="Entuzjazm z możliwości stworzenia idealnej przestrzeni mieszkalnej"
+                            data-en="Excitement about the possibility of creating an ideal living space">
+                            Excitement about the possibility of creating an ideal living space
+                        </li>
+                        <li class="emotion-negative"
+                            data-ru="Легкое беспокойство о правильности выбора мебели для нового дома"
+                            data-pl="Lekki niepokój o trafność wyboru mebli do nowego domu"
+                            data-en="Slight concern about choosing the right furniture for the new home">
+                            Slight concern about choosing the right furniture for the new home
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Интерес к инновационным технологиям в дизайне интерьера"
+                            data-pl="Zainteresowanie innowacyjnymi technologiami w projektowaniu wnętrz"
+                            data-en="Interest in innovative technologies in interior design">
+                            Interest in innovative technologies in interior design
+                        </li>
+                        <li class="emotion-negative"
+                            data-ru="Скептицизм относительно способности AI создать по-настоящему уникальный дизайн"
+                            data-pl="Sceptycyzm wobec zdolności AI do stworzenia prawdziwie unikalnego projektu"
+                            data-en="Skepticism about AI's ability to create truly unique design">
+                            Skepticism about AI's ability to create truly unique design
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Нетерпение быстрее завершить обустройство дома"
+                            data-pl="Niecierpliwość, by szybko zakończyć urządzanie domu"
+                            data-en="Impatience to complete home furnishing quickly">
+                            Impatience to complete home furnishing quickly
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="pain-icon">⚠️</span>
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Pain points</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Сложность выбора из множества вариантов на рынке"
+                            data-pl="Trudność wyboru spośród wielu opcji na rynku"
+                            data-en="Difficulty choosing from many options in the market">
+                            Difficulty choosing from many options in the market
+                        </li>
+                        <li data-ru="Нехватка времени на посещение множества мебельных салонов"
+                            data-pl="Brak czasu na odwiedzanie wielu salonów meblowych"
+                            data-en="Lack of time to visit multiple furniture showrooms">
+                            Lack of time to visit multiple furniture showrooms
+                        </li>
+                        <li data-ru="Трудности в визуализации, как мебель будет выглядеть в их конкретном интерьере"
+                            data-pl="Trudności w wizualizacji, jak meble będą wyglądać w ich konkretnym wnętrzu"
+                            data-en="Difficulties in visualizing how furniture will look in their specific interior">
+                            Difficulties in visualizing how furniture will look in their specific interior
+                        </li>
+                        <li data-ru="Опасения, что готовые решения не подойдут по размерам или стилю"
+                            data-pl="Obawy, że gotowe rozwiązania nie będą pasować rozmiarem lub stylem"
+                            data-en="Concerns that ready-made solutions won't fit in size or style">
+                            Concerns that ready-made solutions won't fit in size or style
+                        </li>
+                        <li data-ru="Сложность координации между различными поставщиками и подрядчиками"
+                            data-pl="Trudność w koordynacji między różnymi dostawcami i wykonawcami"
+                            data-en="Difficulty coordinating between different suppliers and contractors">
+                            Difficulty coordinating between different suppliers and contractors
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="opportunity-icon">💡</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Предложить высококачественную 3D-визуализацию мебели в их реальном интерьере"
+                            data-pl="Zaoferować wysokiej jakości wizualizację 3D mebli w ich rzeczywistym wnętrzu"
+                            data-en="Offer high-quality 3D visualization of furniture in their real interior">
+                            Offer high-quality 3D visualization of furniture in their real interior
+                        </li>
+                        <li data-ru="Продемонстрировать примеры уникальных дизайнерских решений, созданных с помощью AI"
+                            data-pl="Zaprezentować przykłady unikalnych rozwiązań projektowych stworzonych przy pomocy AI"
+                            data-en="Showcase examples of unique design solutions created using AI">
+                            Showcase examples of unique design solutions created using AI
+                        </li>
+                        <li data-ru="Подчеркнуть экономию времени при использовании технологии"
+                            data-pl="Podkreślić oszczędność czasu przy korzystaniu z technologii"
+                            data-en="Emphasize time savings when using the technology">
+                            Emphasize time savings when using the technology
+                        </li>
+                        <li data-ru="Обеспечить доступ к премиальной библиотеке материалов и отделок"
+                            data-pl="Zapewnić dostęp do premium biblioteki materiałów i wykończeń"
+                            data-en="Provide access to a premium library of materials and finishes">
+                            Provide access to a premium library of materials and finishes
+                        </li>
+                        <li data-ru="Предложить консультацию дизайнера для интерпретации их пожеланий в технические параметры"
+                            data-pl="Zaoferować konsultację projektanta do interpretacji ich życzeń na parametry techniczne"
+                            data-en="Offer designer consultation to interpret their wishes into technical parameters">
+                            Offer designer consultation to interpret their wishes into technical parameters
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Этап 2 -->
+        <div class="stage stage-2">
+            <div class="stage-header">
+                <div class="stage-icon">2</div>
+                <h2 class="stage-title"
+                   data-ru="Рассмотрение"
+                   data-pl="Rozważanie"
+                   data-en="Consideration">Consideration</h2>
+            </div>
+            <div class="stage-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="action-icon">🧐</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Изучают демонстрационные материалы и примеры работ, созданных с помощью AI"
+                            data-pl="Studiują materiały demonstracyjne i przykłady prac stworzonych przy pomocy AI"
+                            data-en="Study demonstration materials and examples of works created using AI">
+                            Study demonstration materials and examples of works created using AI
+                        </li>
+                        <li data-ru="Консультируются с дизайнером интерьера о возможностях технологии"
+                            data-pl="Konsultują się z projektantem wnętrz o możliwościach technologii"
+                            data-en="Consult with an interior designer about technology capabilities">
+                            Consult with an interior designer about technology capabilities
+                        </li>
+                        <li data-ru="Сравнивают традиционный процесс заказа мебели с новым AI-подходом"
+                            data-pl="Porównują tradycyjny proces zamawiania mebli z nowym podejściem AI"
+                            data-en="Compare traditional furniture ordering process with new AI approach">
+                            Compare traditional furniture ordering process with new AI approach
+                        </li>
+                        <li data-ru="Оценивают качество визуализаций и соответствие их эстетическим предпочтениям"
+                            data-pl="Oceniają jakość wizualizacji i zgodność z ich preferencjami estetycznymi"
+                            data-en="Evaluate visualization quality and correspondence to their aesthetic preferences">
+                            Evaluate visualization quality and correspondence to their aesthetic preferences
+                        </li>
+                        <li data-ru="Рассматривают возможность использования технологии для отдельных помещений"
+                            data-pl="Rozważają możliwość wykorzystania technologii dla poszczególnych pomieszczeń"
+                            data-en="Consider using the technology for individual rooms">
+                            Consider using the technology for individual rooms
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="thought-icon">💭</span>
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Thoughts</span>
+                    </div>
+                    <ul>
+                        <li data-ru="«Насколько точно система учтет наши индивидуальные предпочтения?»"
+                            data-pl="«Jak dokładnie system uwzględni nasze indywidualne preferencje?»"
+                            data-en="«How accurately will the system consider our individual preferences?»">
+                            "How accurately will the system consider our individual preferences?"
+                        </li>
+                        <li data-ru="«Будет ли конечный результат соответствовать визуализации?»"
+                            data-pl="«Czy końcowy rezultat będzie odpowiadał wizualizacji?»"
+                            data-en="«Will the final result match the visualization?»">
+                            "Will the final result match the visualization?"
+                        </li>
+                        <li data-ru="«Сможем ли мы вносить изменения в процессе работы?»"
+                            data-pl="«Czy będziemy mogli wprowadzać zmiany w trakcie pracy?»"
+                            data-en="«Will we be able to make changes during the process?»">
+                            "Will we be able to make changes during the process?"
+                        </li>
+                        <li data-ru="«Как будет организована доставка и сборка мебели?»"
+                            data-pl="«Jak będzie zorganizowana dostawa i montaż mebli?»"
+                            data-en="«How will furniture delivery and assembly be organized?»">
+                            "How will furniture delivery and assembly be organized?"
+                        </li>
+                        <li data-ru="«Стоит ли инвестировать в эту технологию или проще обратиться к традиционному дизайнеру?»"
+                            data-pl="«Czy warto inwestować w tę technologię, czy lepiej skorzystać z tradycyjnego projektanta?»"
+                            data-en="«Is it worth investing in this technology or easier to use a traditional designer?»">
+                            "Is it worth investing in this technology or easier to use a traditional designer?"
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="emotion-icon">😊</span>
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Emotions</span>
+                    </div>
+                    <ul>
+                        <li class="emotion-positive"
+                            data-ru="Заинтересованность в инновационном подходе к дизайну мебели"
+                            data-pl="Zainteresowanie innowacyjnym podejściem do projektowania mebli"
+                            data-en="Interest in innovative approach to furniture design">
+                            Interest in innovative approach to furniture design
+                        </li>
+                        <li class="emotion-neutral"
+                            data-ru="Осторожный оптимизм относительно качества конечного результата"
+                            data-pl="Ostrożny optymizm co do jakości końcowego rezultatu"
+                            data-en="Cautious optimism about the quality of the final result">
+                            Cautious optimism about the quality of the final result
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Удовлетворение от возможности увидеть будущую мебель в своем интерьере"
+                            data-pl="Zadowolenie z możliwości zobaczenia przyszłych mebli w swoim wnętrzu"
+                            data-en="Satisfaction from being able to see future furniture in their interior">
+                            Satisfaction from being able to see future furniture in their interior
+                        </li>
+                        <li class="emotion-negative"
+                            data-ru="Некоторая неуверенность в процессе, который отличается от традиционного"
+                            data-pl="Pewna niepewność co do procesu, który różni się od tradycyjnego"
+                            data-en="Some uncertainty about the process that differs from traditional">
+                            Some uncertainty about the process that differs from traditional
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Предвкушение от возможности получить уникальное решение"
+                            data-pl="Oczekiwanie na możliwość otrzymania unikalnego rozwiązania"
+                            data-en="Anticipation of getting a unique solution">
+                            Anticipation of getting a unique solution
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="pain-icon">⚠️</span>
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Pain points</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Сомнения в способности AI учесть все нюансы их пожеланий"
+                            data-pl="Wątpliwości co do zdolności AI do uwzględnienia wszystkich niuansów ich życzeń"
+                            data-en="Doubts about AI's ability to consider all nuances of their wishes">
+                            Doubts about AI's ability to consider all nuances of their wishes
+                        </li>
+                        <li data-ru="Беспокойство о качестве материалов и исполнения"
+                            data-pl="Obawy o jakość materiałów i wykonania"
+                            data-en="Concerns about materials and execution quality">
+                            Concerns about materials and execution quality
+                        </li>
+                        <li data-ru="Неуверенность в том, насколько система гибка для внесения изменений"
+                            data-pl="Niepewność co do elastyczności systemu w zakresie wprowadzania zmian"
+                            data-en="Uncertainty about how flexible the system is for making changes">
+                            Uncertainty about how flexible the system is for making changes
+                        </li>
+                        <li data-ru="Опасения относительно сроков изготовления и доставки"
+                            data-pl="Obawy dotyczące terminów produkcji i dostawy"
+                            data-en="Concerns about manufacturing and delivery times">
+                            Concerns about manufacturing and delivery times
+                        </li>
+                        <li data-ru="Вопросы о гарантии и послепродажном обслуживании"
+                            data-pl="Pytania o gwarancję i obsługę posprzedażową"
+                            data-en="Questions about warranty and after-sales service">
+                            Questions about warranty and after-sales service
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="opportunity-icon">💡</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Предоставить детальную информацию о процессе от дизайна до доставки"
+                            data-pl="Zapewnić szczegółowe informacje o procesie od projektu do dostawy"
+                            data-en="Provide detailed information about the process from design to delivery">
+                            Provide detailed information about the process from design to delivery
+                        </li>
+                        <li data-ru="Организовать посещение шоурума с образцами материалов и готовыми изделиями"
+                            data-pl="Zorganizować wizytę w showroomie z próbkami materiałów i gotowymi produktami"
+                            data-en="Organize showroom visits with material samples and finished products">
+                            Organize showroom visits with material samples and finished products
+                        </li>
+                        <li data-ru="Предложить гарантию соответствия конечного продукта визуализации"
+                            data-pl="Zaoferować gwarancję zgodności produktu końcowego z wizualizacją"
+                            data-en="Offer guarantee of final product matching visualization">
+                            Offer guarantee of final product matching visualization
+                        </li>
+                        <li data-ru="Обеспечить возможность консультации с дизайнером на всех этапах"
+                            data-pl="Zapewnić możliwość konsultacji z projektantem na wszystkich etapach"
+                            data-en="Provide possibility of consultation with designer at all stages">
+                            Provide possibility of consultation with designer at all stages
+                        </li>
+                        <li data-ru="Разработать программу послепродажного обслуживания премиум-класса"
+                            data-pl="Opracować program obsługi posprzedażowej klasy premium"
+                            data-en="Develop premium after-sales service program">
+                            Develop premium after-sales service program
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Этап 3 -->
+        <div class="stage stage-3">
+            <div class="stage-header">
+                <div class="stage-icon">3</div>
+                <h2 class="stage-title"
+                   data-ru="Тестирование"
+                   data-pl="Testowanie"
+                   data-en="Testing">Testing</h2>
+            </div>
+            <div class="stage-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="action-icon">🔍</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Тестируют демо-версию системы AI для создания дизайна"
+                            data-pl="Testują wersję demo systemu AI do tworzenia projektów"
+                            data-en="Test the AI system demo version for design creation">
+                            Test the AI system demo version for design creation
+                        </li>
+                        <li data-ru="Экспериментируют с различными материалами и отделками в виртуальной среде"
+                            data-pl="Eksperymentują z różnymi materiałami i wykończeniami w środowisku wirtualnym"
+                            data-en="Experiment with different materials and finishes in virtual environment">
+                            Experiment with different materials and finishes in virtual environment
+                        </li>
+                        <li data-ru="Проверяют точность измерений и соответствие пространственным ограничениям"
+                            data-pl="Sprawdzają dokładność pomiarów i zgodność z ograniczeniami przestrzennymi"
+                            data-en="Verify measurement accuracy and compliance with spatial constraints">
+                            Verify measurement accuracy and compliance with spatial constraints
+                        </li>
+                        <li data-ru="Оценивают качество визуализации в VR/AR для лучшего понимания масштаба"
+                            data-pl="Oceniają jakość wizualizacji w VR/AR dla lepszego zrozumienia skali"
+                            data-en="Evaluate visualization quality in VR/AR for better scale understanding">
+                            Evaluate visualization quality in VR/AR for better scale understanding
+                        </li>
+                        <li data-ru="Консультируются с дизайнером по поводу технических деталей и функциональности"
+                            data-pl="Konsultują się z projektantem w sprawie szczegółów technicznych i funkcjonalności"
+                            data-en="Consult with designer about technical details and functionality">
+                            Consult with designer about technical details and functionality
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="thought-icon">💭</span>
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Thoughts</span>
+                    </div>
+                    <ul>
+                        <li data-ru="«Насколько реалистичны эти визуализации?»"
+                            data-pl="«Jak realistyczne są te wizualizacje?»"
+                            data-en="«How realistic are these visualizations?»">
+                            "How realistic are these visualizations?"
+                        </li>
+                        <li data-ru="«Действительно ли система учитывает все наши требования?»"
+                            data-pl="«Czy system rzeczywiście uwzględnia wszystkie nasze wymagania?»"
+                            data-en="«Does the system really consider all our requirements?»">
+                            "Does the system really consider all our requirements?"
+                        </li>
+                        <li data-ru="«Как будет выглядеть мебель в реальном освещении?»"
+                            data-pl="«Jak meble będą wyglądać w rzeczywistym oświetleniu?»"
+                            data-en="«How will the furniture look in real lighting?»">
+                            "How will the furniture look in real lighting?"
+                        </li>
+                        <li data-ru="«Сможем ли мы получить именно те материалы, которые видим в визуализации?»"
+                            data-pl="«Czy będziemy mogli otrzymać dokładnie te materiały, które widzimy w wizualizacji?»"
+                            data-en="«Can we get exactly the materials we see in the visualization?»">
+                            "Can we get exactly the materials we see in the visualization?"
+                        </li>
+                        <li data-ru="«Стоит ли инвестировать в полную версию системы?»"
+                            data-pl="«Czy warto inwestować w pełną wersję systemu?»"
+                            data-en="«Is it worth investing in the full system version?»">
+                            "Is it worth investing in the full system version?"
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="emotion-icon">😊</span>
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Emotions</span>
+                    </div>
+                    <ul>
+                        <li class="emotion-positive"
+                            data-ru="Восхищение технологическими возможностями"
+                            data-pl="Zachwyt możliwościami technologicznymi"
+                            data-en="Amazement at technological capabilities">
+                            Amazement at technological capabilities
+                        </li>
+                        <li class="emotion-neutral"
+                            data-ru="Любопытство к процессу создания дизайна"
+                            data-pl="Ciekawość procesu tworzenia projektu"
+                            data-en="Curiosity about the design creation process">
+                            Curiosity about the design creation process
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Воодушевление от интерактивности процесса"
+                            data-pl="Entuzjazm z powodu interaktywności procesu"
+                            data-en="Excitement about process interactivity">
+                            Excitement about process interactivity
+                        </li>
+                        <li class="emotion-negative"
+                            data-ru="Настороженность к точности виртуальных примерок"
+                            data-pl="Ostrożność wobec dokładności wirtualnych przymiarek"
+                            data-en="Caution about virtual fitting accuracy">
+                            Caution about virtual fitting accuracy
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Оптимизм относительно конечного результата"
+                            data-pl="Optymizm co do końcowego rezultatu"
+                            data-en="Optimism about the final result">
+                            Optimism about the final result
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="pain-icon">⚠️</span>
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Pain points</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Ограничения демо-версии системы"
+                            data-pl="Ograniczenia wersji demo systemu"
+                            data-en="Limitations of the system demo version">
+                            Limitations of the system demo version
+                        </li>
+                        <li data-ru="Сложность оценки реального качества материалов через экран"
+                            data-pl="Trudność w ocenie rzeczywistej jakości materiałów przez ekran"
+                            data-en="Difficulty assessing real material quality through screen">
+                            Difficulty assessing real material quality through screen
+                        </li>
+                        <li data-ru="Неуверенность в точности цветопередачи"
+                            data-pl="Niepewność co do dokładności odwzorowania kolorów"
+                            data-en="Uncertainty about color accuracy">
+                            Uncertainty about color accuracy
+                        </li>
+                        <li data-ru="Технические ограничения VR/AR оборудования"
+                            data-pl="Ograniczenia techniczne sprzętu VR/AR"
+                            data-en="Technical limitations of VR/AR equipment">
+                            Technical limitations of VR/AR equipment
+                        </li>
+                        <li data-ru="Время, необходимое на изучение всех функций системы"
+                            data-pl="Czas potrzebny na poznanie wszystkich funkcji systemu"
+                            data-en="Time needed to learn all system functions">
+                            Time needed to learn all system functions
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="opportunity-icon">💡</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Предложить расширенную демо-версию для серьезных клиентов"
+                            data-pl="Zaoferować rozszerzoną wersję demo dla poważnych klientów"
+                            data-en="Offer extended demo version for serious clients">
+                            Offer extended demo version for serious clients
+                        </li>
+                        <li data-ru="Организовать демонстрацию материалов в реальности"
+                            data-pl="Zorganizować demonstrację materiałów w rzeczywistości"
+                            data-en="Organize real-life material demonstration">
+                            Organize real-life material demonstration
+                        </li>
+                        <li data-ru="Внедрить калибровку цвета для более точной визуализации"
+                            data-pl="Wdrożyć kalibrację kolorów dla dokładniejszej wizualizacji"
+                            data-en="Implement color calibration for more accurate visualization">
+                            Implement color calibration for more accurate visualization
+                        </li>
+                        <li data-ru="Предоставить доступ к премиум-оборудованию VR/AR"
+                            data-pl="Zapewnić dostęp do sprzętu VR/AR klasy premium"
+                            data-en="Provide access to premium VR/AR equipment">
+                            Provide access to premium VR/AR equipment
+                        </li>
+                        <li data-ru="Разработать программу персонального обучения системе"
+                            data-pl="Opracować program osobistego szkolenia z systemu"
+                            data-en="Develop personal system training program">
+                            Develop personal system training program
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Этап 4 -->
+        <div class="stage stage-4">
+            <div class="stage-header">
+                <div class="stage-icon">4</div>
+                <h2 class="stage-title"
+                   data-ru="Принятие решения"
+                   data-pl="Podejmowanie decyzji"
+                   data-en="Decision Making">Decision Making</h2>
+            </div>
+            <div class="stage-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="action-icon">✅</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Анализируют результаты тестирования и сравнивают с ожиданиями"
+                            data-pl="Analizują wyniki testów i porównują z oczekiwaniami"
+                            data-en="Analyze testing results and compare with expectations">
+                            Analyze testing results and compare with expectations
+                        </li>
+                        <li data-ru="Обсуждают детали контракта и условия гарантии"
+                            data-pl="Omawiają szczegóły umowy i warunki gwarancji"
+                            data-en="Discuss contract details and warranty terms">
+                            Discuss contract details and warranty terms
+                        </li>
+                        <li data-ru="Согласовывают график производства и установки"
+                            data-pl="Uzgadniają harmonogram produkcji i montażu"
+                            data-en="Agree on production and installation schedule">
+                            Agree on production and installation schedule
+                        </li>
+                        <li data-ru="Выбирают окончательные материалы и отделку"
+                            data-pl="Wybierają ostateczne materiały i wykończenia"
+                            data-en="Select final materials and finishes">
+                            Select final materials and finishes
+                        </li>
+                        <li data-ru="Утверждают финальный проект и смету"
+                            data-pl="Zatwierdzają końcowy projekt i kosztorys"
+                            data-en="Approve final project and estimate">
+                            Approve final project and estimate
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="thought-icon">💭</span>
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Thoughts</span>
+                    </div>
+                    <ul>
+                        <li data-ru="«Правильное ли это решение для нашего интерьера?»"
+                            data-pl="«Czy to właściwa decyzja dla naszego wnętrza?»"
+                            data-en="«Is this the right decision for our interior?»">
+                            "Is this the right decision for our interior?"
+                        </li>
+                        <li data-ru="«Оправдывает ли качество высокую стоимость?»"
+                            data-pl="«Czy jakość uzasadnia wysoką cenę?»"
+                            data-en="«Does the quality justify the high cost?»">
+                            "Does the quality justify the high cost?"
+                        </li>
+                        <li data-ru="«Уложимся ли мы в намеченные сроки?»"
+                            data-pl="«Czy zmieścimy się w planowanym terminie?»"
+                            data-en="«Will we meet the planned timeline?»">
+                            "Will we meet the planned timeline?"
+                        </li>
+                        <li data-ru="«Достаточно ли надежны гарантии?»"
+                            data-pl="«Czy gwarancje są wystarczająco pewne?»"
+                            data-en="«Are the warranties reliable enough?»">
+                            "Are the warranties reliable enough?"
+                        </li>
+                        <li data-ru="«Как быстро мы сможем получить замену в случае проблем?»"
+                            data-pl="«Jak szybko możemy otrzymać wymianę w razie problemów?»"
+                            data-en="«How quickly can we get replacements if problems arise?»">
+                            "How quickly can we get replacements if problems arise?"
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="emotion-icon">😊</span>
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Emotions</span>
+                    </div>
+                    <ul>
+                        <li class="emotion-positive"
+                            data-ru="Уверенность в качестве выбранного решения"
+                            data-pl="Pewność co do jakości wybranego rozwiązania"
+                            data-en="Confidence in chosen solution quality">
+                            Confidence in chosen solution quality
+                        </li>
+                        <li class="emotion-neutral"
+                            data-ru="Волнение перед крупными инвестициями"
+                            data-pl="Emocje przed dużymi inwestycjami"
+                            data-en="Excitement about major investments">
+                            Excitement about major investments
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Предвкушение реализации проекта"
+                            data-pl="Oczekiwanie na realizację projektu"
+                            data-en="Anticipation of project implementation">
+                            Anticipation of project implementation
+                        </li>
+                        <li class="emotion-negative"
+                            data-ru="Легкое беспокойство о сроках"
+                            data-pl="Lekki niepokój o terminy"
+                            data-en="Slight concern about timelines">
+                            Slight concern about timelines
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Удовлетворение от принятого решения"
+                            data-pl="Satysfakcja z podjętej decyzji"
+                            data-en="Satisfaction with decision made">
+                            Satisfaction with decision made
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="pain-icon">⚠️</span>
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Pain points</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Высокая стоимость проекта"
+                            data-pl="Wysoki koszt projektu"
+                            data-en="High project cost">
+                            High project cost
+                        </li>
+                        <li data-ru="Длительность процесса производства"
+                            data-pl="Długość procesu produkcji"
+                            data-en="Length of production process">
+                            Length of production process
+                        </li>
+                        <li data-ru="Сложность координации всех этапов"
+                            data-pl="Trudność w koordynacji wszystkich etapów"
+                            data-en="Difficulty coordinating all stages">
+                            Difficulty coordinating all stages
+                        </li>
+                        <li data-ru="Риски при транспортировке премиальной мебели"
+                            data-pl="Ryzyko podczas transportu mebli premium"
+                            data-en="Risks in premium furniture transportation">
+                            Risks in premium furniture transportation
+                        </li>
+                        <li data-ru="Необходимость долгосрочных обязательств"
+                            data-pl="Konieczność długoterminowych zobowiązań"
+                            data-en="Need for long-term commitments">
+                            Need for long-term commitments
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="opportunity-icon">💡</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Предложить премиальную программу страхования мебели"
+                            data-pl="Zaoferować program ubezpieczenia mebli premium"
+                            data-en="Offer premium furniture insurance program">
+                            Offer premium furniture insurance program
+                        </li>
+                        <li data-ru="Разработать систему отслеживания этапов производства"
+                            data-pl="Opracować system śledzenia etapów produkcji"
+                            data-en="Develop production stage tracking system">
+                            Develop production stage tracking system
+                        </li>
+                        <li data-ru="Обеспечить персонального менеджера проекта"
+                            data-pl="Zapewnić osobistego menedżera projektu"
+                            data-en="Provide personal project manager">
+                            Provide personal project manager
+                        </li>
+                        <li data-ru="Предложить услуги профессиональной транспортировки"
+                            data-pl="Zaoferować usługi profesjonalnego transportu"
+                            data-en="Offer professional transportation services">
+                            Offer professional transportation services
+                        </li>
+                        <li data-ru="Создать гибкую программу платежей"
+                            data-pl="Stworzyć elastyczny program płatności"
+                            data-en="Create flexible payment program">
+                            Create flexible payment program
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Этап 5 -->
+        <div class="stage stage-5">
+            <div class="stage-header">
+                <div class="stage-icon">5</div>
+                <h2 class="stage-title"
+                   data-ru="Получение и установка"
+                   data-pl="Odbiór i instalacja"
+                   data-en="Receiving & Installation">Receiving & Installation</h2>
+            </div>
+            <div class="stage-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="action-icon">📦</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Координируют с менеджером проекта процесс доставки"
+                            data-pl="Koordynują z menedżerem projektu proces dostawy"
+                            data-en="Coordinate delivery process with project manager">
+                            Coordinate delivery process with project manager
+                        </li>
+                        <li data-ru="Проверяют качество каждого предмета мебели при получении"
+                            data-pl="Sprawdzają jakość każdego mebla przy odbiorze"
+                            data-en="Check quality of each furniture piece upon receipt">
+                            Check quality of each furniture piece upon receipt
+                        </li>
+                        <li data-ru="Наблюдают за профессиональной сборкой и установкой"
+                            data-pl="Obserwują profesjonalny montaż i instalację"
+                            data-en="Observe professional assembly and installation">
+                            Observe professional assembly and installation
+                        </li>
+                        <li data-ru="Оценивают соответствие расстановки мебели проекту"
+                            data-pl="Oceniają zgodność rozmieszczenia mebli z projektem"
+                            data-en="Evaluate furniture placement according to project">
+                            Evaluate furniture placement according to project
+                        </li>
+                        <li data-ru="Получают инструкции по уходу за премиальной мебелью"
+                            data-pl="Otrzymują instrukcje dotyczące pielęgnacji mebli premium"
+                            data-en="Receive care instructions for premium furniture">
+                            Receive care instructions for premium furniture
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="thought-icon">💭</span>
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Thoughts</span>
+                    </div>
+                    <ul>
+                        <li data-ru="«Соответствует ли качество нашим ожиданиям?»"
+                            data-pl="«Czy jakość odpowiada naszym oczekiwaniom?»"
+                            data-en="«Does the quality meet our expectations?»">
+                            "Does the quality meet our expectations?"
+                        </li>
+                        <li data-ru="«Правильно ли расставлена мебель согласно проекту?»"
+                            data-pl="«Czy meble są prawidłowo rozmieszczone zgodnie z projektem?»"
+                            data-en="«Is the furniture properly placed according to the project?»">
+                            "Is the furniture properly placed according to the project?"
+                        </li>
+                        <li data-ru="«Насколько сложным будет уход за мебелью?»"
+                            data-pl="«Jak trudna będzie pielęgnacja mebli?»"
+                            data-en="«How difficult will furniture maintenance be?»">
+                            "How difficult will furniture maintenance be?"
+                        </li>
+                        <li data-ru="«Все ли детали соответствуют визуализации?»"
+                            data-pl="«Czy wszystkie detale odpowiadają wizualizacji?»"
+                            data-en="«Do all details match the visualization?»">
+                            "Do all details match the visualization?"
+                        </li>
+                        <li data-ru="«Как долго прослужит мебель при правильном уходе?»"
+                            data-pl="«Jak długo meble będą służyć przy prawidłowej pielęgnacji?»"
+                            data-en="«How long will the furniture last with proper care?»">
+                            "How long will the furniture last with proper care?"
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="emotion-icon">😊</span>
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Emotions</span>
+                    </div>
+                    <ul>
+                        <li class="emotion-positive"
+                            data-ru="Восхищение качеством исполнения"
+                            data-pl="Zachwyt jakością wykonania"
+                            data-en="Admiration for execution quality">
+                            Admiration for execution quality
+                        </li>
+                        <li class="emotion-neutral"
+                            data-ru="Внимательность при проверке деталей"
+                            data-pl="Uważność przy sprawdzaniu szczegółów"
+                            data-en="Attentiveness when checking details">
+                            Attentiveness when checking details
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Радость от преображения пространства"
+                            data-pl="Radość z transformacji przestrzeni"
+                            data-en="Joy from space transformation">
+                            Joy from space transformation
+                        </li>
+                        <li class="emotion-negative"
+                            data-ru="Легкое беспокойство о правильности ухода"
+                            data-pl="Lekki niepokój o prawidłową pielęgnację"
+                            data-en="Slight concern about proper care">
+                            Slight concern about proper care
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Удовлетворение от профессиональной установки"
+                            data-pl="Satysfakcja z profesjonalnego montażu"
+                            data-en="Satisfaction with professional installation">
+                            Satisfaction with professional installation
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="pain-icon">⚠️</span>
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Pain points</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Сложность координации времени доставки"
+                            data-pl="Trudność w koordynacji czasu dostawy"
+                            data-en="Difficulty coordinating delivery time">
+                            Difficulty coordinating delivery time
+                        </li>
+                        <li data-ru="Беспокойство о возможных повреждениях при транспортировке"
+                            data-pl="Obawy o możliwe uszkodzenia podczas transportu"
+                            data-en="Concerns about possible damage during transportation">
+                            Concerns about possible damage during transportation
+                        </li>
+                        <li data-ru="Необходимость присутствия при установке"
+                            data-pl="Konieczność obecności podczas montażu"
+                            data-en="Need to be present during installation">
+                            Need to be present during installation
+                        </li>
+                        <li data-ru="Сложность ухода за премиальными материалами"
+                            data-pl="Trudność w pielęgnacji materiałów premium"
+                            data-en="Complexity of premium materials care">
+                            Complexity of premium materials care
+                        </li>
+                        <li data-ru="Временные неудобства во время установки"
+                            data-pl="Tymczasowe niedogodności podczas instalacji"
+                            data-en="Temporary inconveniences during installation">
+                            Temporary inconveniences during installation
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="opportunity-icon">💡</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Предложить услугу временного хранения мебели"
+                            data-pl="Zaoferować usługę tymczasowego przechowywania mebli"
+                            data-en="Offer temporary furniture storage service">
+                            Offer temporary furniture storage service
+                        </li>
+                        <li data-ru="Разработать подробные видеоинструкции по уходу"
+                            data-pl="Opracować szczegółowe instrukcje wideo dotyczące pielęgnacji"
+                            data-en="Develop detailed video care instructions">
+                            Develop detailed video care instructions
+                        </li>
+                        <li data-ru="Обеспечить премиальный сервис установки в нерабочее время"
+                            data-pl="Zapewnić premium serwis montażu w godzinach pozaroboczych"
+                            data-en="Provide premium installation service during off-hours">
+                            Provide premium installation service during off-hours
+                        </li>
+                        <li data-ru="Предложить услугу профессиональной фотосъемки результата"
+                            data-pl="Zaoferować usługę profesjonalnej sesji zdjęciowej efektu"
+                            data-en="Offer professional photoshoot service of the result">
+                            Offer professional photoshoot service of the result
+                        </li>
+                        <li data-ru="Создать программу регулярного обслуживания мебели"
+                            data-pl="Stworzyć program regularnej konserwacji mebli"
+                            data-en="Create regular furniture maintenance program">
+                            Create regular furniture maintenance program
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Этап 6 -->
+        <div class="stage stage-6">
+            <div class="stage-header">
+                <div class="stage-icon">6</div>
+                <h2 class="stage-title"
+                   data-ru="Использование"
+                   data-pl="Użytkowanie"
+                   data-en="Usage">Usage</h2>
+            </div>
+            <div class="stage-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="action-icon">🏠</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Адаптируются к использованию новой мебели"
+                            data-pl="Adaptują się do korzystania z nowych mebli"
+                            data-en="Adapt to using new furniture">
+                            Adapt to using new furniture
+                        </li>
+                        <li data-ru="Следуют рекомендациям по уходу за премиальной мебелью"
+                            data-pl="Stosują się do zaleceń dotyczących pielęgnacji mebli premium"
+                            data-en="Follow premium furniture care recommendations">
+                            Follow premium furniture care recommendations
+                        </li>
+                        <li data-ru="Оценивают функциональность и комфорт в повседневной жизни"
+                            data-pl="Oceniają funkcjonalność i komfort w codziennym życiu"
+                            data-en="Evaluate functionality and comfort in daily life">
+                            Evaluate functionality and comfort in daily life
+                        </li>
+                        <li data-ru="Демонстрируют интерьер гостям"
+                            data-pl="Prezentują wnętrze gościom"
+                            data-en="Showcase interior to guests">
+                            Showcase interior to guests
+                        </li>
+                        <li data-ru="Планируют дополнительные улучшения интерьера"
+                            data-pl="Planują dodatkowe ulepszenia wnętrza"
+                            data-en="Plan additional interior improvements">
+                            Plan additional interior improvements
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="thought-icon">💭</span>
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Thoughts</span>
+                    </div>
+                    <ul>
+                        <li data-ru="«Насколько практична мебель в ежедневном использовании?»"
+                            data-pl="«Jak praktyczne są meble w codziennym użytkowaniu?»"
+                            data-en="«How practical is the furniture in daily use?»">
+                            "How practical is the furniture in daily use?"
+                        </li>
+                        <li data-ru="«Стоила ли инвестиция результата?»"
+                            data-pl="«Czy inwestycja była warta rezultatu?»"
+                            data-en="«Was the investment worth the result?»">
+                            "Was the investment worth the result?"
+                        </li>
+                        <li data-ru="«Как долго сохранится первоначальный вид мебели?»"
+                            data-pl="«Jak długo meble zachowają pierwotny wygląd?»"
+                            data-en="«How long will the furniture maintain its original appearance?»">
+                            "How long will the furniture maintain its original appearance?"
+                        </li>
+                        <li data-ru="«Какие еще улучшения можно внести в интерьер?»"
+                            data-pl="«Jakie jeszcze ulepszenia można wprowadzić do wnętrza?»"
+                            data-en="«What other improvements can be made to the interior?»">
+                            "What other improvements can be made to the interior?"
+                        </li>
+                        <li data-ru="«Стоит ли рекомендовать этот сервис друзьям?»"
+                            data-pl="«Czy warto polecić tę usługę znajomym?»"
+                            data-en="«Should we recommend this service to friends?»">
+                            "Should we recommend this service to friends?"
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="emotion-icon">😊</span>
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Emotions</span>
+                    </div>
+                    <ul>
+                        <li class="emotion-positive"
+                            data-ru="Гордость за созданный интерьер"
+                            data-pl="Duma z utworzonego wnętrza"
+                            data-en="Pride in created interior">
+                            Pride in created interior
+                        </li>
+                        <li class="emotion-neutral"
+                            data-ru="Привыкание к новому пространству"
+                            data-pl="Przyzwyczajanie się do nowej przestrzeni"
+                            data-en="Adaptation to new space">
+                            Adaptation to new space
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Удовольствие от использования качественной мебели"
+                            data-pl="Przyjemność z korystania z wysokiej jakości mebli"
+                            data-en="Pleasure from using quality furniture">
+                            Pleasure from using quality furniture
+                        </li>
+                        <li class="emotion-negative"
+                            data-ru="Осторожность при использовании дорогой мебели"
+                            data-pl="Ostrożność w użytkowaniu drogich mebli"
+                            data-en="Caution when using expensive furniture">
+                            Caution when using expensive furniture
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Вдохновение для дальнейших улучшений"
+                            data-pl="Inspiracja do dalszych ulepszeń"
+                            data-en="Inspiration for further improvements">
+                            Inspiration for further improvements
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="pain-icon">⚠️</span>
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Pain points</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Сложность поддержания идеального состояния мебели"
+                            data-pl="Trudność w utrzymaniu idealnego stanu mebli"
+                            data-en="Difficulty maintaining perfect furniture condition">
+                            Difficulty maintaining perfect furniture condition
+                        </li>
+                        <li data-ru="Беспокойство о возможных повреждениях"
+                            data-pl="Obawy o możliwe uszkodzenia"
+                            data-en="Concerns about possible damage">
+                            Concerns about possible damage
+                        </li>
+                        <li data-ru="Высокая стоимость профессионального ухода"
+                            data-pl="Wysoki koszt profesjonalnej pielęgnacji"
+                            data-en="High cost of professional maintenance">
+                            High cost of professional maintenance
+                        </li>
+                        <li data-ru="Ограничения в перестановке мебели"
+                            data-pl="Ograniczenia w przestawianiu mebli"
+                            data-en="Limitations in furniture rearrangement">
+                            Limitations in furniture rearrangement
+                        </li>
+                        <li data-ru="Сложность внесения изменений в готовый интерьер"
+                            data-pl="Trudność we wprowadzaniu zmian w gotowym wnętrzu"
+                            data-en="Difficulty making changes to finished interior">
+                            Difficulty making changes to finished interior
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="opportunity-icon">💡</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Предложить программу регулярного профессионального ухода"
+                            data-pl="Zaoferować program regularnej profesjonalnej pielęgnacji"
+                            data-en="Offer regular professional care program">
+                            Offer regular professional care program
+                        </li>
+                        <li data-ru="Разработать приложение для отслеживания графика обслуживания"
+                            data-pl="Opracować aplikację do śledzenia harmonogramu konserwacji"
+                            data-en="Develop maintenance schedule tracking app">
+                            Develop maintenance schedule tracking app
+                        </li>
+                        <li data-ru="Создать сервис консультаций по обновлению интерьера"
+                            data-pl="Stworzyć serwis konsultacji dotyczących odświeżenia wnętrza"
+                            data-en="Create interior refresh consultation service">
+                            Create interior refresh consultation service
+                        </li>
+                        <li data-ru="Предложить услугу сезонной адаптации пространства"
+                            data-pl="Zaoferować usługę sezonowej adaptacji przestrzeni"
+                            data-en="Offer seasonal space adaptation service">
+                            Offer seasonal space adaptation service
+                        </li>
+                        <li data-ru="Организовать клуб владельцев премиальной мебели"
+                            data-pl="Zorganizować klub właścicieli mebli premium"
+                            data-en="Organize premium furniture owners club">
+                            Organize premium furniture owners club
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Этап 7 -->
+        <div class="stage stage-7">
+            <div class="stage-header">
+                <div class="stage-icon">7</div>
+                <h2 class="stage-title"
+                   data-ru="Лояльность"
+                   data-pl="Lojalność"
+                   data-en="Loyalty">Loyalty</h2>
+            </div>
+            <div class="stage-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="action-icon">🤝</span>
+                        <span data-ru="Действия" data-pl="Działania" data-en="Actions">Actions</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Рекомендуют сервис друзьям и коллегам"
+                            data-pl="Polecają serwis przyjaciołom i współpracownikom"
+                            data-en="Recommend service to friends and colleagues">
+                            Recommend service to friends and colleagues
+                        </li>
+                        <li data-ru="Участвуют в программе лояльности премиум-класса"
+                            data-pl="Uczestniczą w programie lojalnościowym klasy premium"
+                            data-en="Participate in premium loyalty program">
+                            Participate in premium loyalty program
+                        </li>
+                        <li data-ru="Планируют дальнейшее сотрудничество для других помещений"
+                            data-pl="Planują dalszą współpracę dla innych pomieszczeń"
+                            data-en="Plan further collaboration for other rooms">
+                            Plan further collaboration for other rooms
+                        </li>
+                        <li data-ru="Делятся опытом в социальных сетях и на профессиональных форумах"
+                            data-pl="Dzielą się doświadczeniami w mediach społecznościowych i na forach profesjonalnych"
+                            data-en="Share experience on social media and professional forums">
+                            Share experience on social media and professional forums
+                        </li>
+                        <li data-ru="Обращаются за дополнительными услугами по обслуживанию"
+                            data-pl="Korzystają z dodatkowych usług serwisowych"
+                            data-en="Request additional maintenance services">
+                            Request additional maintenance services
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="thought-icon">💭</span>
+                        <span data-ru="Мысли" data-pl="Myśli" data-en="Thoughts">Thoughts</span>
+                    </div>
+                    <ul>
+                        <li data-ru="«Как развивать наш интерьер дальше?»"
+                            data-pl="«Jak dalej rozwijać nasze wnętrze?»"
+                            data-en="«How to further develop our interior?»">
+                            "How to further develop our interior?"
+                        </li>
+                        <li data-ru="«Какие новые коллекции и материалы появились?»"
+                            data-pl="«Jakie nowe kolekcje i materiały się pojawiły?»"
+                            data-en="«What new collections and materials have appeared?»">
+                            "What new collections and materials have appeared?"
+                        </li>
+                        <li data-ru="«Стоит ли заказать мебель для загородного дома?»"
+                            data-pl="«Czy warto zamówić meble do domu za miastem?»"
+                            data-en="«Should we order furniture for the country house?»">
+                            "Should we order furniture for the country house?"
+                        </li>
+                        <li data-ru="«Как получить максимум от программы лояльности?»"
+                            data-pl="«Jak uzyskać maksimum z programu lojalnościowego?»"
+                            data-en="«How to get the most from the loyalty program?»">
+                            "How to get the most from the loyalty program?"
+                        </li>
+                        <li data-ru="«Какие эксклюзивные предложения доступны постоянным клиентам?»"
+                            data-pl="«Jakie ekskluzywne oferty są dostępne dla stałych klientów?»"
+                            data-en="«What exclusive offers are available to regular customers?»">
+                            "What exclusive offers are available to regular customers?"
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="emotion-icon">😊</span>
+                        <span data-ru="Эмоции" data-pl="Emocje" data-en="Emotions">Emotions</span>
+                    </div>
+                    <ul>
+                        <li class="emotion-positive"
+                            data-ru="Гордость за статус премиального клиента"
+                            data-pl="Duma ze statusu klienta premium"
+                            data-en="Pride in premium client status">
+                            Pride in premium client status
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Удовлетворение от долгосрочного сотрудничества"
+                            data-pl="Satysfakcja z długoterminowej współpracy"
+                            data-en="Satisfaction from long-term cooperation">
+                            Satisfaction from long-term cooperation
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Энтузиазм относительно новых проектов"
+                            data-pl="Entuzjazm wobec nowych projektów"
+                            data-en="Enthusiasm about new projects">
+                            Enthusiasm about new projects
+                        </li>
+                        <li class="emotion-neutral"
+                            data-ru="Ожидание персонализированных предложений"
+                            data-pl="Oczekiwanie na spersonalizowane oferty"
+                            data-en="Anticipation of personalized offers">
+                            Anticipation of personalized offers
+                        </li>
+                        <li class="emotion-positive"
+                            data-ru="Уверенность в правильном выборе компании"
+                            data-pl="Pewność co do właściwego wyboru firmy"
+                            data-en="Confidence in choosing the right company">
+                            Confidence in choosing the right company
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="pain-icon">⚠️</span>
+                        <span data-ru="Болевые точки" data-pl="Punkty bólu" data-en="Pain points">Pain points</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Высокие ожидания от премиального сервиса"
+                            data-pl="Wysokie oczekiwania wobec serwisu premium"
+                            data-en="High expectations from premium service">
+                            High expectations from premium service
+                        </li>
+                        <li data-ru="Необходимость поддержания статуса в программе лояльности"
+                            data-pl="Konieczność utrzymania statusu w programie lojalnościowym"
+                            data-en="Need to maintain status in loyalty program">
+                            Need to maintain status in loyalty program
+                        </li>
+                        <li data-ru="Сложность координации нескольких проектов одновременно"
+                            data-pl="Trudność w koordynacji kilku projektów jednocześnie"
+                            data-en="Difficulty coordinating multiple projects simultaneously">
+                            Difficulty coordinating multiple projects simultaneously
+                        </li>
+                        <li data-ru="Ограниченное время для участия в эксклюзивных мероприятиях"
+                            data-pl="Ograniczony czas na udział w ekskluzywnych wydarzeniach"
+                            data-en="Limited time for participation in exclusive events">
+                            Limited time for participation in exclusive events
+                        </li>
+                        <li data-ru="Высокая стоимость дополнительных премиальных услуг"
+                            data-pl="Wysoki koszt dodatkowych usług premium"
+                            data-en="High cost of additional premium services">
+                            High cost of additional premium services
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span class="opportunity-icon">💡</span>
+                        <span data-ru="Возможности" data-pl="Możliwości" data-en="Opportunities">Opportunities</span>
+                    </div>
+                    <ul>
+                        <li data-ru="Создать эксклюзивный клуб для премиальных клиентов"
+                            data-pl="Stworzyć ekskluzywny klub dla klientów premium"
+                            data-en="Create exclusive club for premium clients">
+                            Create exclusive club for premium clients
+                        </li>
+                        <li data-ru="Разработать систему раннего доступа к новым коллекциям"
+                            data-pl="Opracować system wczesnego dostępu do nowych kolekcji"
+                            data-en="Develop early access system to new collections">
+                            Develop early access system to new collections
+                        </li>
+                        <li data-ru="Предложить услуги персонального дизайн-консультанта"
+                            data-pl="Zaoferować usługi osobistego konsultanta ds. designu"
+                            data-en="Offer personal design consultant services">
+                            Offer personal design consultant services
+                        </li>
+                        <li data-ru="Организовать закрытые мероприятия для обмена опытом"
+                            data-pl="Organizować zamknięte wydarzenia do wymiany doświadczeń"
+                            data-en="Organize private events for experience sharing">
+                            Organize private events for experience sharing
+                        </li>
+                        <li data-ru="Создать программу привилегий для долгосрочных клиентов"
+                            data-pl="Stworzyć program przywilejów dla długoterminowych klientów"
+                            data-en="Create privileges program for long-term clients">
+                            Create privileges program for long-term clients
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Включаем общий компонент подвала -->
+    <script>
+        fetch('../common/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('beforeend', data);
+                
+                // Инициализируем переключение языков для подвала
+                if (typeof initLanguageSwitchingFooter === 'function') {
+                    initLanguageSwitchingFooter();
+                }
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+            });
+    </script>
+
+    <script>
+        // ... existing scripts from young-family-journey.html ...
+    </script>
+</body>
+</html> 
