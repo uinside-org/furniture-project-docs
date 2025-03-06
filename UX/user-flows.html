@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Flows - AFUR AI Furniture Design</title>
+    <!-- Connect common styles -->
+    <link rel="stylesheet" href="../common/css/common.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 32px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            color: #3498db;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        p {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        /* Hero section */
+        .hero-section {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero-title {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Main content card */
+        .content-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            margin-bottom: 40px;
+            padding: 30px;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .section-subtitle {
+            color: #3498db;
+            font-size: 22px;
+            margin: 30px 0 15px;
+        }
+        
+        /* User flow diagram section */
+        .flow-diagram {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .flow-diagram-title {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .flow-diagram img {
+            max-width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Feature list */
+        .feature-list {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .feature-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .feature-list li:before {
+            content: '•';
+            color: #3498db;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+        
+        /* Numbered sections */
+        .numbered-section {
+            margin-bottom: 30px;
+        }
+        
+        .numbered-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .numbered-title .number {
+            background-color: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .numbered-title .text {
+            font-size: 20px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .numbered-content {
+            padding-left: 40px;
+        }
+        
+        /* Step by step section */
+        .step-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        
+        .step-card {
+            width: calc(33.33% - 20px);
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background-color: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .step-title {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .step-description {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        /* User flow process visualization */
+        .flow-process {
+            margin: 40px 0;
+        }
+        
+        .flow-process-container {
+            display: flex;
+            position: relative;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .flow-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .flow-step-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 30px;
+        }
+        
+        .flow-step-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .flow-step-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        
+        .flow-process-line {
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background-color: #e0e0e0;
+            z-index: 0;
+        }
+        
+        /* Landing page mockup */
+        .landing-mockup {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+        
+        .landing-mockup img {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Key elements grid */
+        .elements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .element-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .element-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .element-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .element-examples {
+            background-color: white;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+        
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .step-card {
+                width: 100%;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .flow-process-container {
+                flex-direction: column;
+            }
+            
+            .flow-step {
+                margin-bottom: 40px;
+            }
+            
+            .flow-process-line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Include common header component -->
+    <script>
+        fetch('../common/components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('afterbegin', data);
+                
+                // Fix navigation paths for the UX directory
+                document.querySelector('.site-title').setAttribute('href', '../index.html');
+                document.querySelectorAll('.site-navigation .nav-link').forEach(link => {
+                    if (link.id === 'home-link') {
+                        link.setAttribute('href', '../index.html');
+                    } else if (link.id === 'personas-link') {
+                        link.setAttribute('href', '../CJM/cjm-research.html');
+                    }
+                });
+                
+                // Set active link
+                document.querySelectorAll('.site-navigation .nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Initialize language switching
+                initLanguageSwitching();
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+    </script>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-title" 
+             data-ru="Пользовательские потоки AFUR AI" 
+             data-pl="Przepływy użytkowników AFUR AI" 
+             data-en="AFUR AI User Flows">
+            AFUR AI User Flows
+        </div>
+        <div class="hero-subtitle" 
+             data-ru="Детальные схемы взаимодействия пользователей с системой проектирования мебели с ИИ" 
+             data-pl="Szczegółowe schematy interakcji użytkowników z systemem projektowania mebli AI" 
+             data-en="Detailed diagrams of user interactions with the AI furniture design system">
+            Detailed diagrams of user interactions with the AI furniture design system
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Introduction Section -->
+        <div class="content-card">
+            <h2 class="section-title" 
+                data-ru="Обзор пользовательского опыта" 
+                data-pl="Przegląd doświadczenia użytkownika" 
+                data-en="User Experience Overview">
+                User Experience Overview
+            </h2>
+            
+            <p data-ru="AFUR AI предоставляет революционный подход к проектированию мебели, делая процесс быстрым, интуитивно понятным и доступным для различных типов пользователей — от профессиональных дизайнеров до владельцев домов. Ниже представлены подробные схемы пользовательского взаимодействия, демонстрирующие путь от первого посещения до завершения проекта."
+               data-pl="AFUR AI zapewnia rewolucyjne podejście do projektowania mebli, czyniąc proces szybkim, intuicyjnym i dostępnym dla różnych typów użytkowników — od profesjonalnych projektantów po właścicieli domów. Poniżej przedstawiono szczegółowe schematy interakcji użytkownika, przedstawiające podróż od pierwszej wizyty do ukończenia projektu."
+               data-en="AFUR AI provides a revolutionary approach to furniture design, making the process quick, intuitive, and accessible to various types of users — from professional designers to homeowners. Below are detailed user interaction diagrams showcasing the journey from first visit to project completion.">
+                AFUR AI provides a revolutionary approach to furniture design, making the process quick, intuitive, and accessible to various types of users — from professional designers to homeowners. Below are detailed user interaction diagrams showcasing the journey from first visit to project completion.
+            </p>
+            
+            <!-- User Journey Overview -->
+            <div class="flow-process">
+                <h3 class="section-subtitle" 
+                    data-ru="Общий путь пользователя" 
+                    data-pl="Ogólna podróż użytkownika" 
+                    data-en="User Journey Overview">
+                    User Journey Overview
+                </h3>
+                
+                <div class="flow-process-container">
+                    <div class="flow-process-line"></div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-step-icon">1</div>
+                        <div class="flow-step-title" 
+                             data-ru="Знакомство" 
+                             data-pl="Odkrycie" 
+                             data-en="Discovery">
+                            Discovery
+                        </div>
+                        <div class="flow-step-description" 
+                             data-ru="Пользователь находит платформу и изучает возможности" 
+                             data-pl="Użytkownik znajduje platformę i bada jej możliwości" 
+                             data-en="User finds the platform and explores capabilities">
+                            User finds the platform and explores capabilities
+                        </div>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-step-icon">2</div>
+                        <div class="flow-step-title" 
+                             data-ru="Ввод данных" 
+                             data-pl="Wprowadzanie danych" 
+                             data-en="Input">
+                            Input
+                        </div>
+                        <div class="flow-step-description" 
+                             data-ru="Определение пространства и требований" 
+                             data-pl="Definiowanie przestrzeni i wymagań" 
+                             data-en="Defining space and requirements">
+                            Defining space and requirements
+                        </div>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-step-icon">3</div>
+                        <div class="flow-step-title" 
+                             data-ru="Создание" 
+                             data-pl="Tworzenie" 
+                             data-en="Creation">
+                            Creation
+                        </div>
+                        <div class="flow-step-description" 
+                             data-ru="ИИ генерирует дизайн, основанный на вводе пользователя" 
+                             data-pl="AI generuje projekt oparty na danych użytkownika" 
+                             data-en="AI generates design based on user input">
+                            AI generates design based on user input
+                        </div>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-step-icon">4</div>
+                        <div class="flow-step-title" 
+                             data-ru="Настройка" 
+                             data-pl="Dostosowanie" 
+                             data-en="Refinement">
+                            Refinement
+                        </div>
+                        <div class="flow-step-description" 
+                             data-ru="Пользователь настраивает и улучшает дизайн" 
+                             data-pl="Użytkownik dostosowuje i ulepsza projekt" 
+                             data-en="User customizes and improves design">
+                            User customizes and improves design
+                        </div>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-step-icon">5</div>
+                        <div class="flow-step-title" 
+                             data-ru="Реализация" 
+                             data-pl="Realizacja" 
+                             data-en="Realization">
+                            Realization
+                        </div>
+                        <div class="flow-step-description" 
+                             data-ru="Заказ, производство и доставка мебели" 
+                             data-pl="Zamawianie, produkcja i dostawa mebli" 
+                             data-en="Ordering, manufacturing and delivery of furniture">
+                            Ordering, manufacturing and delivery of furniture
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Landing Page Experience Section -->
+        <div class="content-card">
+            <h2 class="section-title" 
+                data-ru="Опыт на целевой странице" 
+                data-pl="Doświadczenie na stronie docelowej" 
+                data-en="Landing Page Experience">
+                Landing Page Experience
+            </h2>
+            
+            <h3 class="section-subtitle" 
+                data-ru="Первое впечатление" 
+                data-pl="Pierwsze wrażenie" 
+                data-en="First Impression">
+                First Impression
+            </h3>
+            
+            <p data-ru="При посещении целевой страницы пользователи сразу видят ключевые элементы, которые создают сильное первое впечатление и эффективно передают основные преимущества платформы."
+               data-pl="Odwiedzając stronę docelową, użytkownicy natychmiast widzą kluczowe elementy, które tworzą silne pierwsze wrażenie i skutecznie przekazują główne korzyści platformy."
+               data-en="Upon visiting the landing page, users immediately see key elements that create a strong first impression and effectively communicate the platform's main benefits.">
+                Upon visiting the landing page, users immediately see key elements that create a strong first impression and effectively communicate the platform's main benefits.
+            </p>
+            
+            <div class="flow-diagram">
+                <div class="flow-diagram-title" 
+                     data-ru="Компоненты первого впечатления" 
+                     data-pl="Komponenty pierwszego wrażenia" 
+                     data-en="First Impression Components">
+                    First Impression Components
+                </div>
+                
+                <ul class="feature-list">
+                    <li data-ru="Яркий заголовок, объявляющий «Дизайн мебели с помощью ИИ: от идеи до реальности за считанные минуты»"
+                        data-pl="Wyrazisty nagłówek ogłaszający „Projektowanie mebli za pomocą AI: od pomysłu do rzeczywistości w ciągu kilku minut""
+                        data-en="A bold headline declaring "AI-Driven Furniture Design: From Idea to Reality in Minutes"">
+                        A bold headline declaring "AI-Driven Furniture Design: From Idea to Reality in Minutes"
+                    </li>
+                    <li data-ru="Чистый, визуально привлекательный интерфейс, демонстрирующий красивые дизайны мебели, созданные ИИ"
+                        data-pl="Czysty, wizualnie atrakcyjny interfejs prezentujący piękne projekty mebli stworzone przez AI"
+                        data-en="A clean, visually appealing interface showcasing beautiful AI-generated furniture designs">
+                        A clean, visually appealing interface showcasing beautiful AI-generated furniture designs
+                    </li>
+                    <li data-ru="Анимированная демонстрация, показывающая простоту процесса"
+                        data-pl="Animowana demonstracja pokazująca prostotę procesu"
+                        data-en="An animated demonstration showing the simplicity of the process">
+                        An animated demonstration showing the simplicity of the process
+                    </li>
+                    <li data-ru="Яркая кнопка «Попробовать сейчас», которая привлекает внимание"
+                        data-pl="Wyrazisty przycisk „Wypróbuj teraz", który przyciąga uwagę"
+                        data-en="A prominent "Try Now" button that draws attention">
+                        A prominent "Try Now" button that draws attention
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Placeholder for landing mockup, to be replaced with actual image -->
+            <div class="landing-mockup">
+                <img src="https://placehold.co/1200x600/e0e8f0/2c3e50?text=AFUR+AI+Landing+Page+Mockup" alt="Landing Page Mockup">
+            </div>
+            
+            <h3 class="section-subtitle" 
+                data-ru="Ключевые элементы целевой страницы" 
+                data-pl="Kluczowe elementy strony docelowej" 
+                data-en="Key Landing Page Elements">
+                Key Landing Page Elements
+            </h3>
+            
+            <div class="elements-grid">
+                <!-- Value Proposition Section -->
+                <div class="element-card">
+                    <div class="element-title" 
+                         data-ru="Раздел ценностного предложения" 
+                         data-pl="Sekcja propozycji wartości" 
+                         data-en="Value Proposition Section">
+                        Value Proposition Section
+                    </div>
+                    <div class="element-description" 
+                         data-ru="Ключевые преимущества представлены в краткой и понятной форме."
+                         data-pl="Kluczowe korzyści przedstawione w zwięzłej i zrozumiałej formie."
+                         data-en="Key benefits presented in a concise and understandable form.">
+                        Key benefits presented in a concise and understandable form.
+                    </div>
+                    <div class="element-examples">
+                        <ul>
+                            <li data-ru="«Создавайте индивидуальную мебель за минуты, а не недели»"
+                                data-pl="„Projektuj niestandardowe meble w ciągu minut, a nie tygodni""
+                                data-en=""Design custom furniture in minutes, not weeks"">
+                                "Design custom furniture in minutes, not weeks"
+                            </li>
+                            <li data-ru="«Экономьте до 65% на затратах на дизайн»"
+                                data-pl="„Oszczędź do 65% kosztów projektowania""
+                                data-en=""Save up to 65% on design costs"">
+                                "Save up to 65% on design costs"
+                            </li>
+                            <li data-ru="«Получайте готовые к производству планы мгновенно»"
+                                data-pl="„Otrzymuj plany gotowe do produkcji natychmiast""
+                                data-en=""Get production-ready plans instantly"">
+                                "Get production-ready plans instantly"
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- How It Works Section -->
+                <div class="element-card">
+                    <div class="element-title" 
+                         data-ru="Раздел «Как это работает»" 
+                         data-pl="Sekcja „Jak to działa"" 
+                         data-en="How It Works Section">
+                        How It Works Section
+                    </div>
+                    <div class="element-description" 
+                         data-ru="Визуализация процесса в простых шагах, делающих его понятным для пользователей."
+                         data-pl="Wizualizacja procesu w prostych krokach, czyniąc go zrozumiałym dla użytkowników."
+                         data-en="Process visualization in simple steps, making it understandable for users.">
+                        Process visualization in simple steps, making it understandable for users.
+                    </div>
+                    <div class="element-examples">
+                        <p data-ru="Простая визуализация процесса в 3 шага:"
+                           data-pl="Prosta wizualizacja procesu w 3 krokach:"
+                           data-en="Simple 3-step process visualization:">
+                            Simple 3-step process visualization:
+                        </p>
+                        <ol>
+                            <li data-ru="Поделитесь своим пространством (загрузите фотографии или размеры)"
+                                data-pl="Udostępnij swoją przestrzeń (prześlij zdjęcia lub wymiary)"
+                                data-en="Share your space (upload photos or measurements)">
+                                Share your space (upload photos or measurements)
+                            </li>
+                            <li data-ru="Скажите ИИ, что вам нужно (интерфейс чата)"
+                                data-pl="Powiedz AI, czego potrzebujesz (interfejs czatu)"
+                                data-en="Tell AI what you need (chat interface)">
+                                Tell AI what you need (chat interface)
+                            </li>
+                            <li data-ru="Получите индивидуальные дизайны и заказывайте напрямую"
+                                data-pl="Otrzymaj niestandardowe projekty i zamawiaj bezpośrednio"
+                                data-en="Receive custom designs and order directly">
+                                Receive custom designs and order directly
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <!-- Success Metrics Section -->
+                <div class="element-card">
+                    <div class="element-title" 
+                         data-ru="Раздел показателей успеха" 
+                         data-pl="Sekcja wskaźników sukcesu" 
+                         data-en="Success Metrics Section">
+                        Success Metrics Section
+                    </div>
+                    <div class="element-description" 
+                         data-ru="Конкретные числа, демонстрирующие эффективность платформы."
+                         data-pl="Konkretne liczby pokazujące skuteczność platformy."
+                         data-en="Specific numbers demonstrating the platform's efficiency.">
+                        Specific numbers demonstrating the platform's efficiency.
+                    </div>
+                    <div class="element-examples">
+                        <ul>
+                            <li data-ru="«Сокращение времени на дизайн на 80%»"
+                                data-pl="„80% redukcji czasu projektowania""
+                                data-en=""80% reduction in design time"">
+                                "80% reduction in design time"
+                            </li>
+                            <li data-ru="«На 90% меньше ошибок в производстве»"
+                                data-pl="„90% mniej błędów produkcyjnych""
+                                data-en=""90% fewer production errors"">
+                                "90% fewer production errors"
+                            </li>
+                            <li data-ru="«Увеличение продуктивности дизайнеров на 40%»"
+                                data-pl="„40% zwiększona produktywność projektantów""
+                                data-en=""40% increased designer productivity"">
+                                "40% increased designer productivity"
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Social Proof Section -->
+                <div class="element-card">
+                    <div class="element-title" 
+                         data-ru="Раздел социального доказательства" 
+                         data-pl="Sekcja dowodu społecznego" 
+                         data-en="Social Proof Section">
+                        Social Proof Section
+                    </div>
+                    <div class="element-description" 
+                         data-ru="Отзывы и примеры успеха, создающие доверие к платформе."
+                         data-pl="Referencje i przykłady sukcesów budujące zaufanie do platformy."
+                         data-en="Testimonials and success examples building trust in the platform.">
+                        Testimonials and success examples building trust in the platform.
+                    </div>
+                    <div class="element-examples">
+                        <ul>
+                            <li data-ru="Отзывы от дизайнеров мебели и владельцев домов"
+                                data-pl="Referencje od projektantów mebli i właścicieli domów"
+                                data-en="Testimonials from furniture designers and homeowners">
+                                Testimonials from furniture designers and homeowners
+                            </li>
+                            <li data-ru="Кейсы с примерами до/после"
+                                data-pl="Studia przypadków z przykładami przed/po"
+                                data-en="Case studies with before/after examples">
+                                Case studies with before/after examples
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- CTA Section -->
+                <div class="element-card">
+                    <div class="element-title" 
+                         data-ru="Раздел CTA" 
+                         data-pl="Sekcja CTA" 
+                         data-en="CTA Section">
+                        CTA Section
+                    </div>
+                    <div class="element-description" 
+                         data-ru="Призывы к действию, стимулирующие пользователей к дальнейшим шагам."
+                         data-pl="Wezwania do działania zachęcające użytkowników do podjęcia kolejnych kroków."
+                         data-en="Calls to action encouraging users to take next steps.">
+                        Calls to action encouraging users to take next steps.
+                    </div>
+                    <div class="element-examples">
+                        <ul>
+                            <li data-ru="Основной: кнопка «Начать проектирование сейчас»"
+                                data-pl="Podstawowy: przycisk „Zacznij projektować teraz""
+                                data-en="Primary: "Start Designing Now" button">
+                                Primary: "Start Designing Now" button
+                            </li>
+                            <li data-ru="Вторичный: кнопка «Посмотреть демонстрацию»"
+                                data-pl="Pomocniczy: przycisk „Obejrzyj demo""
+                                data-en="Secondary: "Watch Demo" button">
+                                Secondary: "Watch Demo" button
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User Flow Diagram placeholder -->
+            <div class="flow-diagram">
+                <div class="flow-diagram-title" 
+                     data-ru="Пользовательский поток на целевой странице" 
+                     data-pl="Przepływ użytkownika na stronie docelowej" 
+                     data-en="Landing Page User Flow">
+                    Landing Page User Flow
+                </div>
+                <!-- Placeholder for user flow diagram, to be replaced with actual diagram -->
+                <img src="https://placehold.co/1200x600/e0e8f0/2c3e50?text=Landing+Page+User+Flow+Diagram" alt="Landing Page User Flow Diagram">
+            </div>
+        </div>
+        
+        <!-- More sections will be added in the next steps -->
+        
+        <!-- App Experience Section -->
+        <div class="content-card">
+            <h2 class="section-title" 
+                data-ru="Опыт приложения" 
+                data-pl="Doświadczenie aplikacji" 
+                data-en="App Experience">
+                App Experience
+            </h2>
+            
+            <p data-ru="После перехода от целевой страницы пользователи попадают в основной опыт приложения, где начинается процесс создания мебели с помощью ИИ. Этот опыт разделен на логические экраны, которые проводят пользователя через весь процесс от определения пространства до окончательного дизайна."
+               data-pl="Po przejściu ze strony docelowej użytkownicy trafiają do głównego doświadczenia aplikacji, gdzie rozpoczyna się proces tworzenia mebli przy pomocy AI. To doświadczenie jest podzielone na logiczne ekrany, które przeprowadzają użytkownika przez cały proces, od definiowania przestrzeni do ostatecznego projektu."
+               data-en="After transitioning from the landing page, users enter the main app experience where the AI-driven furniture creation process begins. This experience is divided into logical screens that guide the user through the entire process from space definition to final design.">
+                After transitioning from the landing page, users enter the main app experience where the AI-driven furniture creation process begins. This experience is divided into logical screens that guide the user through the entire process from space definition to final design.
+            </p>
+            
+            <h3 class="section-subtitle" 
+                data-ru="Экран 1: Создание проекта и определение пространства" 
+                data-pl="Ekran 1: Tworzenie projektu i definiowanie przestrzeni" 
+                data-en="Screen 1: Project Creation & Space Definition">
+                Screen 1: Project Creation & Space Definition
+            </h3>
+            
+            <p data-ru="Когда пользователи нажимают «Попробовать сейчас» на целевой странице, они попадают в приложение и начинают процесс определения своего пространства и требований к мебели."
+               data-pl="Gdy użytkownicy klikają „Wypróbuj teraz" na stronie docelowej, trafiają do aplikacji i rozpoczynają proces definiowania swojej przestrzeni i wymagań dotyczących mebli."
+               data-en="When users click "Try Now" from the landing page, they enter the app and begin the process of defining their space and furniture requirements.">
+                When users click "Try Now" from the landing page, they enter the app and begin the process of defining their space and furniture requirements.
+            </p>
+            
+            <!-- Placeholder for App Screen 1 mockup -->
+            <div class="landing-mockup">
+                <h4 data-ru="Экран приложения: создание проекта" 
+                    data-pl="Ekran aplikacji: tworzenie projektu" 
+                    data-en="App Screen: Project Creation">
+                    App Screen: Project Creation
+                </h4>
+                <img src="../assets/screenshots/screenshot-1-page.png" alt="AFUR AI Project Creation Interface" class="mockup-image">
+                <p class="mockup-caption" data-ru="Интерфейс создания проекта позволяет пользователям легко определить свои потребности и предпочтения."
+                   data-pl="Interfejs tworzenia projektu pozwala użytkownikom łatwo określić swoje potrzeby i preferencje."
+                   data-en="The project creation interface allows users to easily define their needs and preferences.">
+                    The project creation interface allows users to easily define their needs and preferences.
+            </div>
+            
+            <!-- Add Visualization Screen mockup after Screen 1 -->
+            <div class="landing-mockup">
+                <h4 data-ru="Экран приложения: визуализация дизайна" 
+                    data-pl="Ekran aplikacji: wizualizacja projektu" 
+                    data-en="App Screen: Design Visualization">
+                    App Screen: Design Visualization
+                </h4>
+                <img src="../assets/screenshots/screenshot-2-page.png" alt="AFUR AI Design Visualization Interface" class="mockup-image">
+                <p class="mockup-caption" data-ru="Интерфейс визуализации позволяет пользователям просматривать и настраивать свой дизайн в 3D."
+                   data-pl="Interfejs wizualizacji pozwala użytkownikom przeglądać i dostosowywać swój projekt w 3D."
+                   data-en="The visualization interface allows users to view and customize their design in 3D.">
+                    The visualization interface allows users to view and customize their design in 3D.
+            </div>
+            
+            <div class="numbered-section">
+                <div class="numbered-title">
+                    <div class="number">1</div>
+                    <div class="text" 
+                         data-ru="Приветствие и быстрое введение" 
+                         data-pl="Powitanie i szybkie wprowadzenie" 
+                         data-en="Welcome & Quick Onboarding">
+                        Welcome & Quick Onboarding
+                    </div>
+                </div>
+                <div class="numbered-content">
+                    <p data-ru="Первый опыт пользователя в приложении включает персонализированное приветствие и знакомство с возможностями платформы."
+                       data-pl="Pierwsze doświadczenie użytkownika w aplikacji obejmuje spersonalizowane powitanie i wprowadzenie do możliwości platformy."
+                       data-en="The user's first experience in the app includes a personalized welcome and introduction to the platform's capabilities.">
+                        The user's first experience in the app includes a personalized welcome and introduction to the platform's capabilities.
+                    </p>
+                    
+                    <ul class="feature-list">
+                        <li data-ru="Краткое приветственное сообщение"
+                            data-pl="Krótka wiadomość powitalna"
+                            data-en="Brief welcome message">
+                            Brief welcome message
+                        </li>
+                        <li data-ru="Возможность пройти быстрый тур или пропустить его и перейти к дизайну"
+                            data-pl="Możliwość szybkiego zapoznania się z aplikacją lub pominięcia i przejścia do projektowania"
+                            data-en="Option to take a quick tour or skip to design">
+                            Option to take a quick tour or skip to design
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="numbered-section">
+                <div class="numbered-title">
+                    <div class="number">2</div>
+                    <div class="text" 
+                         data-ru="Опции ввода пространства" 
+                         data-pl="Opcje wprowadzania przestrzeni" 
+                         data-en="Space Input Options">
+                        Space Input Options
+                    </div>
+                </div>
+                <div class="numbered-content">
+                    <p data-ru="Пользователям предлагается два основных способа определения своего пространства, адаптированных к различным предпочтениям и ситуациям."
+                       data-pl="Użytkownikom oferowane są dwa główne sposoby definiowania swojej przestrzeni, dostosowane do różnych preferencji i sytuacji."
+                       data-en="Users are offered two main ways to define their space, catering to different preferences and situations.">
+                        Users are offered two main ways to define their space, catering to different preferences and situations.
+                    </p>
+                    
+                    <div class="elements-grid">
+                        <div class="element-card">
+                            <div class="element-title" 
+                                 data-ru="Опция A: Загрузить размеры" 
+                                 data-pl="Opcja A: Załaduj wymiary" 
+                                 data-en="Option A: Upload Measurements">
+                                Option A: Upload Measurements
+                            </div>
+                            <div class="element-description" 
+                                 data-ru="Подходит для пользователей, у которых уже есть планы или измерения своего пространства."
+                                 data-pl="Odpowiednie dla użytkowników, którzy już mają plany lub wymiary swojej przestrzeni."
+                                 data-en="Suitable for users who already have plans or measurements of their space.">
+                                Suitable for users who already have plans or measurements of their space.
+                            </div>
+                            <div class="element-examples">
+                                <ul>
+                                    <li data-ru="Простая форма для ввода размеров помещения"
+                                        data-pl="Prosty formularz do wprowadzania wymiarów pomieszczenia"
+                                        data-en="Simple form to input room dimensions">
+                                        Simple form to input room dimensions
+                                    </li>
+                                    <li data-ru="Визуальный селектор формы комнаты (прямоугольная, L-образная и т.д.)"
+                                        data-pl="Wizualny selektor kształtu pomieszczenia (prostokątny, w kształcie litery L itp.)"
+                                        data-en="Visual room shape selector (rectangular, L-shaped, etc.)">
+                                        Visual room shape selector (rectangular, L-shaped, etc.)
+                                    </li>
+                                    <li data-ru="Быстрый ввод размеров с визуальными подсказками"
+                                        data-pl="Szybkie wprowadzanie wymiarów z wizualnymi wskazówkami"
+                                        data-en="Quick measurements input with visual guidance">
+                                        Quick measurements input with visual guidance
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="element-card">
+                            <div class="element-title" 
+                                 data-ru="Опция B: Сканировать пространство" 
+                                 data-pl="Opcja B: Skanuj przestrzeń" 
+                                 data-en="Option B: Scan Space">
+                                Option B: Scan Space
+                            </div>
+                            <div class="element-description" 
+                                 data-ru="Идеально подходит для пользователей, которые предпочитают более интерактивный подход или не имеют точных измерений."
+                                 data-pl="Idealne dla użytkowników, którzy preferują bardziej interaktywne podejście lub nie mają dokładnych pomiarów."
+                                 data-en="Ideal for users who prefer a more interactive approach or don't have precise measurements.">
+                                Ideal for users who prefer a more interactive approach or don't have precise measurements.
+                            </div>
+                            <div class="element-examples">
+                                <ul>
+                                    <li data-ru="Запрос доступа к камере"
+                                        data-pl="Prośba o dostęp do kamery"
+                                        data-en="Camera access request">
+                                        Camera access request
+                                    </li>
+                                    <li data-ru="Инструкции по захвату пространства (медленно обойти вокруг)"
+                                        data-pl="Wskazówki dotyczące przechwytywania przestrzeni (powolne poruszanie się dookoła)"
+                                        data-en="Guidance for capturing the space (walk around slowly)">
+                                        Guidance for capturing the space (walk around slowly)
+                                    </li>
+                                    <li data-ru="Обработка пространственных данных в реальном времени"
+                                        data-pl="Przetwarzanie danych przestrzennych w czasie rzeczywistym"
+                                        data-en="Real-time processing of spatial data">
+                                        Real-time processing of spatial data
+                                    </li>
+                                    <li data-ru="Возможность вручную корректировать размеры после сканирования"
+                                        data-pl="Możliwość ręcznego dostosowania wymiarów po skanowaniu"
+                                        data-en="Option to manually adjust measurements after scan">
+                                        Option to manually adjust measurements after scan
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="numbered-section">
+                <div class="numbered-title">
+                    <div class="number">3</div>
+                    <div class="text" 
+                         data-ru="Элементы настройки" 
+                         data-pl="Elementy dostosowania" 
+                         data-en="Customization Elements">
+                        Customization Elements
+                    </div>
+                </div>
+                <div class="numbered-content">
+                    <p data-ru="Пользователи могут настроить сгенерированный ИИ дизайн, чтобы он лучше соответствовал их вкусам и требованиям."
+                       data-pl="Użytkownicy mogą dostosować projekt wygenerowany przez AI, aby lepiej odpowiadał ich gustom i wymaganiom."
+                       data-en="Users can customize the AI-generated design to better match their tastes and requirements.">
+                        Users can customize the AI-generated design to better match their tastes and requirements.
+                    </p>
+                    
+                    <div class="step-container">
+                        <div class="step-card">
+                            <div class="step-title" 
+                                 data-ru="Селектор цвета/отделки" 
+                                 data-pl="Selektor koloru/wykończenia" 
+                                 data-en="Color/Finish Selector">
+                                Color/Finish Selector
+                            </div>
+                            <div class="step-description" 
+                                 data-ru="Интерактивный выбор цветов и отделок для различных частей мебели, с возможностью предварительного просмотра в режиме реального времени на 3D-модели."
+                                 data-pl="Interaktywny wybór kolorów i wykończeń dla różnych części mebli, z możliwością podglądu w czasie rzeczywistym na modelu 3D."
+                                 data-en="Interactive selection of colors and finishes for different parts of the furniture, with real-time preview on the 3D model.">
+                                Interactive selection of colors and finishes for different parts of the furniture, with real-time preview on the 3D model.
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-title" 
+                                 data-ru="Варианты материалов" 
+                                 data-pl="Opcje materiałów" 
+                                 data-en="Material Options">
+                                Material Options
+                            </div>
+                            <div class="step-description" 
+                                 data-ru="Возможность выбирать между различными материалами, такими как разные виды дерева, металлов, стекла и т.д., с информацией о их характеристиках и влиянии на цену."
+                                 data-pl="Możliwość wyboru różnych materiałów, takich jak różne rodzaje drewna, metali, szkła itp., z informacjami o ich właściwościach i wpływie na cenę."
+                                 data-en="Ability to choose between different materials such as various types of wood, metals, glass, etc., with information about their properties and price impact.">
+                                Ability to choose between different materials such as various types of wood, metals, glass, etc., with information about their properties and price impact.
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-title" 
+                                 data-ru="Варианты фурнитуры" 
+                                 data-pl="Opcje okuć" 
+                                 data-en="Hardware Options">
+                                Hardware Options
+                            </div>
+                            <div class="step-description" 
+                                 data-ru="Выбор ручек, петель, направляющих и других элементов фурнитуры, с учетом их функциональности и эстетики."
+                                 data-pl="Wybór uchwytów, zawiasów, prowadnic i innych elementów okuć, z uwzględnieniem ich funkcjonalności i estetyki."
+                                 data-en="Selection of handles, hinges, slides, and other hardware elements, considering both their functionality and aesthetics.">
+                                Selection of handles, hinges, slides, and other hardware elements, considering both their functionality and aesthetics.
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-title" 
+                                 data-ru="Корректировки размеров" 
+                                 data-pl="Korekty wymiarów" 
+                                 data-en="Size Adjustments">
+                                Size Adjustments
+                            </div>
+                            <div class="step-description" 
+                                 data-ru="Интуитивно понятные элементы управления для внесения небольших изменений в размеры элементов мебели, с автоматической проверкой структурной целостности и соответствия пространству."
+                                 data-pl="Intuicyjne kontrolki do wprowadzania niewielkich zmian w wymiarach elementów mebli, z automatycznym sprawdzaniem integralności strukturalnej i dopasowania do przestrzeni."
+                                 data-en="Intuitive controls for making small changes to furniture element dimensions, with automatic checks for structural integrity and space fit.">
+                                Intuitive controls for making small changes to furniture element dimensions, with automatic checks for structural integrity and space fit.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flow-diagram">
+                        <div class="flow-diagram-title" 
+                             data-ru="Процесс настройки" 
+                             data-pl="Proces dostosowywania" 
+                             data-en="Customization Process">
+                            Customization Process
+                        </div>
+                        <!-- Placeholder for customization process diagram -->
+                        <img src="https://placehold.co/1200x300/e0e8f0/2c3e50?text=Customization+Process+Diagram" alt="Customization Process Diagram">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Feedback Section - Screen 2 Component 4 -->
+            <div class="content-card">
+                <div class="numbered-section">
+                    <div class="numbered-title">
+                        <div class="number">4</div>
+                        <div class="text" 
+                             data-ru="Обратная связь ИИ" 
+                             data-pl="Informacja zwrotna AI" 
+                             data-en="AI Feedback">
+                            AI Feedback
+                        </div>
+                    </div>
+                    <div class="numbered-content">
+                        <p data-ru="Интерфейс чата остается доступным на экране визуализации, позволяя пользователям запрашивать изменения и получать обратную связь от ИИ на основе их предпочтений."
+                           data-pl="Interfejs czatu pozostaje dostępny na ekranie wizualizacji, umożliwiając użytkownikom żądanie zmian i otrzymywanie informacji zwrotnych od AI na podstawie ich preferencji."
+                           data-en="The chat interface remains available on the visualization screen, allowing users to request changes and receive feedback from the AI based on their preferences.">
+                            The chat interface remains available on the visualization screen, allowing users to request changes and receive feedback from the AI based on their preferences.
+                        </p>
+                        
+                        <div class="element-card">
+                            <div class="element-title" 
+                                 data-ru="Запросы на изменения" 
+                                 data-pl="Prośby o zmiany" 
+                                 data-en="Change Requests">
+                                Change Requests
+                            </div>
+                            <div class="element-description" 
+                                 data-ru="Пользователи могут запрашивать изменения в дизайне через естественный диалог, а ИИ обновляет визуализацию в режиме реального времени."
+                                 data-pl="Użytkownicy mogą prosić o zmiany w projekcie poprzez naturalny dialog, a AI aktualizuje wizualizację w czasie rzeczywistym."
+                                 data-en="Users can request changes to the design through natural dialogue, and the AI updates the visualization in real-time.">
+                                Users can request changes to the design through natural dialogue, and the AI updates the visualization in real-time.
+                            </div>
+                            <div class="element-examples">
+                                <p data-ru="Примеры запросов на изменения:"
+                                   data-pl="Przykłady próśb o zmiany:"
+                                   data-en="Example change requests:">
+                                    Example change requests:
+                                </p>
+                                <ul>
+                                    <li data-ru="«Можешь сделать остров больше?»"
+                                        data-pl="„Czy możesz powiększyć wyspę?""
+                                        data-en=""Can you make the island larger?"">
+                                        "Can you make the island larger?"
+                                    </li>
+                                    <li data-ru="«Я предпочел бы темное дерево для шкафов»"
+                                        data-pl="„Wolałbym ciemne drewno dla szafek""
+                                        data-en=""I would prefer dark wood for the cabinets"">
+                                        "I would prefer dark wood for the cabinets"
+                                    </li>
+                                    <li data-ru="«Добавь больше места для ящиков, пожалуйста»"
+                                        data-pl="„Dodaj więcej miejsca na szuflady, proszę""
+                                        data-en=""Add more drawer space, please"">
+                                        "Add more drawer space, please"
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="element-card">
+                            <div class="element-title" 
+                                 data-ru="Рекомендации ИИ" 
+                                 data-pl="Rekomendacje AI" 
+                                 data-en="AI Recommendations">
+                                AI Recommendations
+                            </div>
+                            <div class="element-description" 
+                                 data-ru="ИИ не только реагирует на запросы, но и предлагает рекомендации на основе лучших практик дизайна и функциональности."
+                                 data-pl="AI nie tylko reaguje na prośby, ale również oferuje rekomendacje oparte na najlepszych praktykach projektowych i funkcjonalności."
+                                 data-en="The AI not only responds to requests but also offers recommendations based on design best practices and functionality.">
+                                The AI not only responds to requests but also offers recommendations based on design best practices and functionality.
+                            </div>
+                            <div class="element-examples">
+                                <p data-ru="Примеры рекомендаций ИИ:"
+                                   data-pl="Przykłady rekomendacji AI:"
+                                   data-en="Example AI recommendations:">
+                                    Example AI recommendations:
+                                </p>
+                                <ul>
+                                    <li data-ru="«Учитывая ваше пространство, я бы рекомендовал увеличить расстояние между островом и шкафами для лучшего потока движения»"
+                                        data-pl="„Biorąc pod uwagę twoją przestrzeń, zalecałbym zwiększenie odległości między wyspą a szafkami dla lepszego przepływu ruchu""
+                                        data-en=""Given your space, I would recommend increasing the distance between the island and cabinets for better traffic flow"">
+                                        "Given your space, I would recommend increasing the distance between the island and cabinets for better traffic flow"
+                                    </li>
+                                    <li data-ru="«Эта комбинация цветов может улучшить визуальное ощущение пространства в вашей комнате»"
+                                        data-pl="„Ta kombinacja kolorów może poprawić wizualne wrażenie przestrzeni w twoim pokoju""
+                                        data-en=""This color combination might enhance the visual sense of space in your room"">
+                                        "This color combination might enhance the visual sense of space in your room"
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Placeholder for AI interaction flow -->
+                        <div class="flow-diagram">
+                            <div class="flow-diagram-title" 
+                                 data-ru="Процесс взаимодействия с ИИ" 
+                                 data-pl="Proces interakcji z AI" 
+                                 data-en="AI Interaction Process">
+                                AI Interaction Process
+                            </div>
+                            <img src="https://placehold.co/1200x300/e0e8f0/2c3e50?text=AI+Interaction+Flow+Diagram" alt="AI Interaction Flow Diagram">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- More sections will be added in the next steps -->
+            </div>
+            
+            <!-- Technical Documentation Preview - Screen 2 Component 5 -->
+            <div class="content-card">
+                <div class="numbered-section">
+                    <div class="numbered-title">
+                        <div class="number">5</div>
+                        <div class="text" 
+                             data-ru="Предварительный просмотр технической документации" 
+                             data-pl="Podgląd dokumentacji technicznej" 
+                             data-en="Technical Documentation Preview">
+                            Technical Documentation Preview
+                        </div>
+                    </div>
+                    <div class="numbered-content">
+                        <p data-ru="Перед завершением заказа пользователи могут просмотреть производственную документацию, чтобы убедиться, что все спецификации точны и готовы к производству."
+                           data-pl="Przed finalizacją zamówienia użytkownicy mogą przejrzeć dokumentację produkcyjną, aby upewnić się, że wszystkie specyfikacje są dokładne i gotowe do produkcji."
+                           data-en="Before finalizing an order, users can preview production documentation to ensure all specifications are accurate and production-ready.">
+                            Before finalizing an order, users can preview production documentation to ensure all specifications are accurate and production-ready.
+                        </p>
+                        
+                        <ul class="feature-list">
+                            <li data-ru="Предварительный просмотр производственных чертежей"
+                                data-pl="Podgląd rysunków produkcyjnych"
+                                data-en="Preview of production blueprints">
+                                Preview of production blueprints
+                            </li>
+                            <li data-ru="Гарантия того, что все технические спецификации готовы к производству"
+                                data-pl="Zapewnienie, że wszystkie specyfikacje techniczne są gotowe do produkcji"
+                                data-en="Assurance that all technical specifications are production-ready">
+                                Assurance that all technical specifications are production-ready
+                            </li>
+                            <li data-ru="Сертификация соответствия стандартам производства"
+                                data-pl="Certyfikacja zgodności ze standardami produkcyjnymi"
+                                data-en="Certification of compliance with manufacturing standards">
+                                Certification of compliance with manufacturing standards
+                            </li>
+                            <li data-ru="Проверка на наличие потенциальных проблем с производством"
+                                data-pl="Kontrola pod kątem potencjalnych problemów produkcyjnych"
+                                data-en="Check for potential manufacturing issues">
+                                Check for potential manufacturing issues
+                            </li>
+                        </ul>
+                        
+                        <!-- Placeholder for technical documentation mockup -->
+                        <div class="landing-mockup">
+                            <img src="https://placehold.co/1200x600/e0e8f0/2c3e50?text=Technical+Documentation+Preview" alt="Technical Documentation Preview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Order Actions - Screen 2 Component 6 -->
+            <div class="content-card">
+                <div class="numbered-section">
+                    <div class="numbered-title">
+                        <div class="number">6</div>
+                        <div class="text" 
+                             data-ru="Действия по заказу" 
+                             data-pl="Działania związane z zamówieniem" 
+                             data-en="Order Actions">
+                            Order Actions
+                        </div>
+                    </div>
+                    <div class="numbered-content">
+                        <p data-ru="Когда пользователи удовлетворены своим дизайном, они могут выбрать из нескольких вариантов для завершения процесса."
+                           data-pl="Gdy użytkownicy są zadowoleni ze swojego projektu, mogą wybrać spośród kilku opcji, aby zakończyć proces."
+                           data-en="When users are satisfied with their design, they can choose from several options to complete the process.">
+                            When users are satisfied with their design, they can choose from several options to complete the process.
+                        </p>
+                        
+                        <div class="step-container">
+                            <div class="step-card">
+                                <div class="step-title" 
+                                     data-ru="Заказать сейчас" 
+                                     data-pl="Zamów teraz" 
+                                     data-en="Order Now">
+                                    Order Now
+                                </div>
+                                <div class="step-description" 
+                                     data-ru="Основная кнопка призыва к действию, ведущая пользователей к оформлению заказа, выбору вариантов доставки и оплаты."
+                                     data-pl="Główny przycisk wezwania do działania, prowadzący użytkowników do finalizacji zamówienia, wyboru opcji dostawy i płatności."
+                                     data-en="Primary call-to-action button leading users to checkout, delivery options, and payment.">
+                                    Primary call-to-action button leading users to checkout, delivery options, and payment.
+                                </div>
+                            </div>
+                            
+                            <div class="step-card">
+                                <div class="step-title" 
+                                     data-ru="Сохранить дизайн" 
+                                     data-pl="Zapisz projekt" 
+                                     data-en="Save Design">
+                                    Save Design
+                                </div>
+                                <div class="step-description" 
+                                     data-ru="Возможность сохранить текущий дизайн в личном кабинете для дальнейшего рассмотрения или изменений позднее."
+                                     data-pl="Możliwość zapisania bieżącego projektu w osobistym koncie do dalszego rozważenia lub zmian w późniejszym terminie."
+                                     data-en="Option to save the current design to the user's account for further consideration or changes later.">
+                                    Option to save the current design to the user's account for further consideration or changes later.
+                                </div>
+                            </div>
+                            
+                            <div class="step-card">
+                                <div class="step-title" 
+                                     data-ru="Поделиться дизайном" 
+                                     data-pl="Udostępnij projekt" 
+                                     data-en="Share Design">
+                                    Share Design
+                                </div>
+                                <div class="step-description" 
+                                     data-ru="Функции для отправки дизайна по электронной почте или обмена им через социальные сети для получения отзывов от друзей и семьи."
+                                     data-pl="Funkcje do wysyłania projektu e-mailem lub udostępniania go w mediach społecznościowych, aby uzyskać opinie od przyjaciół i rodziny."
+                                     data-en="Features to email the design or share it on social media for feedback from friends and family.">
+                                    Features to email the design or share it on social media for feedback from friends and family.
+                                </div>
+                            </div>
+                            
+                            <div class="step-card">
+                                <div class="step-title" 
+                                     data-ru="Распечатать спецификации" 
+                                     data-pl="Wydrukuj specyfikacje" 
+                                     data-en="Print Specifications">
+                                    Print Specifications
+                                </div>
+                                <div class="step-description" 
+                                     data-ru="Возможность загрузить и распечатать подробные технические спецификации дизайна для дальнейшего использования."
+                                     data-pl="Możliwość pobrania i wydrukowania szczegółowych specyfikacji technicznych projektu do dalszego wykorzystania."
+                                     data-en="Ability to download and print detailed technical specifications of the design for further reference.">
+                                    Ability to download and print detailed technical specifications of the design for further reference.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Placeholder for order process flow -->
+                        <div class="flow-diagram">
+                            <div class="flow-diagram-title" 
+                                 data-ru="Процесс заказа" 
+                                 data-pl="Proces zamawiania" 
+                                 data-en="Order Process Flow">
+                                Order Process Flow
+                            </div>
+                            <img src="https://placehold.co/1200x300/e0e8f0/2c3e50?text=Order+Process+Flow+Diagram" alt="Order Process Flow Diagram">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Screen 2 User Flow Diagram -->
+            <div class="content-card">
+                <div class="flow-diagram">
+                    <div class="flow-diagram-title" 
+                         data-ru="Пользовательский поток для Экрана 2" 
+                         data-pl="Przepływ użytkownika dla Ekranu 2" 
+                         data-en="User Flow for Screen 2">
+                        User Flow for Screen 2
+                    </div>
+                    <!-- Placeholder for user flow diagram, to be replaced with actual diagram -->
+                    <img src="https://placehold.co/1200x600/e0e8f0/2c3e50?text=Screen+2+User+Flow+Diagram" alt="Screen 2 User Flow Diagram">
+                </div>
+            </div>
+        
+        <!-- More sections will be added in the next steps -->
+        
+        <!-- Complete User Journey Example Section -->
+        <div class="content-card">
+            <h2 class="section-title" 
+                data-ru="Пример полного пользовательского пути" 
+                data-pl="Przykład pełnej podróży użytkownika" 
+                data-en="Complete User Journey Example">
+                Complete User Journey Example
+            </h2>
+            
+            <h3 class="section-subtitle" 
+                data-ru="Знакомьтесь с Еленой: Пользователь в первый раз" 
+                data-pl="Poznaj Elenę: Użytkownik po raz pierwszy" 
+                data-en="Meet Elena: First-Time User">
+                Meet Elena: First-Time User
+            </h3>
+            
+            <p data-ru="Следующий сценарий демонстрирует, как типичный пользователь взаимодействует с платформой AFUR AI от первоначального открытия до завершения проекта."
+               data-pl="Poniższy scenariusz pokazuje, jak typowy użytkownik wchodzi w interakcję z platformą AFUR AI od początkowego odkrycia do ukończenia projektu."
+               data-en="The following scenario demonstrates how a typical user interacts with the AFUR AI platform from initial discovery to project completion.">
+                The following scenario demonstrates how a typical user interacts with the AFUR AI platform from initial discovery to project completion.
+            </p>
+            
+            <div class="step-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title" 
+                         data-ru="Открытие" 
+                         data-pl="Odkrycie" 
+                         data-en="Discovery">
+                        Discovery
+                    </div>
+                    <div class="step-description" 
+                         data-ru="Елена ремонтирует свою кухню и находит AFUR AI через рекламу в социальных сетях. Она переходит на целевую страницу и впечатляется обещанными временными сбережениями. Она смотрит демонстрационное видео и решает попробовать платформу."
+                         data-pl="Elena remontuje swoją kuchnię i znajduje AFUR AI through social media advertising. She navigates to the landing page and is impressed by the promised time savings. She watches the demo video and decides to try the platform."
+                         data-en="Elena is renovating her kitchen and finds AFUR AI through social media advertising. She navigates to the landing page and is impressed by the promised time savings. She watches the demo video and decides to try the platform.">
+                        Elena is renovating her kitchen and finds AFUR AI through social media advertising. She navigates to the landing page and is impressed by the promised time savings. She watches the demo video and decides to try the platform.
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title" 
+                         data-ru="Точка входа" 
+                         data-pl="Punkt wejścia" 
+                         data-en="Entry Point">
+                        Entry Point
+                    </div>
+                    <div class="step-description" 
+                         data-ru="Елена нажимает «Начать проектирование сейчас» и попадает в приложение. Она быстро проходит краткое введение."
+                         data-pl="Elena klika „Zacznij projektować teraz" i trafia do aplikacji. Szybko przechodzi przez krótkie wprowadzenie."
+                         data-en="Elena clicks 'Start Designing Now' and enters the app. She quickly goes through the brief introduction.">
+                        Elena clicks 'Start Designing Now' and enters the app. She quickly goes through the brief introduction.
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title" 
+                         data-ru="Определение пространства" 
+                         data-pl="Definiowanie przestrzeni" 
+                         data-en="Space Definition">
+                        Space Definition
+                    </div>
+                    <div class="step-description" 
+                         data-ru="Елена выбирает загрузить размеры, так как ее кухня уже пуста. Она вводит размеры: 4.5м x 3.2м с окном на северной стене. Она выбирает «L-образная кухня» из вариантов планировки. Она устанавливает диапазон бюджета: $15,000-20,000. Она выбирает «Современный» в качестве предпочтительного стиля."
+                         data-pl="Elena wybiera opcję załadowania wymiarów, ponieważ jej kuchnia jest już pusta. Wprowadza wymiary: 4,5 m x 3,2 m with a window on the north wall. Wybiera „Kuchnię w kształcie L" z opcji układu. Ustawia zakres budżetu: 15 000–20 000 $. Wybiera „Nowoczesny" jako preferowany styl."
+                         data-en="Elena chooses to upload dimensions as her kitchen is already empty. She inputs the dimensions: 4.5m x 3.2m with a window on the north wall. She selects 'L-shaped kitchen' from the layout options. She sets a budget range: $15,000-20,000. She selects 'Modern' as her preferred style.">
+                        Elena chooses to upload dimensions as her kitchen is already empty. She inputs the dimensions: 4.5m x 3.2m with a window on the north wall. She selects 'L-shaped kitchen' from the layout options. She sets a budget range: $15,000-20,000. She selects 'Modern' as her preferred style.
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-title" 
+                         data-ru="Коммуникация требований" 
+                         data-pl="Komunikacja wymagań" 
+                         data-en="Communicating Requirements">
+                        Communicating Requirements
+                    </div>
+                    <div class="step-description" 
+                         data-ru="Елена пишет: «Мне нужна кухня с большим количеством мест для хранения, островом с местами для 3 человек и отдельной кофейной станцией». ИИ задает уточняющие вопросы о предпочтениях хранения, особенностях острова и размерах, на которые Елена отвечает."
+                         data-pl="Elena pisze: „Potrzebuję kuchni z dużą ilością miejsc do przechowywania, wyspą z miejscami dla 3 osób i oddzielną stacją kawową". AI zadaje pytania uściślające dotyczące preferencji przechowywania, cech wyspy i wymiarów, na które Elena odpowiada."
+                         data-en="Elena types: 'I need a kitchen with plenty of storage, an island with seating for 3, and a dedicated coffee station.' The AI asks clarifying questions about storage preferences, island features, and dimensions, which Elena answers.">
+                        Elena types: 'I need a kitchen with plenty of storage, an island with seating for 3, and a dedicated coffee station.' The AI asks clarifying questions about storage preferences, island features, and dimensions, which Elena answers.
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <div class="step-title" 
+                         data-ru="Генерация дизайна" 
+                         data-pl="Generowanie projektu" 
+                         data-en="Design Generation">
+                        Design Generation
+                    </div>
+                    <div class="step-description" 
+                         data-ru="Елена видит анимацию «Проектирование вашей кухни...» с индикаторами прогресса. В течение 30 секунд приложение переходит на экран визуализации."
+                         data-pl="Elena widzi animację „Projektowanie twojej kuchni..." ze wskaźnikami postępu. W ciągu 30 sekund aplikacja przechodzi do ekranu wizualizacji."
+                         data-en="Elena sees a 'Designing your kitchen...' animation with progress indicators. Within 30 seconds, the app transitions to the visualization screen.">
+                        Elena sees a 'Designing your kitchen...' animation with progress indicators. Within 30 seconds, the app transitions to the visualization screen.
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <div class="step-title" 
+                         data-ru="Исследование дизайна" 
+                         data-pl="Badanie projektu" 
+                         data-en="Exploring the Design">
+                        Exploring the Design
+                    </div>
+                    <div class="step-description" 
+                         data-ru="Елене представлена 3D-модель ее кухонного дизайна. Она вращает модель, чтобы увидеть разные углы. Она исследует решения для хранения, используя взорванный вид. Она замечает места для сидения на острове и зону кофейной станции."
+                         data-pl="Elenie prezentowany jest model 3D jej projektu kuchni. Obraca model, aby zobaczyć różne kąty. Bada rozwiązania do przechowywania, korzystając z widoku rozstrzelenia. Zauważa miejsca do siedzenia na wyspie i strefę stacji kawowej."
+                         data-en="Elena is presented with a 3D model of her kitchen design. She rotates the model to see different angles. She explores the storage solutions using the exploded view. She notices the island seating and coffee station area.">
+                        Elena is presented with a 3D model of her kitchen design. She rotates the model to see different angles. She explores the storage solutions using the exploded view. She notices the island seating and coffee station area.
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">7</div>
+                    <div class="step-title" 
+                         data-ru="Настройка" 
+                         data-pl="Dostosowanie" 
+                         data-en="Customization">
+                        Customization
+                    </div>
+                    <div class="step-description" 
+                         data-ru="Елена решает, что хочет другие цвета шкафов. Она пишет: «Можешь показать мне шкафы в темно-синем цвете с белыми столешницами?» ИИ обновляет дизайн в реальном времени. Елена исследует варианты материалов и выбирает матовые отделки."
+                         data-pl="Elena decyduje, że chce inne kolory szafek. Pisze: „Czy możesz pokazać mi szafki w ciemnoniebieskim kolorze z białymi blatami?" AI aktualizuje projekt w czasie rzeczywistym. Elena bada opcje materiałów i wybiera matowe wykończenia."
+                         data-en="Elena decides she wants different cabinet colors. She types: 'Can you show me the cabinets in navy blue with white countertops?' The AI updates the design in real-time. Elena explores material options and selects matte finishes.">
+                        Elena decides she wants different cabinet colors. She types: 'Can you show me the cabinets in navy blue with white countertops?' The AI updates the design in real-time. Elena explores material options and selects matte finishes.
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">8</div>
+                    <div class="step-title" 
+                         data-ru="Техническая проверка" 
+                         data-pl="Weryfikacja techniczna" 
+                         data-en="Technical Verification">
+                        Technical Verification
+                    </div>
+                    <div class="step-description" 
+                         data-ru="Елена проверяет спецификации и видит, что все размеры точны. Она просматривает предварительный просмотр производственной документации. Она видит оценку времени производства: 2-3 недели."
+                         data-pl="Elena sprawdza specyfikacje i widzi, że wszystkie wymiary są dokładne. Przegląda podgląd dokumentacji produkcyjnej. Widzi szacowany czas produkcji: 2-3 tygodnie."
+                         data-en="Elena checks the specifications and sees that all dimensions are accurate. She reviews the production documentation preview. She sees the estimated production time: 2-3 weeks.">
+                        Elena checks the specifications and sees that all dimensions are accurate. She reviews the production documentation preview. She sees the estimated production time: 2-3 weeks.
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">9</div>
+                    <div class="step-title" 
+                         data-ru="Решение и действие" 
+                         data-pl="Decyzja i działanie" 
+                         data-en="Decision and Action">
+                        Decision and Action
+                    </div>
+                    <div class="step-description" 
+                         data-ru="Елена довольна дизайном и нажимает «Сохранить дизайн». Она делится дизайном со своим партнером по электронной почте. Получив одобрение, она возвращается и нажимает «Заказать сейчас». Она завершает оплату и получает подтверждение заказа."
+                         data-pl="Elena jest zadowolona z projektu i klika „Zapisz projekt". Udostępnia projekt swojemu partnerowi przez e-mail. Po uzyskaniu aprobaty, wraca i klika „Zamów teraz". Finalizuje płatność i otrzymuje potwierdzenie zamówienia."
+                         data-en="Elena is satisfied with the design and clicks 'Save Design'. She shares the design with her partner via email. Upon receiving approval, she returns and clicks 'Order Now'. She completes the payment and receives an order confirmation.">
+                        Elena is satisfied with the design and clicks 'Save Design'. She shares the design with her partner via email. Upon receiving approval, she returns and clicks 'Order Now'. She completes the payment and receives an order confirmation.
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">10</div>
+                    <div class="step-title" 
+                         data-ru="После покупки" 
+                         data-pl="Po zakupie" 
+                         data-en="Post-Purchase">
+                        Post-Purchase
+                    </div>
+                    <div class="step-description" 
+                         data-ru="Елена получает обновления о ходе производства. Кухня доставляется в срок, все детали идеально подходят. Установка проходит гладко благодаря точным спецификациям. Елена рекомендует платформу друзьям и становится постоянным клиентом для других комнат."
+                         data-pl="Elena otrzymuje aktualizacje o postępie produkcji. Kuchnia jest dostarczana na czas, wszystkie elementy idealnie pasują. Instalacja przebiega sprawnie dzięki dokładnym specyfikacjom. Elena poleca platformę znajomym i zostaje stałym klientem dla innych pomieszczeń."
+                         data-en="Elena receives updates on manufacturing progress. The kitchen is delivered on time, and all parts fit perfectly. Installation goes smoothly thanks to precise specifications. Elena recommends the platform to friends and becomes a returning customer for other rooms.">
+                        Elena receives updates on manufacturing progress. The kitchen is delivered on time, and all parts fit perfectly. Installation goes smoothly thanks to precise specifications. Elena recommends the platform to friends and becomes a returning customer for other rooms.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <p data-ru="Этот упрощенный опыт демонстрирует, как AFUR AI выполняет свое обещание упростить дизайн мебели, не жертвуя качеством или настройкой, при этом делая весь процесс доступным для непрофессионалов."
+                   data-pl="To uproszczone doświadczenie pokazuje, jak AFUR AI spełnia swoją obietnicę uproszczenia projektowania mebli bez poświęcania jakości czy dostosowania, jednocześnie czyniąc cały proces dostępnym dla nieprofesjonalistów."
+                   data-en="This simplified experience demonstrates how AFUR AI fulfills its promise to simplify furniture design without sacrificing quality or customization, while making the entire process accessible to non-professionals.">
+                    This simplified experience demonstrates how AFUR AI fulfills its promise to simplify furniture design without sacrificing quality or customization, while making the entire process accessible to non-professionals.
+                </p>
+                
+                <div class="note-box">
+                    <p data-ru="Примечание: Документация пользовательских потоков находится в процессе разработки. Дополнительные скриншоты и детальные мокапы будут добавлены по мере развития проекта."
+                       data-pl="Uwaga: Dokumentacja przepływów użytkownika jest w trakcie rozwoju. Dodatkowe zrzuty ekranu i szczegółowe makiety zostaną dodane w miarę rozwoju projektu."
+                       data-en="Note: User flows documentation is a work in progress. Additional screenshots and detailed mockups will be added as the project develops.">
+                        Note: User flows documentation is a work in progress. Additional screenshots and detailed mockups will be added as the project develops.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Include common footer component -->
+    <script>
+        fetch('../common/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('beforeend', data);
+                
+                // Fix footer navigation paths
+                document.querySelectorAll('.footer-nav .footer-link').forEach(link => {
+                    if (link.textContent.trim() === 'Home') {
+                        link.setAttribute('href', '../index.html');
+                    } else if (link.textContent.trim() === 'CJM') {
+                        link.setAttribute('href', '../CJM/cjm-research.html');
+                    }
+                });
+                
+                // Initialize language switching for footer
+                initLanguageSwitching();
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+            });
+    </script>
+    
+    <script>
+        function initLanguageSwitching() {
+            // Assign handlers for language buttons
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchLanguage(this.getAttribute('data-lang'));
+                });
+            });
+            
+            // Check saved language
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang) {
+                switchLanguage(savedLang);
+            }
+        }
+        
+        function switchLanguage(lang) {
+            // Update text of all elements with corresponding data attributes
+            document.querySelectorAll(`[data-${lang}]`).forEach(element => {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            });
+            
+            // Update HTML document language
+            document.documentElement.lang = lang;
+            
+            // Update language button states
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Save choice in localStorage
+            localStorage.setItem('preferred-language', lang);
+        }
+        
+        // Initialize language switching when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // This will be called if the header is already loaded
+            if (document.querySelector('.language-btn')) {
+                initLanguageSwitching();
+            }
+        });
+    </script>
+</body>
+</html> 
